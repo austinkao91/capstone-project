@@ -1,4 +1,4 @@
-# Phase 2: Flux Architecture and Restaurant CRUD (2 days)
+# Phase 2: Flux Architecture and Restaurant CRUD (1 days)
 
 ## Rails
 ### Models
@@ -9,8 +9,7 @@
 
 ## Flux
 ### Views (React Components)
-* NavigationIndex
-  - RestaurantIndex
+* - RestaurantIndex
     -Restaurant
       -RestaurantDetails
   - AddRestaurant

@@ -33,12 +33,16 @@ Create backend user auth / session / restaurant models. Hook up the restaurant m
 
 [Details][phase-one]
 
-### Phase 2: Basic Flux architecture (2 days)
+### Phase 2a: Basic Flux Architecture (1 days)
 
-Phase 2. Basic Flux architecture (2 days)
-RestaurantIndex component will display all the restaurant components in the restaurant Store. The index component will interact with api util to make query requests such as fetch restaurants, update restaurants, and create new restaurants. Home page will be created which contains a list of recommended restaurants and a navigation bar. Clicking on a restaurant should pull up the details of the restaurant. The navigation bar will contain sign up and sign in links if the user is not logged in, a placeholder for a logo, and  navigation links. Will utilize bootstrap to style the website.
+RestaurantIndex component will display all the restaurant components in the restaurant Store. The index component will interact with api util to make query requests such as fetch restaurants, update restaurants, and create new restaurants. Clicking on a restaurant should pull up the details of the restaurant.
 
-[Details][phase-two]
+[Details][phase-two-a]
+
+### Phase 2b: Navigation bar (1 days)
+  The navigation bar will contain sign up and sign in links if the user is not logged in, a placeholder for a logo, and navigation links. Utilize react router to implement the navigation bar. Will utilize bootstrap to style the website.
+
+[Details][phase-two-b]
 
 ### Phase 3: Review feature (1 day)
 
@@ -46,15 +50,15 @@ Reviews have user id, rating, body, and restaurant id. Reviews belong to restaur
 
 [Details][phase-three]
 
-### Phase 4: Tag feature (1 day)
+### Phase 4: Tag feature/Recommended Restaurants (1 day)
 
-Tags have a tagging id and a description. Taggings have many tags, restaurants have many taggings. JSON API should be able to return all tags and return all restaurants for a given tag. Nested under tag index, which is nested. JSON API should be nested underneath the restaurant tags.
+Tags have a tagging id and a description. Taggings have many tags, restaurants have many taggings. JSON API should be able to return all tags and return all restaurants for a given tag. Nested under tag index, which is nested. JSON API should be nested underneath the restaurant tags. Home page will be created which contains a list of recommended restaurants and a navigation bar. For now, the recommended restaurants will simply reflect the highest rated restaurants in the area. The search form will simply reflect the recommended restaurants by text matching. For now, it will only sort by highest ratings.
 
 [Details][phase-four]
 
-### Phase 5: Search feature (2 day)
+### Phase 5a: Map feature (2 day)
 
-The map component should look to the restaurant store and make queries to determine which restaurants to show. Using the google maps api and google places api, we can take the street addresses and display the location on the map. We can then filter shown restaurants by matching the location text and tag text in the search bar.
+ The map component should look to the restaurant store and make queries to determine which restaurants to show. Using the google maps api and google places api, we can take the street addresses and display the location on the map. We can then filter shown restaurants by matching the location text and tag text in the search bar.
 
 [Details][phase-five]
 
@@ -65,14 +69,15 @@ Utilize faker to create seed data for restaurants, reviews, and users. Use boots
 
 
 ### Bonus Features (TBD)
+- [ ] add photos
 - [ ] search for restaurants based on location
 - [ ] Hovering over restaurant location displays information about restaurant
 - [ ] display search radius
 - [ ] add friends/restaurant recommendations based on friend reviews
-- [ ] add photos
 
 [phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
+[phase-two-a]: ./docs/phases/phase2a.md
+[phase-two-b]: ./docs/phases/phase2b.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md

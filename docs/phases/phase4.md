@@ -8,14 +8,16 @@
 ### Controllers
 
 ### Views
-* Restaurant details
-  - tags
-
 ## Flux
 ### Views (React Components)
-
-### Stores
+* Restaurant details
+  - tags
+* SearchForm
+* RestaurantIndex (updated to display recommended restaurants)
+### Stores  
 
 ### Actions
+
+### Util
 
 ## Gems/Libraries

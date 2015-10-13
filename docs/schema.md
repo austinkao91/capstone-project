@@ -22,12 +22,6 @@ id          | integer   | not null, primary key
 taggings_id | integer   | not null, foreign key (references users), indexed
 description | integer   | not null, foreign key (references notes), indexed
 
-## tags
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-name        | string    | not null
-
 ## taggings
 column name | data type | details
 ------------|-----------|-----------------------
