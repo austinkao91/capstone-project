@@ -18,6 +18,10 @@
 ## Component Heirarchy
 ![component-heirarchy]
 
+## Navigation Bar
+![navigation-bar]
+
+[navigation-bar]: ./wireframes/navigation_bar.png
 [new-user]: ./wireframes/new_user.png
 [new-session]: ./wireframes/new_session.png
 [search]: ./wireframes/search_index.png
