@@ -20,9 +20,11 @@ var Index = React.createClass({
 
 
 $(document).ready(function(){
-  var root = document.getElementById("id");
-  React.render(
-    <Index />,
-    root
-  );
+  var root = document.getElementById("app");
+  if(root) {
+    React.render(
+      <Index />,
+      root
+    );
+  }
 });

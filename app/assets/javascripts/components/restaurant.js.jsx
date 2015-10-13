@@ -16,6 +16,7 @@ var RestaurantIndex = React.createClass({
     return(
       <div className="restaurants-index">
         <ul>
+          <h1>My Restaurants</h1>
           {
             this.state.restaurants.map(function(restaurant, idx){
               return <li key={idx}>{restaurant.title}</li>;
