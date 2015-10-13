@@ -6,29 +6,17 @@ var RestaurantItem = React.createClass({
   },
   render: function() {
     var restaurant = this.props.restaurant;
-    var address = restaurant.address + " " + restaurant.state + " " + restaurant.zip_code;
+    var address_line1 = restaurant.street_address;
+    var address_line2 = restaurant.city + ", " + restaurant.state + " " + restaurant.zip_code;
     return(
       <li className={"restaurant-item"}>
         {"Title: " + this.props.restaurant.title}
-        {"Address: " + address}
+        <br/>
+        {"Address: " + address_line1}
+        <br/>
+        {address_line2}
+        <br/>
         {"Phone number: " + this.props.restaurant.phone_number}
-      </li>
-    );
-  }
-});
-
-var PokemonIndexItem = React.createClass({
-  mixins: [ReactRouter.History],
-  showDetail: function () {
-    var showURL = "pokemon/" + this.props.pokemon.id;
-
-    this.history.pushState(null, showURL);
-  },
-  render: function() {
-    return(
-      <li onClick={this.showDetail} className={"poke-list-item"}>
-        {"Name: " + this.props.pokemon.name}
-        {"Type: " + this.props.pokemon.poke_type}
       </li>
     );
   }

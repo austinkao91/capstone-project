@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   resources :users, only: [:new,:create]
   resource :session, only: [:new, :create, :destroy]
   namespace :api, constraints: {format:'json'} do
-    resources :restaurants, only: [ :create, :edit, :update]
+    resources :restaurants, only: [ :index, :create, :update, :show]
   end
 end

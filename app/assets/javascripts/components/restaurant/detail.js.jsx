@@ -1,0 +1,3 @@
+var RestaurantDetail = React.createClass({
+
+});

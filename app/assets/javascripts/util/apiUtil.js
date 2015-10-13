@@ -1,7 +1,7 @@
 var ApiUtil = {
   fetch: function() {
     $.ajax({
-      url: 'api/restaurant',
+      url: 'api/restaurants',
       method: 'get',
       success: function(data) {
         RestaurantActions.receiveAllRestaurant(data);
@@ -14,6 +14,16 @@ var ApiUtil = {
       url: 'api/restaurant/' + id,
       method: 'get',
       success: function(data) {
+        RestaurantActions.receiveRestaurant(data);
+      }
+    });
+  },
+  create: function(params) {
+    $.ajax({
+      url: 'api/restaurants',
+      method: 'post',
+      data: {restaurant: params},
+      success: function(responseData) {
         RestaurantActions.receiveRestaurant(data);
       }
     });
