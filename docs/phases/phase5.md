@@ -16,7 +16,6 @@
   -Map Index
 
 ### Stores
-
 ### Actions
 
 ### ApiUtil

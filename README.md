@@ -56,7 +56,7 @@ Tags have a tagging id and a description. Taggings have many tags, restaurants h
 
 [Details][phase-four]
 
-### Phase 5a: Map feature (2 day)
+### Phase 5: Map feature (2 day)
 
  The map component should look to the restaurant store and make queries to determine which restaurants to show. Using the google maps api and google places api, we can take the street addresses and display the location on the map. We can then filter shown restaurants by matching the location text and tag text in the search bar.
 

@@ -1,14 +1,26 @@
-<h1>Sign In</h1>
+<div class="nav-bar"><a href="<%= root_url %>">Omnomnom</a></div>
 
-<form action="/users" method="post">
-  <%= auth_token %>
-  <label> Username
-    <input type="text" name="user[username]" value="">
-  </label>
-  <br>
-  <label> Password
-    <input type="password" name="user[password]" value="">
-  </label>
-  <br>
-  <input type="submit" value="Sign In!">
-</form>
+
+<div class="sign">
+    <div class="sign-form">
+      <h1>Log In to Omnomnom</h1>
+      <p>New to Omnomnom? <a href="<%= new_user_url %>">Sign up</a></p>
+
+        <form action="/session" method="post">
+        <%= auth_token %>
+        <label> Username
+          <input type="text" name="user[username]" value="">
+        </label>
+        <br>
+        <label> Password
+          <input type="password" name="user[password]" value="">
+        </label>
+        <br>
+        <input type="submit" value="Sign In!">
+      </form>
+    </div>
+
+  <div class="image">
+    <img src="/assets/signup_illustration.png"></img>
+  </div>
+</div>

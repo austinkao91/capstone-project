@@ -1,18 +1,29 @@
-<h1>Sign Up</h1>
+<div class="nav-bar"><a href="<%= root_url %>">Omnomnom</a></div>
 
-<form action="/users" method="post">
-  <%= auth_token %>
-  <label> Username
-    <input type="text" name="user[username]" value="<%= @user.username %>">
-  </label>
-  <br>
-  <label> Password
-    <input type="password" name="user[password]" value="">
-  </label>
-  <br>
-  <label> Password Confirmation
-    <input type="password" name="user[password_confirm]" value="">
-  </label>
-  <br>
-  <input type="submit" value="Sign Up!">
-</form>
+<div class="sign">
+  <div class="sign-form">
+      <h1>Sign Up for Omnomnom</h1>
+        <form action="/users" method="post">
+          <%= auth_token %>
+          <label> Username
+            <input type="text" name="user[username]" value="<%= @user.username %>">
+          </label>
+          <br>
+          <label> Password
+            <input type="password" name="user[password]" value="">
+          </label>
+          <br>
+          <label> Password Confirmation
+            <input type="password" name="user[password_confirm]" value="">
+          </label>
+          <br>
+          <input type="submit" value="Sign Up!">
+        </form>
+      <p>Already with omnom? <a href="<%= new_session_url %>">Log in</a></p>
+    </div>
+  </div>
+
+  <div class="image">
+    <img src="/assets/signup_illustration.png"></img>
+  </div>
+</div>
