@@ -5,3 +5,44 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+#  title          :string           not null
+#  street_address :string           not null
+#  zip_code       :integer          not null
+#  state          :string           not null
+#  phone_number   :integer          not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+
+Restaurant.create!({
+  title: "Totoro's Sushi",
+  street_address: "16 Jessie Street",
+  zip_code: 94102 ,
+  phone_number: "(408)497-5442",
+  state: "CA",
+  city: "San Francisco"
+})
+Restaurant.create!({
+  title: "Pig's Sushi",
+  street_address: "23 Mission Street",
+  zip_code: 94102 ,
+  phone_number: "(408)342-6442",
+  state: "CA",
+  city: "San Francisco"
+})
+Restaurant.create!({
+  title: "Ian's Sushi",
+  street_address: "5th Street",
+  zip_code: 94102 ,
+  phone_number: "(408)123-3222",
+  state: "CA",
+  city: "San Francisco"
+})
+Restaurant.create!({
+  title: "Andrew's Sushi",
+  street_address: "16 Montgomery Street",
+  zip_code: 94102 ,
+  phone_number: "(408)766-3445",
+  state: "CA",
+  city: "San Francisco"
+})
