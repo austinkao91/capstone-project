@@ -23,7 +23,16 @@ var ApiUtil = {
       method: 'post',
       data: {restaurant: params},
       success: function(responseData) {
-        RestaurantActions.receiveRestaurant(data);
+        window.location = "/";
+      }
+    });
+  },
+  endSession: function() {
+    $.ajax({
+      url: '/session',
+      method: 'delete',
+      success: function(responseData) {
+        window.location = "/";
       }
     });
   }

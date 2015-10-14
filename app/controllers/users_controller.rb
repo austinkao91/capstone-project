@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :redirect_to_root, only: [:new]
   def new
     @user = User.new
     render :new

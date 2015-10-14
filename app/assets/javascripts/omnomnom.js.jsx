@@ -9,6 +9,7 @@ var Index = React.createClass({
   render: function(){
     return(
       <div className="omnomnom-index">
+        <NavigationBar />
         { this.props.children }
       </div>
     );
@@ -22,10 +23,13 @@ $(document).ready(function(){
   if(root) {
     React.render(
       <Router>
-        <Route path="/" component={RestaurantIndex}>
-          <Route path="restaurants/:restaurantId" component={RestaurantDetail}/>
+        <Route path="/" component={Index}>
+          <IndexRoute component={RestaurantIndex}/>
+          <Route path="restaurants" component={RestaurantIndex}>
+            <Route path=":restaurantId" component={RestaurantDetail}/>
+          </Route>
+          <Route path="restaurant/new" component={RestaurantForm}/>
         </Route>
-
       </Router>,
       root
     );

@@ -10,7 +10,7 @@ var RestaurantItem = React.createClass({
     var address_line2 = restaurant.city + ", " + restaurant.state + " " + restaurant.zip_code;
     return(
       <li className={"restaurant-item"} onClick={this.showDetail}>
-        {"Title: " + this.props.restaurant.title}
+        {this.props.listNum + 1}{". "}{this.props.restaurant.title}
         <br/>
         {"Address: " + address_line1}
         <br/>

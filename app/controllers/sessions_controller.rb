@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :redirect_to_root, only: [:new]
   def new
   end
 
@@ -19,5 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
+    render json: {}
   end
+
 end

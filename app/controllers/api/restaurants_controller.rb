@@ -4,7 +4,7 @@ class Api::RestaurantsController < ApplicationController
     if @restaurant.save
       render :show
     else
-      flash.now[:errors] = @restaurant.errors.full_messages
+      flash[:errors] = @restaurant.errors.full_messages
       render :show
     end
   end
@@ -25,7 +25,6 @@ class Api::RestaurantsController < ApplicationController
 
   def index
     @restaurant = Restaurant.all
-
   end
 
 
@@ -40,7 +39,7 @@ class Api::RestaurantsController < ApplicationController
   private
   def restaurant_params
     params.require(:restaurant).permit(
-        :title, :street_address, :zip_code, :state, :phone_number
+        :title, :street_address, :zip_code, :state, :phone_number, :city
     )
   end
 end
