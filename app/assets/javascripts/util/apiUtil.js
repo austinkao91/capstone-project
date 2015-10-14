@@ -9,9 +9,8 @@ var ApiUtil = {
     });
   },
   getOne: function(id) {
-    // debugger;
     $.ajax({
-      url: 'api/restaurant/' + id,
+      url: 'api/restaurants/' + id,
       method: 'get',
       success: function(data) {
         RestaurantActions.receiveRestaurant(data);

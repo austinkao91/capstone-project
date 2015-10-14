@@ -22,13 +22,10 @@ $(document).ready(function(){
   if(root) {
     React.render(
       <Router>
-        <Route path="/" component={Index}>
-          <IndexRoute component={RestaurantIndex}>
-            <Route path="restaurant/:restaurantId" component={RestaurantDetail}/>
-          </IndexRoute>
-          <Route path="restaurant/new" component={RestaurantForm} />
-          <Route path="restaurant/:restaurantId" component={RestaurantDetail}/>
+        <Route path="/" component={RestaurantIndex}>
+          <Route path="restaurants/:restaurantId" component={RestaurantDetail}/>
         </Route>
+
       </Router>,
       root
     );

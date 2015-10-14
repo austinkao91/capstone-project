@@ -20,7 +20,7 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
   end
 
   def index

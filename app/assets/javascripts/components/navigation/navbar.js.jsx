@@ -1,0 +1,3 @@
+var NavigationBar = React.createClass({
+
+});

@@ -27,7 +27,9 @@ var RestaurantIndex = React.createClass({
               return <RestaurantItem restaurant={restaurant} key={idx}/>;
             })
           }
+
         </ul>
+          { this.props.children }
       </div>
     );
   }
