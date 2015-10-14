@@ -31,7 +31,7 @@ Restaurant.create!({
   city: "San Francisco"
 })
 Restaurant.create!({
-  title: "Ian's Sushi",
+  title: "Ian's Banana Pho ong",
   street_address: "5th Street",
   zip_code: 94102 ,
   phone_number: "(408)123-3222",
@@ -39,10 +39,18 @@ Restaurant.create!({
   city: "San Francisco"
 })
 Restaurant.create!({
-  title: "Andrew's Sushi",
+  title: "Andrew's White Boy Food",
   street_address: "16 Montgomery Street",
   zip_code: 94102 ,
   phone_number: "(408)766-3445",
   state: "CA",
   city: "San Francisco"
+})
+Restaurant.create!({
+  title: "Austin's Weeb Shop",
+  street_address: "12270 mellowood Dr",
+  zip_code: 95070,
+  phone_number: "(407)334-4444",
+  state: "CA",
+  city: "Saratoga"
 })

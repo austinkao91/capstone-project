@@ -105,7 +105,7 @@ h2 {
 }
 
 li.restaurant-item {
-  border-top: 1px solid grey;
+  border-top: 1px solid #eee;
   padding: 10px;
 }
 
@@ -128,7 +128,7 @@ li * {
 }
 
 .restaurant-detail {
-  border-top: 1px solid grey;
+  border-top: 1px solid #eee;
   display: block;
   clear: both;
   position: relative;
@@ -145,8 +145,12 @@ li * {
 .index {
   position: relative;
 }
-.map-index {
-
+.map {
+  display: inline-block;
+  float: left;
+  position: absolute;
+  width: 50%;
+  height: 100%;
 }
 .restaurants-index {
   display: inline-block;

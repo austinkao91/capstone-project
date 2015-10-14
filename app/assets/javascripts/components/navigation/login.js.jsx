@@ -6,12 +6,12 @@ var LogStatus = React.createClass({
     if(typeof CURRENT_USER_ID === "undefined") {
       return (
         <ul className="nav navbar-nav">
-          <button className="btn">
+          <li className="log-btn">
             <a href="/users/new">Sign Up!</a>
-          </button>
-          <button className="btn">
+          </li>
+          <li className="log-btn">
             <a href="/session/new">Log In</a>
-          </button>
+          </li>
         </ul>
       );
     }
