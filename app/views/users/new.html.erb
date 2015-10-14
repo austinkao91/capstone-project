@@ -6,15 +6,15 @@
         <form action="/users" method="post">
           <%= auth_token %>
           <label> Username
-            <input type="text" name="user[username]" value="<%= @user.username %>">
+            <input type="text" class="form-control" name="user[username]" value="<%= @user.username %>">
           </label>
           <br>
           <label> Password
-            <input type="password" name="user[password]" value="">
+            <input type="password" class="form-control" name="user[password]" value="">
           </label>
           <br>
           <label> Password Confirmation
-            <input type="password" name="user[password_confirm]" value="">
+            <input type="password" class="form-control" name="user[password_confirm]" value="">
           </label>
           <br>
           <input type="submit" value="Sign Up!">

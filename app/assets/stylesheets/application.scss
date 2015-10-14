@@ -63,8 +63,12 @@
  }
 
  .group:after {
+   content: "";
    clear: both;
    display: block;
+ }
+ body {
+   font-family: "bebas", Tahoma, Geneva, sans-serif;
  }
 
 .nav-bar {
@@ -74,9 +78,14 @@
 
 
 h1 {
-  font-size: 30;
+  font-size: 40;
   font-weight: bold;
   text-align: center;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: bold;
 }
 
 .sign-form {
@@ -93,4 +102,54 @@ h1 {
   position: relative;
   right: 25%;
   transform: translateX(50%);
+}
+
+li.restaurant-item {
+  border-top: 1px solid grey;
+  padding: 10px;
+}
+
+li.restaurant-item:hover {
+  background-color: #eee;
+}
+
+li * {
+  display: inline-block;
+}
+
+
+.item-info {
+  float: left;
+}
+
+.address {
+  display: inline-block;
+  float: right;
+}
+
+.restaurant-detail {
+  border-top: 1px solid grey;
+  display: block;
+  clear: both;
+  position: relative;
+}
+
+.restaurant-info {
+  display: block;
+  position: absolute;
+  margin-top: 100px;
+  left: 25%;
+  transform: translateX(-50%);
+}
+
+.index {
+  position: relative;
+}
+.map-index {
+
+}
+.restaurants-index {
+  display: inline-block;
+  width: 50%;
+  float:right;
 }

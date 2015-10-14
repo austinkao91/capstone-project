@@ -9,25 +9,34 @@ var RestaurantDetail = React.createClass({
     this.setState({restaurant: this.getRestaurantState()});
   },
   componentDidMount: function() {
+    ApiUtil.getOne(parseInt(this.props.params.restaurantId));
     RestaurantStore.addHandler(RestaurantConstants.RESTAURANT_DETAIL_CHANGE_EVENT, this.update);
+  },
+  componentWillUnmount: function() {
+    RestaurantStore.removeHandler(RestaurantConstants.RESTAURANT_DETAIL_CHANGE_EVENT, this.update);
   },
   componentWillReceiveProps: function(nextProps) {
     ApiUtil.getOne(parseInt(nextProps.params.restaurantId));
   },
   componentWillMount: function() {
-    ApiUtil.getOne(parseInt(this.props.params.restaurantId));
+
   },
   render: function() {
+    var restaurant = this.state.restaurant;
+    var address_line1 = restaurant.street_address;
+    var address_line2 = restaurant.city + ", " + restaurant.state + " " + restaurant.zip_code;
     return(
       <div className="restaurant-detail">
-        <h1>DETAIL</h1>
-        <ul>
-          {
-            Object.keys(this.state.restaurant).map(function(prop, idx){
-              return <li key={idx}>{prop}{": "}{this.state.restaurant[prop]}</li>;
-            }.bind(this))
-          }
-        </ul>
+        <div className='restaurant-info'>
+          <h2>{this.state.restaurant.title}</h2>
+          <div className="business-detail">
+            {address_line1}
+            <br/>
+            {address_line2}
+            <br/>
+            {restaurant.phone_number}
+          </div>
+        </div>
       </div>
     );
   }
