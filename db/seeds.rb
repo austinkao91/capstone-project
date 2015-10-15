@@ -54,3 +54,39 @@ Restaurant.create!({
   state: "CA",
   city: "Saratoga"
 })
+
+User.create!({
+  username: "totoro",
+  password: "password",
+  password_confirm: "password"
+})
+User.create!({
+  username: "ian",
+  password: "password",
+  password_confirm: "password"
+})
+
+Review.create!({
+  body: "best restaurant ever!",
+  restaurant_id: 5,
+  user_id: 1,
+  rating: 5
+})
+Review.create!({
+  body: "most ok restaurant ever!",
+  restaurant_id: 5,
+  user_id: 2,
+  rating: 3
+})
+Review.create!({
+  body: "most decent restaurant ever!",
+  restaurant_id: 4,
+  user_id: 1,
+  rating: 4
+})
+Review.create!({
+  body: "most sighful restaurant ever!",
+  restaurant_id: 4,
+  user_id: 2,
+  rating: 3
+})

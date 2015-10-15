@@ -17,4 +17,6 @@ class Restaurant < ActiveRecord::Base
   validates :title, :street_address, :zip_code, :phone_number, :state, :city, presence: true
   validates :state, inclusion: {in: Restaurant::STATE_ARRAY}
 
+  has_many :reviews
+
 end

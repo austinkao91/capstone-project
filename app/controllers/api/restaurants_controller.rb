@@ -21,10 +21,11 @@ class Api::RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @review = @restaurant.reviews.includes(:user)
   end
 
   def index
-    @restaurant = Restaurant.all
+    @restaurant = Restaurant.all.includes(:reviews)
   end
 
 

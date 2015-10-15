@@ -10,7 +10,7 @@ var MapIndex = React.createClass({
     };
     this.map = new google.maps.Map(map, mapOptions);
     this.geoCoder = new google.maps.Geocoder();
-    RestaurantStore.addHandler(RestaurantConstants.CHANGE_EVENT, this.onChange);
+    // RestaurantStore.addHandler(RestaurantConstants.CHANGE_EVENT, this.onChange);
   },
   clearMarkers: function() {
     this.state.markers.forEach(function(marker) {

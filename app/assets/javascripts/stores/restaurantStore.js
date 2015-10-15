@@ -32,7 +32,11 @@
           break;
         case 'one_received':
           root.RestaurantStore.replaceRestaurant(payload);
-          root.RestaurantStore.change(RESTAURANT_DETAIL_CHANGE_EVENT);
+          root.RestaurantStore.change(CHANGE_EVENT);
+          break;
+        case 'update_reviews':
+          root.RestaurantStore.updateReviews(payload);
+          root.RestaurantStore.change(CHANGE_EVENT);
           break;
       }
     }),
@@ -45,7 +49,13 @@
           _restaurants[idx] = payload.restaurants;
         }
       });
-      // debugger;
+    },
+    updateReviews: function(payload) {
+      _restaurants.forEach(function(restaurant,idx) {
+        if(restaurant.id === payload.reviews.restaurant_id) {
+          _restaurants[idx].reviews.push(payload.reviews);
+        }
+      });
     }
   });
 

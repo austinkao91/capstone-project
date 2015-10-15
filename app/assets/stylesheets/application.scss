@@ -107,6 +107,7 @@ h2 {
 li.restaurant-item {
   border-top: 1px solid #eee;
   padding: 10px;
+  position: relative;
 }
 
 li.restaurant-item:hover {
@@ -120,11 +121,13 @@ li * {
 
 .item-info {
   float: left;
+  padding-left: 30px;
 }
 
 .address {
   display: inline-block;
-  float: right;
+  position: absolute;
+  left: 65%;
 }
 
 .restaurant-detail {
@@ -134,13 +137,7 @@ li * {
   position: relative;
 }
 
-.restaurant-info {
-  display: block;
-  position: absolute;
-  margin-top: 100px;
-  left: 25%;
-  transform: translateX(-50%);
-}
+
 
 .index {
   position: relative;
@@ -156,4 +153,101 @@ li * {
   display: inline-block;
   width: 50%;
   float:right;
+}
+
+.log-btn {
+  display:inline-block;
+  float:right;
+}
+
+.log-btn * {
+  text-align:center;
+}
+
+.sign-up {
+  border: 1px solid #ddd;
+  background-color: #ccc;
+  border-style: outset;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.log-in {
+  margin: auto;
+  width:80%;
+  height: 20%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.restaurant-reviews {
+  display:block;
+  margin-left: 12%;
+  margin-top: 50px;
+}
+.restaurant-info {
+  display: block;
+  margin-top: 100px;
+  margin-left: 12%;
+}
+.review-index {
+  position: relative;
+  width: 70%;
+}
+
+.review-item-list {
+  margin-top: 20px;
+  width:100%;
+  position: relative;
+}
+.review-item:before {
+  content: "";
+  position: absolute;
+  top:0;
+  bottom: 0;
+  width: 1px;
+  left: 140px;
+  background: #ccc;
+}
+
+.review-item {
+  width: 100%;
+  min-width: 600px;
+  position: relative;
+  border-top: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+.review-form {
+  min-width: 600px;
+}
+.review-user-info {
+  width: 140px;
+  display: inline-block;
+  padding: 20px;
+  text-align: left;
+}
+
+span.rating {
+  padding: 5px;
+}
+span.post-date {
+  padding: 5px;
+}
+.user-pic {
+  width: 100px;
+  height: 100px;
+}
+.review-content{
+  padding: 20px;
+  text-align: left;
+  display:inline-block;
+  width: 300px;
+  top: 0;
+  position: absolute;
+}
+.review-body {
+  display: block;
 }

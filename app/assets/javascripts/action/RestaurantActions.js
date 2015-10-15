@@ -12,5 +12,12 @@ var RestaurantActions = {
       restaurants: data
     };
     appDispatcher.dispatch(payload);
+  },
+  updateReviews: function(data) {
+    var payload = {
+      actionType: RestaurantConstants.UPDATE_REVIEWS,
+      restaurants: data
+    };
+    appDispatcher.dispatch(payload);
   }
 };

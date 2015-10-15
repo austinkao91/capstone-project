@@ -35,5 +35,15 @@ var ApiUtil = {
         window.location = "/";
       }
     });
+  },
+  createReview: function(data) {
+    $.ajax({
+      url: 'api/reviews',
+      method: 'post',
+      data: {review: data},
+      success: function(responseData) {
+        ReviewActions.updateReviews(responseData);
+      }
+    });
   }
 };
