@@ -35,7 +35,7 @@ var RestaurantDetail = React.createClass({
           </div>
         </div>
         <div className='restaurant-reviews'>
-          <ReviewIndex id={this.state.restaurant.id} reviews={this.state.restaurant.reviews}/>
+          <ReviewIndex restaurant={this.state.restaurant} reviews={this.state.restaurant.reviews}/>
         </div>
       </div>
     );

@@ -36,6 +36,7 @@
           break;
         case 'update_reviews':
           root.RestaurantStore.updateReviews(payload);
+          root.RestaurantStore.change(ReviewConstants.UPDATE_REVIEWS);
           root.RestaurantStore.change(CHANGE_EVENT);
           break;
       }

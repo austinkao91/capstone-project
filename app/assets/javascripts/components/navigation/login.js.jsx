@@ -17,7 +17,8 @@ var LogStatus = React.createClass({
     }
     else {
       return (
-        <ul className="nav navbar-nav">
+        <ul className="nav navbar-nav log-btn">
+          <p>Welcome {CURRENT_USER_ID}</p>
           <button className="btn" onClick={this.logOut}>
             Log Out
           </button>

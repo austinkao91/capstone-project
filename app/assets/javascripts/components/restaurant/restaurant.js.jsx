@@ -17,7 +17,6 @@ var RestaurantIndex = React.createClass({
     return(
       <div>
         <div className="index group">
-          <MapIndex />
           <ul className="restaurants-index">
             <h1>Restaurants</h1>
             {
@@ -27,7 +26,7 @@ var RestaurantIndex = React.createClass({
             }
 
           </ul>
-        </div>  
+        </div>
         { this.props.children }
       </div>
     );

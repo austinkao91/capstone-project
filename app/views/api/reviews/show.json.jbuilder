@@ -1,5 +1,5 @@
-json.extract!(@review, :body, :rating, :restaurant_id)
+json.extract!(@review, :body, :rating, :user_id, :restaurant_id)
 json.created_at(@review.created_at.to_date)
 json.restaurant(@review.restaurant.title)
 json.username(@review.user.username)
-json.image_url(review.user.image_url)
+json.image_url(@review.user.image_url)

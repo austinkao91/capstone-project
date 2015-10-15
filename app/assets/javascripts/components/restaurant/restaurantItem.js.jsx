@@ -9,7 +9,7 @@ var RestaurantItem = React.createClass({
       var avg = this.props.restaurant.reviews.reduce(function(accum, review){
         return accum + review.rating;
       }, 0);
-      return avg/this.reviewCount();
+      return (avg/this.reviewCount()).toFixed(2);
     } else {
       return 5;
     }
