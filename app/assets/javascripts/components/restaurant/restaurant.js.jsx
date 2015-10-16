@@ -17,6 +17,9 @@ var RestaurantIndex = React.createClass({
     return(
       <div>
         <div className="index group">
+          <div className="filters">
+            <TagIndex />
+          </div>
           <ul className="restaurants-index">
             <h1>Restaurants</h1>
             {

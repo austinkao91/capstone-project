@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   namespace :api, constraints: {format:'json'} do
     resources :restaurants, only: [ :index, :create, :update, :show]
     resources :reviews, only: [:index, :create, :show, :update, :destroy]
+    resources :tags, only: [:index, :create, :show]
   end
 end

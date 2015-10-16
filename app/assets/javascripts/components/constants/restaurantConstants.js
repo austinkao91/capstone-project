@@ -9,6 +9,16 @@ window.ReviewConstants = {
   UPDATE_REVIEWS: 'update_reviews'
 };
 
+window.TagConstants = {
+  TAGS_RECEIVED: "tag_received",
+  ONE_TAG_RECEIVED: "one_tag_received",
+  CHANGE_EVENT: 'tag_change'
+};
+
+window.FilterConstants = {
+  CHANGE_EVENT: 'filter_change'
+};
+
 window.StateConstants = {
   STATES: [
     "AK",

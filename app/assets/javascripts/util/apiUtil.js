@@ -45,5 +45,23 @@ var ApiUtil = {
         ReviewActions.updateReviews(responseData);
       }
     });
+  },
+  fetchTags: function() {
+    $.ajax({
+      url: '/api/tags',
+      method: 'get',
+      success: function(responseData) {
+        TagActions.receiveAllTags(responseData);
+      }
+    });
+  },
+  getTagDetails: function(id) {
+    $.ajax({
+      url: 'api/tags/' + id,
+      method: 'get',
+      success:function(responseData) {
+        TagActions.receiveTag(responseData);
+      }
+    });
   }
 };

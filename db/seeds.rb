@@ -66,6 +66,37 @@ User.create!({
   password_confirm: "password"
 })
 
+Tag.create!({
+    title: 'japanese'
+})
+Tag.create!({
+    title: 'weeb'
+})
+Tag.create!({
+    title: 'omnom'
+})
+
+Tagging.create!({
+  tag_id: 1,
+  restaurant_id: 1
+})
+Tagging.create!({
+  tag_id: 2,
+  restaurant_id: 2
+})
+Tagging.create!({
+  tag_id: 3,
+  restaurant_id: 3
+})
+Tagging.create!({
+  tag_id: 1,
+  restaurant_id: 4
+})
+Tagging.create!({
+  tag_id: 2,
+  restaurant_id: 5
+})
+
 Review.create!({
   body: "best restaurant ever!",
   restaurant_id: 5,

@@ -28,16 +28,16 @@
       switch (payload.actionType) {
         case 'received':
           root.RestaurantStore.addRestaurant(payload);
-          root.RestaurantStore.change(CHANGE_EVENT);
+          root.RestaurantStore.change(RestaurantConstants.CHANGE_EVENT);
           break;
         case 'one_received':
           root.RestaurantStore.replaceRestaurant(payload);
-          root.RestaurantStore.change(CHANGE_EVENT);
+          root.RestaurantStore.change(RestaurantConstants.CHANGE_EVENT);
           break;
         case 'update_reviews':
           root.RestaurantStore.updateReviews(payload);
           root.RestaurantStore.change(ReviewConstants.UPDATE_REVIEWS);
-          root.RestaurantStore.change(CHANGE_EVENT);
+          root.RestaurantStore.change(RestaurantConstants.CHANGE_EVENT);
           break;
       }
     }),
