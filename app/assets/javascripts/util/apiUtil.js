@@ -1,10 +1,16 @@
 var ApiUtil = {
-  fetch: function() {
+  fetch: function(params) {
+    ;
+    params.tags = JSON.stringify(params.tags);
     $.ajax({
       url: 'api/restaurants',
       method: 'get',
+      data: {filter: params},
+      dataType: 'json',
       success: function(data) {
         RestaurantActions.receiveAllRestaurant(data);
+      },
+      failure: function(responseData) {
       }
     });
   },
@@ -51,7 +57,11 @@ var ApiUtil = {
       url: '/api/tags',
       method: 'get',
       success: function(responseData) {
+        console.log('fetchtags')
+        console.log(responseData)
         TagActions.receiveAllTags(responseData);
+      },
+      failuure: function(responseData) {
       }
     });
   },

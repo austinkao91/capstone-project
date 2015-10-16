@@ -25,7 +25,8 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def index
-    @restaurant = Restaurant.all.includes(:reviews)
+    # @restaurant = Restaurant.all.includes(:reviews)
+    @restaurant = Restaurant.filter_by(filter_params).includes(:reviews)
   end
 
 
@@ -42,5 +43,8 @@ class Api::RestaurantsController < ApplicationController
     params.require(:restaurant).permit(
         :title, :street_address, :zip_code, :state, :phone_number, :city
     )
+  end
+  def filter_params
+    params.require(:filter).permit(:tags)
   end
 end

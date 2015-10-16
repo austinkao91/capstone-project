@@ -18,5 +18,18 @@ class Restaurant < ActiveRecord::Base
   validates :state, inclusion: {in: Restaurant::STATE_ARRAY}
 
   has_many :reviews
+  has_many :taggings
+  has_many :tags, through: :taggings
+
+  def self.filter_by(filters)
+    
+    Restaurant.exclusive_tag_filter(filters[:tags])
+  end
+
+  def self.exclusive_tag_filter(tags)
+
+    tags = JSON.parse(tags)
+    Restaurant.joins(taggings: :tag).where( tags: { title: tags } )
+  end
 
 end

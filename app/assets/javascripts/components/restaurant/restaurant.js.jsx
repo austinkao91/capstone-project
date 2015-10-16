@@ -6,9 +6,14 @@ var RestaurantIndex = React.createClass({
   setRestaurant: function() {
     this.setState({restaurants: RestaurantStore.all()});
   },
+  fetchRestaurants: function() {
+    ApiUtil.fetch(FilterStore.all());
+  },
   componentDidMount: function() {
+    FilterStore.addHandler(FilterConstants.CHANGE_EVENT,
+                             this.fetchRestaurants);
     RestaurantStore.addHandler(RestaurantConstants.CHANGE_EVENT, this.setRestaurant);
-    ApiUtil.fetch();
+    ApiUtil.fetch(FilterStore.all());
   },
   componentWillUnmount: function() {
     RestaurantStore.removeHandler(RestaurantConstants.CHANGE_EVENT, this.setRestaurant);

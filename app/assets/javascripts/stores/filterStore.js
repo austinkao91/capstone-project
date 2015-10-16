@@ -1,7 +1,8 @@
 (function(root) {
   'use strict';
   var _filters = {
-    tags: []
+    tags: [],
+    minPrice: 0
   };
 
   root.FilterStore = $.extend({}, EventEmitter.prototype, {
@@ -19,11 +20,19 @@
     },
     dispatcherID: appDispatcher.register( function (payload) {
       switch (payload.actionType) {
+        case FilterConstants.ADD_FILTER:
+          root.FilterStore.addFilter(payload);
+          root.FilterStore.change(FilterConstants.CHANGE_EVENT);
+          break;
       }
     }),
     addFilter: function(payload) {
-      for (var props in payload.filters) {
-        _filters[props] = payload.filters[props];
+      for (var props in payload.filter) {
+        if(props === "tags") {
+          _filters[props].push(payload.filter[props]);
+        } else {
+          _filters[props] = payload.filter[props];
+        }
       }
     }
   });

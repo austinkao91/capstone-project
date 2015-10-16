@@ -5,5 +5,6 @@ json.reviews do
     json.image_url(review.user.image_url)
     json.created_at(review.created_at.to_date)
     json.username(review.user.username)
+    json.avg_ratings(review.average(:rating))
   end
 end

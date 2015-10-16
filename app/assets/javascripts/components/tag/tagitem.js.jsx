@@ -1,7 +1,6 @@
 var TagItem = React.createClass({
   filterRestaurants: function() {
-    console.log("click");
-    RestaurantActions.receiveAllRestaurant(this.props.tag.restaurants);
+    FilterActions.addFilter({tags: this.props.tag.title});
   },
   render: function() {
     return(

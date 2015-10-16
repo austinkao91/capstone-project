@@ -16,7 +16,8 @@ window.TagConstants = {
 };
 
 window.FilterConstants = {
-  CHANGE_EVENT: 'filter_change'
+  CHANGE_EVENT: 'filter_change',
+  ADD_FILTER: 'add_filter'
 };
 
 window.StateConstants = {
