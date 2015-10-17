@@ -7,9 +7,17 @@ var ReviewIndex = React.createClass({
   },
   componentDidMount: function() {
     RestaurantStore.addHandler(RestaurantConstants.CHANGE_EVENT,
-                                this.checkUserId.bind(null, this.props));
+                                this.checkUserId);
+    this.checkUserId();
+  },
+  componentWillUnmount: function() {
+    RestaurantStore.removeHandler(RestaurantConstants.CHANGE_EVENT,
+                                this.checkUserId);
+
   },
   checkUserId: function(nextProps) {
+    if(typeof nextProps === "undefined") { nextProps = this.props;}
+
     var show = false;
     if(typeof window.CURRENT_USER_ID !== "undefined"){
       show = true;
@@ -28,7 +36,12 @@ var ReviewIndex = React.createClass({
     } else {
       form = "";
     }
-    if(this.props.reviews) {
+
+    if(typeof this.props.reviews === 'undefined') {
+      return (
+        <div className="review-index"></div>
+      );
+    } else {
       return (
         <div className="review-index">
           {form}
@@ -40,10 +53,6 @@ var ReviewIndex = React.createClass({
             }
           </ul>
         </div>
-      );
-    } else {
-      return (
-        <div className="review-index"></div>
       );
     }
 

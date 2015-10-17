@@ -1,6 +1,6 @@
 var FilterActions = {
-  
-  addFilter: function(data){
+
+  toggleFilter: function(data){
     var payload = {
       filter: data,
       actionType: FilterConstants.ADD_FILTER

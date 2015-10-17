@@ -2,13 +2,14 @@
 <html>
 <head>
   <title>SampleProjectProposalMaster</title>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['g_api_key']}"%>
+  <!-- <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['g_api_key']}"%> -->
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <% if current_user %>
     <script type="text/javascript">
-      window.CURRENT_USER_ID = <%= current_user.id %>
+      window.CURRENT_USER_ID = <%= current_user.id %>;
+      window.CURRENT_USERNAME = "<%= current_user.username %>";
     </script>
   <% end %>
 </head>

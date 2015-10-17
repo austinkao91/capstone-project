@@ -1,7 +1,7 @@
 (function(root) {
   'use strict';
   var _filters = {
-    tags: [],
+    tags: {},
     minPrice: 0
   };
 
@@ -26,10 +26,20 @@
           break;
       }
     }),
+    toggleTagFilter: function(filter) {
+      var tagFilter = _filters.tags;
+      for(var i = 0; i < filter.length; i++ ) {
+        if (filter[i] in tagFilter) {
+          tagFilter[filter[i]] = !tagFilter[filter[i]];
+        } else {
+          tagFilter[filter[i]] = true;
+        }
+      }
+    },
     addFilter: function(payload) {
       for (var props in payload.filter) {
         if(props === "tags") {
-          _filters[props].push(payload.filter[props]);
+          this.toggleTagFilter(payload.filter[props]);
         } else {
           _filters[props] = payload.filter[props];
         }

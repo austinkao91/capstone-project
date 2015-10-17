@@ -19,44 +19,47 @@ var RestaurantForm = React.createClass({
   },
   render: function() {
     return (
-      <div className="restaurant-form">
-        <form onSubmit={this.submitForm}>
-          <label>
-              Restaurant Name
-            <input type="text" className="form-control"></input>
-          </label>
-          <br/>
-          <label>
-            Street Address
-            <input type="text" className="form-control"></input>
-          </label>
-          <br/>
-          <label>
-            Zip Code
-            <input type="text" className="form-control"></input>
-          </label>
-          <label>
-            City
-            <input type="text" className="form-control"></input>
-          </label>
-          <br/>
-          <label>
-            State
-            <select className='form-control'>
-              {
-                StateConstants.STATES.map(function(state, idx){
-                  return <option key={idx} value={state}>{state}</option>;
-                })
-              }
-            </select>
-          </label>
-          <br/>
-          <label>
-            Phone Number
-            <input type="text" className="form-control"></input>
-          </label>
-          <input type="submit" value="Add new restaurant!"></input>
-        </form>
+      <div className="index group">
+
+        <div className="restaurant-form">
+          <form onSubmit={this.submitForm}>
+            <label>
+                Restaurant Name
+              <input type="text" className="form-control"></input>
+            </label>
+            <br/>
+            <label>
+              Street Address
+              <input type="text" className="form-control"></input>
+            </label>
+            <br/>
+            <label>
+              Zip Code
+              <input type="text" className="form-control"></input>
+            </label>
+            <label>
+              City
+              <input type="text" className="form-control"></input>
+            </label>
+            <br/>
+            <label>
+              State
+              <select className='form-control'>
+                {
+                  StateConstants.STATES.map(function(state, idx){
+                    return <option key={idx} value={state}>{state}</option>;
+                  })
+                }
+              </select>
+            </label>
+            <br/>
+            <label>
+              Phone Number
+              <input type="text" className="form-control"></input>
+            </label>
+            <input type="submit" value="Add new restaurant!"></input>
+          </form>
+        </div>
       </div>
     );
   }

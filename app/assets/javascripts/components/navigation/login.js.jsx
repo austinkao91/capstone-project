@@ -2,6 +2,9 @@ var LogStatus = React.createClass({
   logOut: function() {
     ApiUtil.endSession();
   },
+  userProfile: function() {
+
+  },
   render: function() {
     if(typeof CURRENT_USER_ID === "undefined") {
       return (
@@ -18,7 +21,7 @@ var LogStatus = React.createClass({
     else {
       return (
         <ul className="nav navbar-nav log-btn">
-          <p>Welcome {CURRENT_USER_ID}</p>
+          <p onClick={this.userProfile}>Welcome {CURRENT_USERNAME}</p>
           <button className="btn" onClick={this.logOut}>
             Log Out
           </button>

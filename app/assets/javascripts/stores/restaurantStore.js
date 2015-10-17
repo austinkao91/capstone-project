@@ -1,6 +1,7 @@
 (function(root) {
   'use strict';
   var _restaurants = [];
+  var _display_restaurant = {};
   var CHANGE_EVENT = 'change';
   var RESTAURANT_DETAIL_CHANGE_EVENT = 'restaurantDetailChange';
 
@@ -45,11 +46,11 @@
       _restaurants = payload.restaurants;
     },
     replaceRestaurant: function(payload) {
-      _restaurants.forEach(function(restaurant, idx) {
-        if(restaurant.id === payload.restaurants.id) {
-          _restaurants[idx] = payload.restaurants;
-        }
-      });
+      _display_restaurant = payload.restaurants;
+      // _restaurants.forEach(function(restaurant, idx) {
+      //   if(restaurant.id === payload.restaurants.id) {
+      //     _restaurants[idx] = payload.restaurants;
+      //   }
     },
     updateReviews: function(payload) {
       _restaurants.forEach(function(restaurant,idx) {

@@ -8,6 +8,7 @@ var ReviewForm = React.createClass({
   },
   render: function() {
     return (
+
         <form className="review-form" onSubmit={this.submitForm}>
           <label className="review-rating">
             Rating

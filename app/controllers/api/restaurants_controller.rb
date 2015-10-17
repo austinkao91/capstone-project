@@ -20,13 +20,13 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
-    @review = @restaurant.reviews.includes(:user)
+    @restaurant = Restaurant.where(id: params[:id]).includes(:tags).includes(reviews: :user)
   end
 
   def index
-    # @restaurant = Restaurant.all.includes(:reviews)
-    @restaurant = Restaurant.filter_by(filter_params).includes(:reviews)
+    # @restaurant = Restaurant.all.includes(:reviews
+    #
+    @restaurant = Restaurant.filter_by(filter_params).includes(:reviews).includes(:tags)
   end
 
 
@@ -44,7 +44,8 @@ class Api::RestaurantsController < ApplicationController
         :title, :street_address, :zip_code, :state, :phone_number, :city
     )
   end
+
   def filter_params
-    params.require(:filter).permit(:tags)
+    params.require(:filter).permit({:tags => []}, :minPrice)
   end
 end
