@@ -1,1 +1,1 @@
-var appDispatcher = new FluxDispatcher();
+var appDispatcher = new Flux.Dispatcher();

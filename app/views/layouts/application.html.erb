@@ -5,7 +5,6 @@
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['g_api_key']}"%>
   <script src="http://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
   <script type="text/javascript">
-    <% debugger %>
     cloudinary.setCloudName("<%= ENV['cloud_name'] %>");
 
     window.CLOUDINARY_OPTIONS = {
