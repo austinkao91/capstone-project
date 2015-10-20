@@ -8,13 +8,15 @@ var RestaurantForm = React.createClass({
     var city = event.currentTarget[3].value;
     var state = event.currentTarget[4].value;
     var phone_number= event.currentTarget[5].value;
+    var tag_list = event.currentTarget[6].value;
     ApiUtil.create({
       title: title,
       street_address: street_address,
       zip_code: zip_code,
       city: city,
       state:state,
-      phone_number: phone_number
+      phone_number: phone_number,
+      tag_list: tag_list
     });
   },
   render: function() {
@@ -55,6 +57,11 @@ var RestaurantForm = React.createClass({
             <br/>
             <label>
               Phone Number
+              <input type="text" className="form-control"></input>
+            </label>
+            <br/>
+            <label>
+              Tags
               <input type="text" className="form-control"></input>
             </label>
             <input type="submit" value="Add new restaurant!"></input>

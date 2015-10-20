@@ -1,6 +1,7 @@
 class Api::RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    debugger
     if @restaurant.save
       @restaurant = [@restaurant]
       render :show
@@ -43,11 +44,19 @@ class Api::RestaurantsController < ApplicationController
   private
   def restaurant_params
     params.require(:restaurant).permit(
-        :title, :street_address, :zip_code, :state, :phone_number, :city, :lat, :lng
+        :title,
+        :street_address,
+        :zip_code,
+        :phone_number,
+        :lat,
+        :lng,
+        :tag_list,
+        :city,
+        :state
     )
   end
 
   def filter_params
-    params.require(:filter).permit({:tags => []}, :minPrice)
+    params.require(:filter).permit({:tags => []},{:location => []}, :minPrice)
   end
 end

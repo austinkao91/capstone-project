@@ -36,4 +36,12 @@ class Restaurant < ActiveRecord::Base
     Restaurant.joins(taggings: :tag).where( tags: { title: tags } )
   end
 
+  def tag_list=(tags_string)
+    tag_titles = tags_string.split(",").collect{|s| s.strip.downcase}.uniq
+    new_or_found_tags = tag_titles.collect do |title|
+      Tag.find_or_create_by(title: title)
+    end
+    self.tags = new_or_found_tags
+  end
+
 end

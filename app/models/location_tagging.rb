@@ -8,8 +8,7 @@
 #
 
 class LocationTagging < ActiveRecord::Base
-  validates :restaurant_id, :location_id, presence: true, uniqueness: true
-
+  
   belongs_to :restaurant
   belongs_to :location
 end

@@ -6,7 +6,6 @@ class CreateLocations < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-
     create_table :location_taggings do |t|
       t.integer :restaurant_id, null: false
       t.integer :location_id, null: false
