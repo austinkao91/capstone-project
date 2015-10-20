@@ -1,16 +1,17 @@
 # == Schema Information
 #
-# Table name: tags
+# Table name: locations
 #
 #  id         :integer          not null, primary key
-#  title      :string           not null
+#  city       :string           not null
+#  state      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class TagTest < ActiveSupport::TestCase
+class LocationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

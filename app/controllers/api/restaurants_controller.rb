@@ -2,6 +2,7 @@ class Api::RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
+      @restaurant = [@restaurant]
       render :show
     else
       flash[:errors] = @restaurant.errors.full_messages
@@ -10,8 +11,9 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def update
-    @restaurant = restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
     if @restaurant.update(restaurant_params)
+      @restaurant = [@restaurant]
       render :show
     else
       flash.now[:errors] = @restaurant.errors.full_messages
@@ -41,7 +43,7 @@ class Api::RestaurantsController < ApplicationController
   private
   def restaurant_params
     params.require(:restaurant).permit(
-        :title, :street_address, :zip_code, :state, :phone_number, :city
+        :title, :street_address, :zip_code, :state, :phone_number, :city, :lat, :lng
     )
   end
 

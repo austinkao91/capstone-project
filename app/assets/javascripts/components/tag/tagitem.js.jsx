@@ -1,6 +1,6 @@
 var TagItem = React.createClass({
   filterRestaurants: function() {
-    FilterActions.toggleFilter({tags: [this.props.tag.title]});
+    FilterActions.toggleTagFilter({tags: [this.props.tag.title]});
   },
   render: function() {
     return(

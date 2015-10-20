@@ -2,9 +2,9 @@
   'use strict';
   var _filters = {
     tags: {},
+    location: {},
     minPrice: 0
   };
-
   root.FilterStore = $.extend({}, EventEmitter.prototype, {
     all: function() {
       return $.extend(true, {}, _filters);
@@ -20,13 +20,18 @@
     },
     dispatcherID: appDispatcher.register( function (payload) {
       switch (payload.actionType) {
+        case FilterConstants.TOGGLE_TAG_FILTER:
+          root.FilterStore.toggleTagFilter(payload);
+          root.FilterStore.change(FilterConstants.CHANGE_EVENT);
+          break;
         case FilterConstants.ADD_FILTER:
           root.FilterStore.addFilter(payload);
           root.FilterStore.change(FilterConstants.CHANGE_EVENT);
           break;
       }
     }),
-    toggleTagFilter: function(filter) {
+    toggleTagFilter: function(payload) {
+      var filter = payload.filter.tags;
       var tagFilter = _filters.tags;
       for(var i = 0; i < filter.length; i++ ) {
         if (filter[i] in tagFilter) {
@@ -36,14 +41,22 @@
         }
       }
     },
+    addTagFilter: function(filter) {
+      var tagFilter = {};
+      for(var i = 0; i < filter.length; i++ ) {
+        tagFilter[filter[i]] = true;
+      }
+      _filters.tags = tagFilter;
+    },
     addFilter: function(payload) {
+      debugger;
       for (var props in payload.filter) {
         if(props === "tags") {
-          this.toggleTagFilter(payload.filter[props]);
+          this.addTagFilter(payload.filter[props]);
         } else {
           _filters[props] = payload.filter[props];
         }
       }
-    }
+    },
   });
 }(this));

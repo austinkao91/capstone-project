@@ -25,6 +25,7 @@ var RestaurantIndex = React.createClass({
           <div className="filters">
             <TagIndex />
           </div>
+          <MapIndex />
           <ul className="restaurants-index">
             <h1>Restaurants</h1>
             {
@@ -32,10 +33,8 @@ var RestaurantIndex = React.createClass({
                 return <RestaurantItem restaurant={restaurant} listNum={idx} key={idx}/>;
               })
             }
-
           </ul>
         </div>
-        { this.props.children }
       </div>
     );
   }

@@ -6,6 +6,9 @@ var TagIndex = React.createClass({
     TagStore.addHandler(TagConstants.CHANGE_EVENT, this.getTags);
     ApiUtil.fetchTags();
   },
+  componentWillUnmount: function() {
+    TagStore.removeHandler(TagConstants.CHANGE_EVENT, this.getTags);
+  },
   getTags: function() {
     this.setState({tags: TagStore.all()});
   },

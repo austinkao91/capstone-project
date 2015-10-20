@@ -3,15 +3,18 @@ var NavigationLinks = React.createClass({
   newRestaurant: function() {
     this.history.pushState(null, "restaurant/new");
   },
+  navHome: function() {
+    this.history.pushState(null, "/#");
+  },
   render: function(){
     return(
-      <div className="nav-links">
-        <ul className="nav navbar-nav">
+      <div className="nav-links group">
+        <ul className="nav-links-list">
           <li>
-            <a href="/">Home</a>
+            <a href="" onClick={this.navHome}>Home</a>
           </li>
           <li>
-            <button className="btn" onClick={this.newRestaurant} >New Restaurant</button>
+            <a href="" onClick={this.newRestaurant} >New Restaurant</a>
           </li>
         </ul>
       </div>

@@ -13,7 +13,6 @@ var ReviewIndex = React.createClass({
   componentWillUnmount: function() {
     RestaurantStore.removeHandler(RestaurantConstants.CHANGE_EVENT,
                                 this.checkUserId);
-
   },
   checkUserId: function(nextProps) {
     if(typeof nextProps === "undefined") { nextProps = this.props;}

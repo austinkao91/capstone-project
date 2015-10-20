@@ -12,6 +12,9 @@ var MapIndex = React.createClass({
     this.geoCoder = new google.maps.Geocoder();
     RestaurantStore.addHandler(RestaurantConstants.CHANGE_EVENT, this.onChange);
   },
+  componentWillUnmount: function() {
+    RestaurantStore.removeHandler(RestaurantConstants.CHANGE_EVENT, this.onChange);
+  },
   clearMarkers: function() {
     this.state.markers.forEach(function(marker) {
       marker.setMap(null);
@@ -28,14 +31,19 @@ var MapIndex = React.createClass({
     if( this.state.restaurants ) {
       var restaurants = this.state.restaurants;
       restaurants.forEach(function(restaurant){
-        this.geoLocationMarker(restaurant);
-
+        if(restaurant.lat === null || restaurant.lng === null) {
+          console.log("Looking up location coordinates!")
+          this.geoLocationMarker(restaurant);
+        } else {
+          console.log("I have the location cached!")
+          this.placeMarker(restaurant.lat, restaurant.lng, restaurant);
+        }
       }.bind(this));
     }
   },
-  placeMarker: function(latLng, restaurant) {
+  placeMarker: function(lat, lng, restaurant) {
     var that = this;
-    var pos = {lat: latLng.lat(), lng: latLng.lng()};
+    var pos = {lat: lat, lng: lng};
     var marker = new google.maps.Marker({
       position: pos,
       map: that.map,
@@ -52,7 +60,10 @@ var MapIndex = React.createClass({
         var latLng;
         if( status === "OK") {
           latLng = result[0].geometry.location;
-          this.placeMarker(latLng, restaurant);
+          var lat = latLng.lat();
+          var lng = latLng.lng();
+          ApiUtil.updateRestaurant({id: restaurant.id, restaurant: {lat: lat, lng: lng}});
+          this.placeMarker(lat, lng, restaurant);
         } else {
           alert("Geocoder was unsuccessful because: " + status);
         }

@@ -134,7 +134,6 @@ li * {
 .restaurant-detail {
   border-top: 1px solid #eee;
   display: block;
-  top: 20px;
   position: relative;
 }
 
@@ -150,7 +149,7 @@ li * {
   display: inline-block;
   float: right;
   min-height: 500px;
-  width: 50%;
+  width: 45%;
   height: 100%;
   margin-left: 2.5%;
   margin-right: 2.5%;
@@ -159,7 +158,7 @@ li * {
 }
 .restaurants-index {
   display: inline-block;
-  width: 50%;
+  width: 45%;
   padding-top: 20px;
   margin-left: 2.5%;
   margin-right: 2.5%;
@@ -168,13 +167,10 @@ li * {
 }
 
 .log-btn {
-  display:inline-block;
   float:right;
+  width: 15%;
 }
 
-.log-btn * {
-  text-align:center;
-}
 
 .sign-up {
   border: 1px solid #ddd;
@@ -277,6 +273,7 @@ div.tag-index {
   height: 95%;
   margin: auto;
 }
+
 div.tag-index > ul {
   margin-left: 5px;
 }
@@ -288,4 +285,122 @@ li.tag-item {
 
 nav.navbar {
   margin-bottom: 0;
+}
+.nav-links {
+  padding-left: 15px;
+}
+.nav-links-list > li {
+  display: inline-block;
+  float: left;
+  padding: 5px 10px;
+}
+
+.nav-links-list > li:hover {
+  text-decoration: none;
+  background: #ddd;
+  border-radius: 5px;
+}
+
+.container-fluid {
+  margin: auto;
+  width: 75%;
+}
+
+li:hover .user-links {
+  display: block;
+}
+li.nav-user-links {
+  position: relative;
+}
+
+.nav-user-links p {
+  text-align: right;
+}
+.nav-user-links a {
+  text-align: right;
+  padding: 0;
+}
+.nav-user-links {
+  padding-top: 20px;
+}
+
+.navbar-header {
+  padding-top: 10px;
+  width: 10%;
+}
+.container-fluid {
+  position: relative;
+}
+.navbar-header {
+  display: block;
+}
+
+.navbar-collapse > * {
+  display: inline-block;
+}
+.user-links{
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+.user-links > li {
+  text-align: right;
+  display: block;
+  font-size: 20px;
+  padding: 20px 30px;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+.user-links > li:hover {
+  background: #eee;
+}
+
+.collapse.navbar-collapse > * {
+  display: inline-block;
+}
+
+.user-nav-search {
+  width: 75%;
+  margin: auto;
+}
+
+.user-nav-search .form-group {
+  width: 45%;
+  padding-right: 5px;
+}
+.user-nav-search .btn {
+  width: 40px;
+}
+.user-nav-search .form-group .form-control{
+  width: 100%;
+}
+
+.search-result {
+  position: relative;
+}
+.search-result-list {
+  width: 100%;
+  position: absolute;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.search-result-list > li {
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+  text-align: center;
+  background: white;
+  padding: 5px 10px;
 }

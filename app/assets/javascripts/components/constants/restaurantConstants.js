@@ -17,7 +17,13 @@ window.TagConstants = {
 
 window.FilterConstants = {
   CHANGE_EVENT: 'filter_change',
+  TOGGLE_TAG_FILTER: 'toggle_tag_filter',
   ADD_FILTER: 'add_filter'
+};
+
+window.UserConstants = {
+  ADD_USER: 'add_user',
+  CHANGE_EVENT: 'user_change'
 };
 
 window.StateConstants = {

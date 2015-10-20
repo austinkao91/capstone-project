@@ -1,9 +1,12 @@
 var LogStatus = React.createClass({
+  mixins: [ReactRouter.History],
   logOut: function() {
     ApiUtil.endSession();
   },
   userProfile: function() {
-
+    var url = "user/" + window.CURRENT_USER_ID;
+    this.history.pushState(null, url);
+    ApiUtil.fetchUser(window.CURRENT_USER_ID);
   },
   render: function() {
     if(typeof CURRENT_USER_ID === "undefined") {
@@ -20,11 +23,15 @@ var LogStatus = React.createClass({
     }
     else {
       return (
-        <ul className="nav navbar-nav log-btn">
-          <p onClick={this.userProfile}>Welcome {CURRENT_USERNAME}</p>
-          <button className="btn" onClick={this.logOut}>
-            Log Out
-          </button>
+        <ul className="nav log-btn">
+          <li className="nav-user-links">
+            <p>Welcome &nbsp; {window.CURRENT_USERNAME}</p>
+            <a href="#">User</a>
+            <ul className="user-links">
+              <li className="content" onClick={this.userProfile}>Your Profile</li>
+              <li className="content" onClick={this.logOut}>Log Out</li>
+            </ul>
+          </li>
         </ul>
       );
     }

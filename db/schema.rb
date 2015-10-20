@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015172710) do
+ActiveRecord::Schema.define(version: 20151020010535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "location_taggings", force: :cascade do |t|
+    t.integer "restaurant_id", null: false
+    t.integer "location_id",   null: false
+  end
+
+  add_index "location_taggings", ["location_id"], name: "index_location_taggings_on_location_id", using: :btree
+  add_index "location_taggings", ["restaurant_id", "location_id"], name: "index_location_taggings_on_restaurant_id_and_location_id", unique: true, using: :btree
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "city",       null: false
+    t.string   "state",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float    "lat"
+    t.float    "lng"
+  end
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "title",          null: false
@@ -25,8 +42,8 @@ ActiveRecord::Schema.define(version: 20151015172710) do
     t.string   "phone_number",   null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "lat"
-    t.integer  "lng"
+    t.float    "lat"
+    t.float    "lng"
   end
 
   create_table "reviews", force: :cascade do |t|

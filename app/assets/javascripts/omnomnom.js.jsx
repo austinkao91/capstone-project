@@ -16,8 +16,6 @@ var Index = React.createClass({
   }
 });
 
-
-
 $(document).ready(function(){
   var root = document.getElementById("app");
   if(root) {
@@ -25,10 +23,10 @@ $(document).ready(function(){
       <Router>
         <Route path="/" component={Index}>
           <IndexRoute component={RestaurantIndex}/>
-          <Route path="restaurants" component={RestaurantIndex}>
-            <Route path=":restaurantId" component={RestaurantDetail}/>
-          </Route>
+          <Route path="restaurants" component={RestaurantIndex}/>
+          <Route path="restaurants/:restaurantId" component={RestaurantDetail}/>
           <Route path="restaurant/new" component={RestaurantForm}/>
+          <Route path="user/:userId" component={UserProfile}/>
         </Route>
       </Router>,
       root

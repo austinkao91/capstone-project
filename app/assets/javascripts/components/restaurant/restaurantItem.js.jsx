@@ -3,7 +3,6 @@ var RestaurantItem = React.createClass({
   showDetail: function() {
     var showURL = "restaurants/" + this.props.restaurant.id;
     this.history.pushState(null, showURL);
-    window.scrollTo(0,500);
   },
   averageReview: function() {
     if( this.reviewCount() > 0 ) {

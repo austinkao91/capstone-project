@@ -1,5 +1,5 @@
 if(@restaurant.length > 0)
-  json.extract!(@restaurant[0], :id, :title, :city, :street_address, :zip_code, :state, :phone_number)
+  json.extract!(@restaurant[0], :id, :title, :city, :street_address, :zip_code, :state, :phone_number, :lat, :lng)
   json.reviews do
     json.array!(@restaurant[0].reviews) do |review|
       json.extract!(review, :body, :rating, :restaurant_id, :user_id)

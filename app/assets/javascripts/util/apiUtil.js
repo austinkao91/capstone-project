@@ -31,6 +31,18 @@
         }
       });
     },
+    updateRestaurant: function(restaurant) {
+      debugger;
+
+      $.ajax({
+        url: 'api/restaurants/' + restaurant.id,
+        method: 'patch',
+        data: restaurant,
+        success: function(responseData) {
+
+        }
+      });
+    },
     create: function(params) {
       $.ajax({
         url: 'api/restaurants',
@@ -77,6 +89,15 @@
         method: 'get',
         success:function(responseData) {
           TagActions.receiveTag(responseData);
+        }
+      });
+    },
+    fetchUser: function(id) {
+      $.ajax({
+        url: 'api/user/' + id,
+        method: 'get',
+        success: function(responseData) {
+          UserActions.receiveUser(responseData);
         }
       });
     }
