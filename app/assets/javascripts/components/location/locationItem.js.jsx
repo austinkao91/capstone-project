@@ -1,9 +1,10 @@
-var TagItem = React.createClass({
+var LocationItem = React.createClass({
   getInitialState: function() {
     return {checked: false};
   },
   filterRestaurants: function() {
-    FilterActions.toggleTagFilter({tags: [this.props.tag.title]});
+    var location = this.props.location;
+    FilterActions.toggleLocationFilter({location: {city:location.city, state:location.state}});
   },
   componentDidMount: function() {
     FilterStore.addHandler(FilterConstants.CHANGE_EVENT, this.getCheckedState);
@@ -16,31 +17,30 @@ var TagItem = React.createClass({
   },
   getCheckedState: function(){
     var checked = false;
-    var tags = FilterStore.all().tags;
-    Object.keys(tags).forEach(function(tag){
-      if(tag === this.props.tag.title && tags[tag]) {
+    var itemLocation = this.props.location;
+    var location = FilterStore.all().location;
+    if(location.city === itemLocation.city && location.state === itemLocation.state) {
          checked = true;
-      }
-    }.bind(this));
+    }
     this.setState({checked: checked});
   },
   render: function() {
     if(this.state.checked) {
       return(
-        <li className="tag-item">
+        <li className="location-item">
           <input type="checkbox"
             checked
             onChange={this.filterRestaurants}>
-            {this.props.tag.title}&nbsp;({this.props.tag.restaurants.length})
+            {this.props.location.city}, {this.props.location.state}&nbsp;({this.props.location.restaurants.length})
           </input>
         </li>
       );
     } else {
       return(
-        <li className="tag-item">
+        <li className="location-item">
           <input type="checkbox"
             onChange={this.filterRestaurants}>
-            {this.props.tag.title}&nbsp;({this.props.tag.restaurants.length})
+            {this.props.location.city}, {this.props.location.state}&nbsp;({this.props.location.restaurants.length})
           </input>
         </li>
       );

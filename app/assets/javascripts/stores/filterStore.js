@@ -2,7 +2,7 @@
   'use strict';
   var _filters = {
     tags: {},
-    location: {},
+    location: {city: null, state: null},
     minPrice: 0
   };
   root.FilterStore = $.extend({}, EventEmitter.prototype, {
@@ -28,8 +28,25 @@
           root.FilterStore.addFilter(payload);
           root.FilterStore.change(FilterConstants.CHANGE_EVENT);
           break;
+        case FilterConstants.TOGGLE_LOCATION_FILTER:
+          root.FilterStore.toggleLocationFilter(payload);
+          root.FilterStore.change(FilterConstants.CHANGE_EVENT);
+          break;
       }
     }),
+
+    toggleLocationFilter: function(payload) {
+      var filter = payload.filter.location;
+      var locationFilter = _filters.location;
+      if (locationFilter.city === filter.city && locationFilter.state === filter.state) {
+        locationFilter.city = null;
+        locationFilter.state = null;
+      } else {
+        locationFilter.city = filter.city;
+        locationFilter.state = filter.state;
+      }
+    },
+
     toggleTagFilter: function(payload) {
       var filter = payload.filter.tags;
       var tagFilter = _filters.tags;
@@ -49,7 +66,6 @@
       _filters.tags = tagFilter;
     },
     addFilter: function(payload) {
-      debugger;
       for (var props in payload.filter) {
         if(props === "tags") {
           this.addTagFilter(payload.filter[props]);

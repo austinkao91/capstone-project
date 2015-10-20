@@ -7,9 +7,24 @@
     }
     return tagArray;
   };
+  var parseLocation = function(location) {
+    if(location.city === null || location.state === null) {
+      return [];
+    } else {
+      return [location.city, location.state];
+    }
+  };
+
+  var parseParams = function(params) {
+    params.tags = parseTags(params.tags);
+    params.location = parseLocation(params.location);
+    return params;
+  };
+
   window.ApiUtil = {
     fetch: function(params) {
-      params.tags = parseTags(params.tags);
+      debugger
+      params = parseParams(params);
       $.ajax({
         url: 'api/restaurants',
         method: 'get',
@@ -32,7 +47,6 @@
       });
     },
     updateRestaurant: function(restaurant) {
-      debugger;
 
       $.ajax({
         url: 'api/restaurants/' + restaurant.id,
@@ -79,7 +93,7 @@
         success: function(responseData) {
           TagActions.receiveAllTags(responseData);
         },
-        failuure: function(responseData) {
+        failure: function(responseData) {
         }
       });
     },
@@ -98,6 +112,16 @@
         method: 'get',
         success: function(responseData) {
           UserActions.receiveUser(responseData);
+        }
+      });
+    },
+    fetchLocations: function() {
+      $.ajax({
+        url: 'api/locations',
+        method: 'get',
+        success: function(responseData) {
+
+          LocationActions.receiveAllLocations(responseData);
         }
       });
     }

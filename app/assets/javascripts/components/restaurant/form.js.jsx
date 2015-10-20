@@ -5,16 +5,14 @@ var RestaurantForm = React.createClass({
     var title = event.currentTarget[0].value;
     var street_address = event.currentTarget[1].value;
     var zip_code = parseInt(event.currentTarget[2].value);
-    var city = event.currentTarget[3].value;
-    var state = event.currentTarget[4].value;
+    var location_array = [event.currentTarget[3].value, event.currentTarget[4].value];
     var phone_number= event.currentTarget[5].value;
     var tag_list = event.currentTarget[6].value;
     ApiUtil.create({
       title: title,
       street_address: street_address,
       zip_code: zip_code,
-      city: city,
-      state:state,
+      location_array: location_array,
       phone_number: phone_number,
       tag_list: tag_list
     });

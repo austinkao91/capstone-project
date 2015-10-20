@@ -18,6 +18,7 @@ window.TagConstants = {
 window.FilterConstants = {
   CHANGE_EVENT: 'filter_change',
   TOGGLE_TAG_FILTER: 'toggle_tag_filter',
+  TOGGLE_LOCATION_FILTER: 'toggle_location_filter',
   ADD_FILTER: 'add_filter'
 };
 
@@ -25,7 +26,11 @@ window.UserConstants = {
   ADD_USER: 'add_user',
   CHANGE_EVENT: 'user_change'
 };
-
+window.LocationConstants = {
+  LOCATIONS_RECEIVED: "location_received",
+  ONE_LOCATION_RECEIVED: "one_location_received",
+  CHANGE_EVENT: 'location_change'
+};
 window.StateConstants = {
   STATES: [
     "AK",

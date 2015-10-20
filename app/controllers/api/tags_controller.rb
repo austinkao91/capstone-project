@@ -10,11 +10,11 @@ class Api::TagsController < ApplicationController
   end
 
   def index
-    @tag = Tag.all.includes(:restaurants)
+    @tag = Tag.all.includes(restaurants: :location)
   end
 
   def show
-    @tag = Tag.find_by(id: params[:id]).includes(restaurants: :reviews)
+    @tag = Tag.find_by(id: params[:id]).includes(restaurants: :reviews).includes(restaurants: :location)
   end
 
   private

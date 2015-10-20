@@ -23,6 +23,7 @@ var RestaurantIndex = React.createClass({
       <div>
         <div className="index group">
           <div className="filters">
+            <LocationIndex />
             <TagIndex />
           </div>
           <MapIndex />

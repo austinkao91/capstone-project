@@ -1,7 +1,6 @@
 class Api::RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    debugger
     if @restaurant.save
       @restaurant = [@restaurant]
       render :show
@@ -23,13 +22,12 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.where(id: params[:id]).includes(:tags).includes(reviews: :user)
+    @restaurant = Restaurant.where(id: params[:id]).includes(:tags).includes(reviews: :user).includes(:location)
   end
 
   def index
     # @restaurant = Restaurant.all.includes(:reviews
-    #
-    @restaurant = Restaurant.filter_by(filter_params).includes(:reviews).includes(:tags)
+    @restaurant = Restaurant.filter_by(filter_params).includes(:reviews).includes(:tags).includes(:location)
   end
 
 
@@ -51,8 +49,7 @@ class Api::RestaurantsController < ApplicationController
         :lat,
         :lng,
         :tag_list,
-        :city,
-        :state
+        {:location_array => []}
     )
   end
 

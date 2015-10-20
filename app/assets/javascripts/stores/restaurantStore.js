@@ -46,7 +46,6 @@
       _restaurants = payload.restaurants;
     },
     replaceRestaurant: function(payload) {
-      debugger;
       _restaurants = [payload.restaurants];
       // _restaurants.forEach(function(restaurant, idx) {
       //   if(restaurant.id === payload.restaurants.id) {

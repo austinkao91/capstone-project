@@ -10,6 +10,7 @@
 #
 
 class Tagging < ActiveRecord::Base
+  validates :tag_id, uniqueness: {scope: [:restaurant_id]}
   belongs_to :tag
   belongs_to :restaurant
 end

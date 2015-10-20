@@ -16,20 +16,30 @@
 #
 
 class Restaurant < ActiveRecord::Base
-  STATE_ARRAY = %w(AK AL AR AZ CA CO CT DC DE FL GA HI IA ID IL IN KS KY LA MA MD ME MI MN MO MS MT NC ND NE NH NJ NM NV NY OH OK OR PA RI SC SD TN TX UT VA VT WA WI WV WY)
-  validates :title, :street_address, :zip_code, :phone_number, :state, :city, presence: true
-  validates :state, inclusion: {in: Restaurant::STATE_ARRAY}
+  validates :title, :street_address, :zip_code, :phone_number, presence: true
 
   has_many :reviews
   has_many :taggings
   has_many :tags, through: :taggings
+  has_one :locationTagging
+  has_one :location, through: :locationTagging
 
   def self.filter_by(filters)
-    if(filters[:tags])
-      Restaurant.exclusive_tag_filter(filters[:tags])
-    else
-      Restaurant.none
+    restaurant = Restaurant.all
+    filters.each do |key, value|
+      if(key == 'tags')
+        restaurant = restaurant.merge(Restaurant.exclusive_tag_filter(value))
+      elsif (key == 'location')
+        restaurant = restaurant.merge(Restaurant.location_filter(value))
+      end
     end
+    restaurant
+  end
+
+  def self.location_filter(location)
+    city = location[0]
+    state = location[1]
+    Restaurant.joins(locationTagging: :location).where(locations: {city: city, state: state})
   end
 
   def self.exclusive_tag_filter(tags)
@@ -44,4 +54,11 @@ class Restaurant < ActiveRecord::Base
     self.tags = new_or_found_tags
   end
 
+  def location_array=(location_array)
+    city = location_array[0]
+    state = location_array[1]
+    debugger
+    new_or_found_location = Location.find_or_create_by(city: city, state: state)
+    self.location = new_or_found_location
+  end
 end

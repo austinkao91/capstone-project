@@ -19,40 +19,30 @@ Restaurant.create!({
   street_address: "16 Jessie Street",
   zip_code: 94102 ,
   phone_number: "(408)497-5442",
-  state: "CA",
-  city: "San Francisco"
 })
 Restaurant.create!({
   title: "Pig's Sushi",
   street_address: "23 Mission Street",
   zip_code: 94102 ,
   phone_number: "(408)342-6442",
-  state: "CA",
-  city: "San Francisco"
 })
 Restaurant.create!({
   title: "Ian's Banana Pho ong",
   street_address: "5th Street",
   zip_code: 94102 ,
   phone_number: "(408)123-3222",
-  state: "CA",
-  city: "San Francisco"
 })
 Restaurant.create!({
   title: "Andrew's White Boy Food",
   street_address: "16 Montgomery Street",
   zip_code: 94102 ,
   phone_number: "(408)766-3445",
-  state: "CA",
-  city: "San Francisco"
 })
 Restaurant.create!({
   title: "Austin's Weeb Shop",
   street_address: "12270 mellowood Dr",
   zip_code: 95070,
   phone_number: "(407)334-4444",
-  state: "CA",
-  city: "Saratoga"
 })
 
 User.create!({
@@ -120,4 +110,34 @@ Review.create!({
   restaurant_id: 4,
   user_id: 2,
   rating: 3
+})
+Location.create!({
+  city: "San Francisco",
+  state: "CA"
+})
+
+
+Location.create!({
+  city: "Saratoga",
+  state: "CA"
+})
+LocationTagging.create!({
+  restaurant_id: 1,
+  location_id: 1
+})
+LocationTagging.create!({
+  restaurant_id: 2,
+  location_id: 1
+})
+LocationTagging.create!({
+  restaurant_id: 3,
+  location_id: 1
+})
+LocationTagging.create!({
+  restaurant_id: 4,
+  location_id: 1
+})
+LocationTagging.create!({
+  restaurant_id: 5,
+  location_id: 2
 })

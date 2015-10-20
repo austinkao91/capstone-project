@@ -8,7 +8,7 @@
 #
 
 class LocationTagging < ActiveRecord::Base
-  
+  validates :location_id, uniqueness: {scope: [:restaurant_id]}
   belongs_to :restaurant
   belongs_to :location
 end
