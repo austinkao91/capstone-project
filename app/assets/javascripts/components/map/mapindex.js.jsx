@@ -25,7 +25,7 @@ var MapIndex = React.createClass({
           latLng = result[0].geometry.location;
           var lat = latLng.lat();
           var lng = latLng.lng();
-          console.log("fetching");
+          console.log(lat + " fetching " + lng)
           ApiUtil.updateLocation(id,  {lat: lat, lng: lng});
           this.map.setCenter(new google.maps.LatLng(lat, lng));
         } else {
@@ -40,6 +40,7 @@ var MapIndex = React.createClass({
       center: {lat: 37.7758, lng: -122.435},
       zoom: 13
     };
+    console.log(mapOptions)
     this.map = new google.maps.Map(map, mapOptions);
     this.geoCoder = new google.maps.Geocoder();
     RestaurantStore.addHandler(RestaurantConstants.CHANGE_EVENT, this.onChange);
