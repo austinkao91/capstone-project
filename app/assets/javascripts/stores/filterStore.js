@@ -2,7 +2,7 @@
   'use strict';
   var _filters = {
     tags: {},
-    location: {city: null, state: null},
+    location: {city: "San Francisco", state: "CA"},
     minPrice: 0
   };
   root.FilterStore = $.extend({}, EventEmitter.prototype, {

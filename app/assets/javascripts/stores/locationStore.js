@@ -23,6 +23,17 @@
       });
       return findLocation;
     },
+    find_by_location: function(locationFilter) {
+      var findLocation = {};
+        debugger
+      _locations.forEach(function(location) {
+        if(location.city === locationFilter.city &&
+              location.state === locationFilter.state) {
+            findLocation = location;
+        }
+      });
+      return findLocation;
+    },
     dispatcherID: appDispatcher.register( function (payload) {
       switch (payload.actionType) {
         case LocationConstants.LOCATIONS_RECEIVED:

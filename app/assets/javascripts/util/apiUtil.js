@@ -23,7 +23,6 @@
 
   window.ApiUtil = {
     fetch: function(params) {
-      debugger
       params = parseParams(params);
       $.ajax({
         url: 'api/restaurants',
@@ -47,7 +46,6 @@
       });
     },
     updateRestaurant: function(restaurant) {
-
       $.ajax({
         url: 'api/restaurants/' + restaurant.id,
         method: 'patch',
@@ -110,6 +108,16 @@
       $.ajax({
         url: 'api/user/' + id,
         method: 'get',
+        success: function(responseData) {
+          UserActions.receiveUser(responseData);
+        }
+      });
+    },
+    updateUser: function(data) {
+      $.ajax({
+        url: 'api/user/' + CURRENT_USER_ID,
+        method: 'patch',
+        data: {user: data},
         success: function(responseData) {
           UserActions.receiveUser(responseData);
         }

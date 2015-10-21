@@ -15,7 +15,7 @@ var UserProfile = React.createClass({
         <div className="user-info">
           <h1>{this.state.user.username}</h1>
           <img src={this.state.user.image_url}></img>
-          <CloudinaryUploader />
+          <CloudinaryUploader upload="user" />
         </div>
         <UserReviewIndex reviews={this.state.user.reviews}/>
       </div>

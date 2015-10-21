@@ -2,10 +2,19 @@ var MapIndex = React.createClass({
   getInitialState: function() {
     return {restaurants: RestaurantStore.all(), markers: []};
   },
+  getMapCenter: function() {
+
+    var loc = FilterStore.all().location;
+    var locCenter = LocationStore.find_by_location(loc);
+    if( Object.keys(locCenter).length === 0) {
+      return {lat: 37.7758, lng: -122.435};
+    }
+  },
   componentDidMount: function(){
     var map = React.findDOMNode(this.refs.map);
+    var center = this.getMapCenter();
     var mapOptions = {
-      center: {lat: 37.7758, lng: -122.435},
+      center: center,
       zoom: 13
     };
     this.map = new google.maps.Map(map, mapOptions);
