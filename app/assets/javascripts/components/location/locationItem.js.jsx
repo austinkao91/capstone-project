@@ -25,6 +25,7 @@ var LocationItem = React.createClass({
     this.setState({checked: checked});
   },
   render: function() {
+    debugger
     if(this.state.checked) {
       return(
         <li className="location-item">

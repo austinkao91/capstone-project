@@ -2,15 +2,45 @@ var MapIndex = React.createClass({
   getInitialState: function() {
     return {restaurants: RestaurantStore.all(), markers: []};
   },
+  setMapCenter: function() {
+    var center = this.getMapCenter();
+    if(typeof center.lat !== "undefined" || typeof center.lng !=="undefined") {
+      this.map.setCenter(new google.maps.LatLng(center.lat, center.lng));
+    }
+  },
   getMapCenter: function() {
-
     var loc = FilterStore.all().location;
     var locCenter = LocationStore.find_by_location(loc);
     if( Object.keys(locCenter).length === 0) {
       return {lat: 37.7758, lng: -122.435};
+    } else {
+      if(typeof locCenter.lat === "undefined" || typeof locCenter.lng === "undefined") {
+        var locationAddress = {address: locCenter.city+ " " + locCenter.state};
+        this.getLocationCoordinates(locationAddress, locCenter.id);
+      } else {
+        var lat = locCenter.lat;
+        var lng = locCenter.lng;
+        return {lat: lat, lng: lng};
+      }
     }
   },
+  getLocationCoordinates: function(loc, id){
+    this.geoCoder.geocode(loc, function(result, status) {
+        var latLng;
+        if( status === "OK") {
+          latLng = result[0].geometry.location;
+          var lat = latLng.lat();
+          var lng = latLng.lng();
+          ApiUtil.updateLocation(id,  {lat: lat, lng: lng});
+          this.map.setCenter(new google.maps.LatLng(lat, lng));
+        } else {
+          alert("Geocoder was unsuccessful because: " + status);
+        }
+    }.bind(this));
+  },
   componentDidMount: function(){
+
+    console.log("mounting")
     var map = React.findDOMNode(this.refs.map);
     var center = this.getMapCenter();
     var mapOptions = {
@@ -19,10 +49,16 @@ var MapIndex = React.createClass({
     };
     this.map = new google.maps.Map(map, mapOptions);
     this.geoCoder = new google.maps.Geocoder();
+    debugger;
     RestaurantStore.addHandler(RestaurantConstants.CHANGE_EVENT, this.onChange);
+    FilterStore.addHandler(FilterConstants.CHANGE_EVENT, this.setMapCenter);
+    LocationStore.addHandler(LocationConstants.CHANGE_EVENT, this.setMapCenter);
   },
   componentWillUnmount: function() {
+    console.log("Unmounting")
+    LocationStore.removeHandler(LocationConstants.CHANGE_EVENT, this.setMapCenter);
     RestaurantStore.removeHandler(RestaurantConstants.CHANGE_EVENT, this.onChange);
+    FilterStore.removeHandler(FilterConstants.CHANGE_EVENT, this.setMapCenter);
   },
   clearMarkers: function() {
     this.state.markers.forEach(function(marker) {
@@ -41,10 +77,8 @@ var MapIndex = React.createClass({
       var restaurants = this.state.restaurants;
       restaurants.forEach(function(restaurant){
         if(restaurant.lat === null || restaurant.lng === null) {
-          console.log("Looking up location coordinates!")
           this.geoLocationMarker(restaurant);
         } else {
-          console.log("I have the location cached!")
           this.placeMarker(restaurant.lat, restaurant.lng, restaurant);
         }
       }.bind(this));

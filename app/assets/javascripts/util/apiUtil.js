@@ -128,8 +128,17 @@
         url: 'api/locations',
         method: 'get',
         success: function(responseData) {
-
           LocationActions.receiveAllLocations(responseData);
+        }
+      });
+    },
+    updateLocation: function(id, data) {
+      $.ajax({
+        url: 'api/locations/' + id,
+        method: 'patch',
+        data: {id: id, location: data},
+        success: function(responseData) {
+          LocationActions.receiveLocation(responseData);
         }
       });
     }

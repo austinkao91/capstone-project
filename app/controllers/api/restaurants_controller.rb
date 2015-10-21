@@ -13,7 +13,7 @@ class Api::RestaurantsController < ApplicationController
   def update
     @restaurant = Restaurant.find(params[:id])
     if @restaurant.update(restaurant_params)
-      @restaurant = [@restaurant]
+      @restaurant = Restaurant.where(id: params[:id]).includes(:tags).includes(reviews: :user).includes(:location)
       render :show
     else
       flash.now[:errors] = @restaurant.errors.full_messages

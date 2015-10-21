@@ -25,7 +25,6 @@
     },
     find_by_location: function(locationFilter) {
       var findLocation = {};
-        debugger
       _locations.forEach(function(location) {
         if(location.city === locationFilter.city &&
               location.state === locationFilter.state) {

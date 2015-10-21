@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :create, :show, :update, :destroy]
     resources :tags, only: [:index, :create, :show]
     resources :user, only: [:show, :update]
-    resources :locations, only: [:index, :create, :show]
+    resources :locations, only: [:index, :create, :show,:update]
   end
 end

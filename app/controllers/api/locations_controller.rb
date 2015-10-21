@@ -12,19 +12,20 @@ class Api::LocationsController < ApplicationController
   def update
     @location = Location.find(params[:id])
     if @location.update(location_params)
+      @location = Location.where(id: params[:id]).includes(restaurants: :reviews).includes(restaurants: :tags)[0]
       render :show
     else
       flash[:errors] = @location.errors.full_messages
       render status: 422
     end
   end
-  
+
   def index
     @location = Location.all.includes(restaurants: :location)
   end
 
   def show
-    @location = Location.find_by(id: params[:id]).includes(restaurants: :reviews).includes(restaurants: :tags)[0]
+    @location = Location.where(id: params[:id]).includes(restaurants: :reviews).includes(restaurants: :tags)[0]
   end
 
   private
