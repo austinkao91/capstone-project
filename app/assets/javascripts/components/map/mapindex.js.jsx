@@ -8,6 +8,7 @@ var MapIndex = React.createClass({
     if( Object.keys(locCenter).length === 0) {
       this.map.setCenter(new google.maps.LatLng(37.7758, -122.435));
     } else {
+      debugger
       if(typeof locCenter.lat === "undefined" || typeof locCenter.lng === "undefined") {
         var locationAddress = {address: locCenter.city+ " " + locCenter.state};
         this.getLocationCoordinates(locationAddress, locCenter.id);
