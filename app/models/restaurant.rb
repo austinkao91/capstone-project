@@ -27,7 +27,7 @@ class Restaurant < ActiveRecord::Base
   def self.filter_by(filters)
     restaurant = Restaurant.all
     filters.each do |key, value|
-      if(key == 'tags')
+      if(key == 'tags' && value != [""])
         restaurant = restaurant.merge(Restaurant.exclusive_tag_filter(value))
       elsif (key == 'location')
         restaurant = restaurant.merge(Restaurant.location_filter(value))

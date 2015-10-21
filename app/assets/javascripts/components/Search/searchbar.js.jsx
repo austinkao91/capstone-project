@@ -16,9 +16,8 @@ var SearchBar = React.createClass({
     if(this.props.id === "tags") {
       store = TagStore.all();
     } else if(this.props.id === "location") {
-
+      store = LocationStore.all();
     }
-
     if(this.state.input.length === 0 ) {
       for(var i = 0; i < 5; i++) {
         if(typeof store[i] !== "undefined") {

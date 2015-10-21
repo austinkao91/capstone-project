@@ -65,12 +65,16 @@
       }
       _filters.tags = tagFilter;
     },
+    addLocationFilter: function(filter) {
+      _filters.location.city = filter.city;
+      _filters.location.state = filter.state;
+    },
     addFilter: function(payload) {
       for (var props in payload.filter) {
         if(props === "tags") {
           this.addTagFilter(payload.filter[props]);
-        } else {
-          _filters[props] = payload.filter[props];
+        } else if (props === "location") {
+          this.addLocationFilter(payload.filter[props]);
         }
       }
     },
