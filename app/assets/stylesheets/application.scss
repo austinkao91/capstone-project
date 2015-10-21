@@ -122,7 +122,17 @@ li * {
 
 .item-info {
   float: left;
-  padding-left: 30px;
+  padding-left: 5px;
+}
+
+.item-picture {
+  padding-left: 5px;
+  float:left;
+}
+
+.item-picture img {
+  width: 100px;
+  height: 75px;
 }
 
 .address {
@@ -137,19 +147,20 @@ li * {
   position: relative;
 }
 
+
 .index {
   position: relative;
   min-height: 500px;
   margin: auto;
   min-width: 600px;
-  width: 75%;
+  width: 85%;
   background: #fff;
 }
 .map {
   display: inline-block;
   float: right;
   min-height: 500px;
-  width: 45%;
+  width: 35%;
   height: 100%;
   margin-left: 2.5%;
   margin-right: 2.5%;
@@ -158,7 +169,7 @@ li * {
 }
 .restaurants-index {
   display: inline-block;
-  width: 45%;
+  width: 55%;
   padding-top: 20px;
   margin-left: 2.5%;
   margin-right: 2.5%;
@@ -279,8 +290,8 @@ div.tag-index > ul {
 }
 
 li.tag-item {
-  display: block;
-  padding: 5px 10px;
+  display: inline-block;
+  padding-right: 5px;
 }
 
 nav.navbar {
@@ -303,7 +314,7 @@ nav.navbar {
 
 .container-fluid {
   margin: auto;
-  width: 75%;
+  width: 85%;
 }
 
 li:hover .user-links {
@@ -413,4 +424,30 @@ li.nav-user-links {
 }
 .tag-item:hover {
   text-decoration: underline;
+}
+
+.place-info {
+  display: inline-block;
+  float: left;
+}
+.picture-info {
+  display: inline-block;
+  float:left
+}
+
+.picture-info img {
+  width: 300px;
+  height: 225px;
+}
+
+.restaurant-detail-map {
+  width: 250px;
+  height: 175px;
+}
+.restaurant-title-info {
+  position: relative;
+}
+.restaurant-title-info > .upload-widget {
+  position: absolute;
+  right: 12%;
 }

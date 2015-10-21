@@ -27,11 +27,11 @@ var RestaurantItem = React.createClass({
           <ImageIndex images={this.props.restaurant.pictures} limit={1}/>
         </div>
         <div className="item-info">
-          {this.props.listNum + 1}{". "}{this.props.restaurant.title}
+          {this.props.listNum + 1}{". "}&nbsp;{this.props.restaurant.title}
           <br/>
-          {"Average Rating: "} {this.averageReview()}
+          {"Average Rating: "}&nbsp;{this.averageReview()}
           <br/>
-          {this.reviewCount()} {" reviews"}
+          {this.reviewCount()}&nbsp;{" reviews"}
           <br/>
           <RestaurantTagIndex tags={this.props.restaurant.tags}/>
         </div>

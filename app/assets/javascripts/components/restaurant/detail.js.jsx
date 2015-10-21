@@ -23,18 +23,24 @@ var RestaurantDetail = React.createClass({
       return(
         <div className="index group">
           <div className="restaurant-detail group">
-            <div className='restaurant-info'>
-              <h2>{this.state.restaurant.title}</h2>
-              <RestaurantTagIndex tags={this.state.restaurant.tags} />
-              <CloudinaryUploader id={this.state.restaurant.id} upload="restaurant" />
-              <ImageIndex images={this.state.restaurant.pictures}/>
-              <RestaurantMap />
+            <div className='restaurant-info group'>
+              <div className="restaurant-title-info">
+                <h2>{this.state.restaurant.title}</h2>
+                <RestaurantTagIndex tags={this.state.restaurant.tags} />
+                  <CloudinaryUploader id={this.state.restaurant.id} upload="restaurant" />
+              </div>
               <div className="business-detail">
-                {address_line1}
-                <br/>
-                {address_line2}
-                <br/>
-                {restaurant.phone_number}
+                <div className="place-info">
+                  <RestaurantMap />
+                  {address_line1}
+                  <br/>
+                  {address_line2}
+                  <br/>
+                  {restaurant.phone_number}
+                </div>
+                <div className="picture-info">
+                  <ImageIndex images={this.state.restaurant.pictures}/>
+                </div>
               </div>
             </div>
             <div className='restaurant-reviews'>
