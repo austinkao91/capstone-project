@@ -57,7 +57,6 @@ class Restaurant < ActiveRecord::Base
   def location_array=(location_array)
     city = location_array[0]
     state = location_array[1]
-    debugger
     new_or_found_location = Location.find_or_create_by(city: city, state: state)
     self.location = new_or_found_location
   end

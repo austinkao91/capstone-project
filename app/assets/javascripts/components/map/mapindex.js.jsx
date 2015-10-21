@@ -8,13 +8,14 @@ var MapIndex = React.createClass({
     if( Object.keys(locCenter).length === 0) {
       this.map.setCenter(new google.maps.LatLng(37.7758, -122.435));
     } else {
-      debugger
-      if(typeof locCenter.lat === "undefined" || typeof locCenter.lng === "undefined") {
+      if(locCenter.lat === null || locCenter.lng === null) {
+        console.log("i dont")
         var locationAddress = {address: locCenter.city+ " " + locCenter.state};
         this.getLocationCoordinates(locationAddress, locCenter.id);
       } else {
         var lat = locCenter.lat;
         var lng = locCenter.lng;
+        console.log("i have it")
         this.map.setCenter(new google.maps.LatLng(lat,lng));
       }
     }
@@ -41,7 +42,6 @@ var MapIndex = React.createClass({
       center: {lat: 37.7758, lng: -122.435},
       zoom: 13
     };
-    console.log(mapOptions)
     this.map = new google.maps.Map(map, mapOptions);
     this.geoCoder = new google.maps.Geocoder();
     RestaurantStore.addHandler(RestaurantConstants.CHANGE_EVENT, this.onChange);
