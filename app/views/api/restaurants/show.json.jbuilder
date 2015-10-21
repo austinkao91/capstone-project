@@ -1,5 +1,5 @@
 if(@restaurant.length > 0)
-  json.extract!(@restaurant[0], :id, :title, :street_address, :zip_code, :phone_number, :lat, :lng)
+  json.extract!(@restaurant[0], :id, :title, :pictures, :street_address, :zip_code, :phone_number, :lat, :lng)
   json.city(@restaurant[0].location.city)
   json.state(@restaurant[0].location.state)
   json.reviews do

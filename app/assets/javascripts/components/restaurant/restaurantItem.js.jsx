@@ -23,6 +23,9 @@ var RestaurantItem = React.createClass({
     var address_line2 = restaurant.city + ", " + restaurant.state + " " + restaurant.zip_code;
     return(
       <li className={"restaurant-item group"} onClick={this.showDetail}>
+        <div className="item-picture">
+          <ImageIndex images={this.props.restaurant.pictures} limit={1}/>
+        </div>
         <div className="item-info">
           {this.props.listNum + 1}{". "}{this.props.restaurant.title}
           <br/>

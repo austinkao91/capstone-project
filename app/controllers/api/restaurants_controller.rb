@@ -2,7 +2,8 @@ class Api::RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
-      @restaurant = [@restaurant]
+      id = @restaurant.id
+      @restaurant = Restaurant.where(id: id).includes(:tags).includes(reviews: :user).includes(:location).includes(:pictures)
       render :show
     else
       flash[:errors] = @restaurant.errors.full_messages
@@ -13,7 +14,7 @@ class Api::RestaurantsController < ApplicationController
   def update
     @restaurant = Restaurant.find(params[:id])
     if @restaurant.update(restaurant_params)
-      @restaurant = Restaurant.where(id: params[:id]).includes(:tags).includes(reviews: :user).includes(:location)
+      @restaurant = Restaurant.where(id: params[:id]).includes(:tags).includes(reviews: :user).includes(:location).includes(:pictures)
       render :show
     else
       flash.now[:errors] = @restaurant.errors.full_messages
@@ -22,12 +23,12 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.where(id: params[:id]).includes(:tags).includes(reviews: :user).includes(:location)
+    @restaurant = Restaurant.where(id: params[:id]).includes(:tags).includes(reviews: :user).includes(:location).includes(:pictures)
   end
 
   def index
     # @restaurant = Restaurant.all.includes(:reviews
-    @restaurant = Restaurant.filter_by(filter_params).includes(:reviews).includes(:tags).includes(:location)
+    @restaurant = Restaurant.filter_by(filter_params).includes(:reviews).includes(:tags).includes(:location).includes(:pictures)
   end
 
 
@@ -49,6 +50,7 @@ class Api::RestaurantsController < ApplicationController
         :lat,
         :lng,
         :tag_list,
+        :image_url,
         {:location_array => []}
     )
   end

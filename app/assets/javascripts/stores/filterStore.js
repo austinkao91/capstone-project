@@ -60,7 +60,6 @@
     },
     addTagFilter: function(filter) {
       var tagFilter = {};
-      debugger;
       for(var i = 0; i < filter.length; i++ ) {
         tagFilter[filter[i]] = true;
       }

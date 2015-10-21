@@ -51,7 +51,7 @@
         method: 'patch',
         data: restaurant,
         success: function(responseData) {
-
+          RestaurantActions.receiveRestaurant(responseData);
         }
       });
     },
@@ -61,7 +61,7 @@
         method: 'post',
         data: {restaurant: params},
         success: function(responseData) {
-          window.location = "/";
+          window.location = "/#/restaurants/" + responseData.id;
         }
       });
     },
@@ -70,6 +70,7 @@
         url: '/session',
         method: 'delete',
         success: function(responseData) {
+          RestaurantActions.receiveRestaurant(responseData);
           window.location = "/";
         }
       });

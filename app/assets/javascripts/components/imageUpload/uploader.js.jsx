@@ -7,7 +7,7 @@ var CloudinaryUploader = React.createClass({
   },
   uploadImage: function(error, result) {
     if( this.props.upload === "restaurant") {
-      ApiUtil.updateRestaurant({restaurant:{image_url: result[0].thumbnail_url}});
+      ApiUtil.updateRestaurant({id: this.props.id, restaurant:{image_url: result[0].thumbnail_url}});
     } else if( this.props.upload === "user"){
       ApiUtil.updateUser({image_url: result[0].thumbnail_url});
     }

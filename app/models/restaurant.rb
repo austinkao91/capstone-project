@@ -23,6 +23,8 @@ class Restaurant < ActiveRecord::Base
   has_many :tags, through: :taggings
   has_one :locationTagging
   has_one :location, through: :locationTagging
+  has_many :pictures, :as => :imageable
+
 
   def self.filter_by(filters)
     restaurant = Restaurant.all
@@ -59,5 +61,10 @@ class Restaurant < ActiveRecord::Base
     state = location_array[1]
     new_or_found_location = Location.find_or_create_by(city: city, state: state)
     self.location = new_or_found_location
+  end
+
+  def image_url=(image_url)
+    new_or_found_pictures = Picture.find_or_create_by(name: image_url)
+    self.pictures = [new_or_found_pictures]
   end
 end

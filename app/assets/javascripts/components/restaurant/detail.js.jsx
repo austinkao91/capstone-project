@@ -26,6 +26,9 @@ var RestaurantDetail = React.createClass({
             <div className='restaurant-info'>
               <h2>{this.state.restaurant.title}</h2>
               <RestaurantTagIndex tags={this.state.restaurant.tags} />
+              <CloudinaryUploader id={this.state.restaurant.id} upload="restaurant" />
+              <ImageIndex images={this.state.restaurant.pictures}/>
+              <RestaurantMap />
               <div className="business-detail">
                 {address_line1}
                 <br/>
