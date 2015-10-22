@@ -47,6 +47,7 @@ var RestaurantMap = React.createClass({
     var marker = new google.maps.Marker({
       position: pos,
       map: that.map,
+      animation: google.maps.Animation.DROP,
       title: restaurant.title
     });
     this.state.markers.push(marker);

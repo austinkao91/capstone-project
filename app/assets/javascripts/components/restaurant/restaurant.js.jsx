@@ -21,14 +21,15 @@ var RestaurantIndex = React.createClass({
   render: function(){
     return(
       <div>
-        <div className="index group">
+        <div className="header group">
           <div className="filters">
             <LocationIndex />
             <TagIndex />
           </div>
+        </div>
+        <div className="index group">
           <MapIndex />
           <ul className="restaurants-index">
-            <h1>Restaurants</h1>
             {
               this.state.restaurants.map(function(restaurant, idx){
                 return <RestaurantItem restaurant={restaurant} listNum={idx} key={idx}/>;

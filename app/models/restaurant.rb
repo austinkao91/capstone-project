@@ -6,17 +6,14 @@
 #  title          :string           not null
 #  street_address :string           not null
 #  zip_code       :integer          not null
-#  city           :string           not null
-#  state          :string           not null
-#  phone_number   :string           not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  lat            :integer
-#  lng            :integer
+#  lat            :float
+#  lng            :float
 #
 
 class Restaurant < ActiveRecord::Base
-  validates :title, :street_address, :zip_code, :phone_number, presence: true
+  validates :title, :street_address, :zip_code, presence: true
 
   has_many :reviews
   has_many :taggings
@@ -49,7 +46,7 @@ class Restaurant < ActiveRecord::Base
   end
 
   def tag_list=(tags_string)
-    tag_titles = tags_string.split(",").collect{|s| s.strip.downcase}.uniq
+    tag_titles = tags_string.split(",").collect{|s| s.strip.downcase.capitalize}.uniq
     new_or_found_tags = tag_titles.collect do |title|
       Tag.find_or_create_by(title: title)
     end

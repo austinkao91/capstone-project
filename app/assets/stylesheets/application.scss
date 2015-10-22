@@ -111,9 +111,6 @@ li.restaurant-item {
   position: relative;
 }
 
-li.restaurant-item:hover {
-  background-color: #eee;
-}
 
 li * {
   display: inline-block;
@@ -132,7 +129,9 @@ li * {
 
 .item-picture img {
   width: 100px;
-  height: 75px;
+  height: 100px;
+  padding: 5px;
+  border-radius: 15px;
 }
 
 .address {
@@ -152,25 +151,29 @@ li * {
   position: relative;
   min-height: 500px;
   margin: auto;
-  min-width: 600px;
-  width: 85%;
-  background: #fff;
+  min-width: 1000px;
+  width: 100%;
+  background: white;
+}
+.header {
+  min-height: 200px;
 }
 .map {
   display: inline-block;
   float: right;
   min-height: 500px;
-  width: 35%;
+  width: 25%;
   height: 100%;
   margin-left: 2.5%;
   margin-right: 2.5%;
   margin-bottom: 2.5%;
+  margin-top: 20px;
 
 }
 .restaurants-index {
   display: inline-block;
-  width: 55%;
-  padding-top: 20px;
+  width: 65%;
+  margin-top: 20px;
   margin-left: 2.5%;
   margin-right: 2.5%;
   margin-bottom: 2.5%;
@@ -407,6 +410,15 @@ li.nav-user-links {
   border-bottom-right-radius: 5px;
 }
 
+p.restaurant-title {
+  color: #3b65a7;
+  cursor: pointer;
+  cursor: hand;
+}
+p.restaurant-title:hover {
+  text-decoration: underline;
+}
+
 .search-result-list > li {
   width: 100%;
   position: relative;
@@ -419,8 +431,11 @@ li.nav-user-links {
 .search-result-list > li:hover {
   background: #ccc;
 }
+
 .tag-item {
-  color: blue;
+  color: #3b65a7;
+  cursor: pointer;
+  cursor: hand;
 }
 .tag-item:hover {
   text-decoration: underline;
@@ -450,4 +465,81 @@ li.nav-user-links {
 .restaurant-title-info > .upload-widget {
   position: absolute;
   right: 12%;
+}
+
+
+body {
+  font-size: 20px;
+  color: #555;
+}
+
+.rating {
+  margin: 10px 0;
+}
+
+.rating i {
+  display: inline-block;
+  width: 0;
+  height: 1.5em;
+  border-width: 0 0.75em;
+  border-style: solid;
+  border-color: #eee;
+  border-radius: .22em;
+  color: white;
+  margin-left: 5px;
+  background: url(//s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png) no-repeat;
+  background-image: url(http://www.getpaint.net/doc/latest/images/tools/magicwand.png);
+  font-style: normal;
+  line-height: 1.6em;
+  text-indent: -0.5em;
+  text-shadow: 1px 0 1px #b3b3b3;
+}
+
+[data-rate^='1'] .star-1 {
+}
+
+[data-rate='1.5'] .star-2 {
+  border-left-color: #cc8b1f;
+}
+
+[data-rate^='2'] .star-1, [data-rate^='2'] .star-2 {
+  border-color: #dcb228;
+  background: #dcb228;
+}
+
+[data-rate='2.5'] .star-3 {
+  border-left-color: #dcb228;
+}
+
+[data-rate^='3'] .star-1, [data-rate^='3'] .star-2, [data-rate^='3'] .star-3 {
+  border-color: #f0991e;
+  background: #f0991e;
+}
+
+[data-rate='3.5'] .star-4 {
+  border-left-color: #f0991e;
+}
+
+[data-rate^='4'] .star-1, [data-rate^='4'] .star-2, [data-rate^='4'] .star-3, [data-rate^='4'] .star-4 {
+  border-color: #f26a2c;
+  background: #f26a2c;
+}
+
+[data-rate='4.5'] .star-5 {
+  border-left-color: #f26a2c;
+}
+
+[data-rate='5'] i {
+  border-color: #dd050b;
+  background: #dd050b;
+}
+
+/** Print */
+@media print {
+  .rating {
+    -webkit-print-color-adjust: exact;
+  }
+  .rating i {
+    text-shadow: none;
+  }
 }

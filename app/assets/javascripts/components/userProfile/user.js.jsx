@@ -15,13 +15,18 @@ var UserProfile = React.createClass({
   render: function() {
 
     return (
-      <div className="index group">
-        <div className="user-info">
-          <h1>{this.state.user.username}</h1>
-          <img src={this.state.user.image_url}></img>
-          {CURRENT_USER_ID === this.state.user.id ? <CloudinaryUploader upload="user" /> : ""}
+      <div>
+        <div className="header group">
+          <div className="user-info">
+            <h1>{this.state.user.username}</h1>
+            <img src={this.state.user.image_url}></img>
+            {window.CURRENT_USER_ID === this.state.user.id ? <CloudinaryUploader upload="user" /> : ""}
+          </div>
         </div>
-        <UserReviewIndex reviews={this.state.user.reviews}/>
+        <div className="index group">
+
+          <UserReviewIndex reviews={this.state.user.reviews}/>
+        </div>
       </div>
     );
   }

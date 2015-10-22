@@ -22,16 +22,23 @@ var RestaurantItem = React.createClass({
     var address_line1 = restaurant.street_address;
     var address_line2 = restaurant.city + ", " + restaurant.state + " " + restaurant.zip_code;
     return(
-      <li className={"restaurant-item group"} onClick={this.showDetail}>
+      <li className={"restaurant-item group"}>
         <div className="item-picture">
           <ImageIndex images={this.props.restaurant.pictures} limit={1}/>
         </div>
         <div className="item-info">
-          {this.props.listNum + 1}{". "}&nbsp;{this.props.restaurant.title}
+          {this.props.listNum + 1}{". "}&nbsp;<p className="restaurant-title"
+                                                onClick={this.showDetail}>
+                                                {this.props.restaurant.title}
+                                              </p>
           <br/>
-          {"Average Rating: "}&nbsp;{this.averageReview()}
-          <br/>
-          {this.reviewCount()}&nbsp;{" reviews"}
+          <div className="rating" data-rate={this.averageReview()}>
+            <i className="star-1">★</i>
+            <i className="star-2">★</i>
+            <i className="star-3">★</i>
+            <i className="star-4">★</i>
+            <i className="star-5">★</i>
+          </div>&nbsp;&nbsp;{this.reviewCount()}&nbsp;{" reviews"}
           <br/>
           <RestaurantTagIndex tags={this.props.restaurant.tags}/>
         </div>

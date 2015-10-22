@@ -1,6 +1,8 @@
 class Api::RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    debugger
+
     if @restaurant.save
       id = @restaurant.id
       @restaurant = Restaurant.where(id: id).includes(:tags).includes(reviews: :user).includes(:location).includes(:pictures)
@@ -28,7 +30,7 @@ class Api::RestaurantsController < ApplicationController
 
   def index
     # @restaurant = Restaurant.all.includes(:reviews
-    @restaurant = Restaurant.filter_by(filter_params).includes(:reviews).includes(:tags).includes(:location).includes(:pictures)
+    @restaurant = Restaurant.filter_by(filter_params).includes(:reviews).includes(:tags).includes(:location).includes(:pictures).uniq
   end
 
 
@@ -36,7 +38,6 @@ class Api::RestaurantsController < ApplicationController
   #  street_address :string           not null
   #  zip_code       :integer          not null
   #  state          :string           not null
-  #  phone_number   :integer          not null
   #  created_at     :datetime         not null
   #  updated_at     :datetime         not null
 
@@ -46,7 +47,6 @@ class Api::RestaurantsController < ApplicationController
         :title,
         :street_address,
         :zip_code,
-        :phone_number,
         :lat,
         :lng,
         :tag_list,

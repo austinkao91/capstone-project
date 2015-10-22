@@ -70,8 +70,7 @@
         url: '/session',
         method: 'delete',
         success: function(responseData) {
-          RestaurantActions.receiveRestaurant(responseData);
-          window.location = "/";
+          window.location = "/session/new";
         }
       });
     },

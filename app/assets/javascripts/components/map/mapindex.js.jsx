@@ -9,13 +9,11 @@ var MapIndex = React.createClass({
       this.map.setCenter(new google.maps.LatLng(37.7758, -122.435));
     } else {
       if(locCenter.lat === null || locCenter.lng === null) {
-        console.log("i dont")
         var locationAddress = {address: locCenter.city+ " " + locCenter.state};
         this.getLocationCoordinates(locationAddress, locCenter.id);
       } else {
         var lat = locCenter.lat;
         var lng = locCenter.lng;
-        console.log("i have it")
         this.map.setCenter(new google.maps.LatLng(lat,lng));
       }
     }
@@ -27,7 +25,6 @@ var MapIndex = React.createClass({
           latLng = result[0].geometry.location;
           var lat = latLng.lat();
           var lng = latLng.lng();
-          console.log(lat + " fetching " + lng)
           ApiUtil.updateLocation(id,  {lat: lat, lng: lng});
           this.map.setCenter(new google.maps.LatLng(lat, lng));
         } else {
@@ -68,27 +65,37 @@ var MapIndex = React.createClass({
   addMarkers: function() {
     if( this.state.restaurants ) {
       var restaurants = this.state.restaurants;
-      restaurants.forEach(function(restaurant){
+      restaurants.forEach(function(restaurant,marker_id){
         if(restaurant.lat === null || restaurant.lng === null) {
-          this.geoLocationMarker(restaurant);
+          this.geoLocationMarker(restaurant, marker_id+1);
         } else {
-          this.placeMarker(restaurant.lat, restaurant.lng, restaurant);
+          this.placeMarker(restaurant.lat, restaurant.lng, restaurant, marker_id + 1);
         }
       }.bind(this));
     }
   },
-  placeMarker: function(lat, lng, restaurant) {
+  placeMarker: function(lat, lng, restaurant, marker_id) {
     var that = this;
     var pos = {lat: lat, lng: lng};
+    var data = "hello world";
+    var infowindow = new google.maps.InfoWindow({
+      content: data
+    });
     var marker = new google.maps.Marker({
       position: pos,
+      icon: "http://maps.google.com/mapfiles/kml/paddle/" + marker_id + ".png",
       map: that.map,
+      animation: google.maps.Animation.DROP,
       title: restaurant.title
     });
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(this.map,marker);
+    }.bind(this));
     this.state.markers.push(marker);
     marker.setMap(that.map);
+
   },
-  geoLocationMarker: function(restaurant) {
+  geoLocationMarker: function(restaurant, marker_id) {
     var loc = {
       address: restaurant.street_address + " " + restaurant.city
     };
@@ -99,7 +106,7 @@ var MapIndex = React.createClass({
           var lat = latLng.lat();
           var lng = latLng.lng();
           ApiUtil.updateRestaurant({id: restaurant.id, restaurant: {lat: lat, lng: lng}});
-          this.placeMarker(lat, lng, restaurant);
+          this.placeMarker(lat, lng, restaurant, marker_id);
         } else {
           alert("Geocoder was unsuccessful because: " + status);
         }

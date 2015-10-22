@@ -37,7 +37,6 @@
           break;
         case 'update_reviews':
           root.RestaurantStore.updateReviews(payload);
-          root.RestaurantStore.change(ReviewConstants.UPDATE_REVIEWS);
           root.RestaurantStore.change(RestaurantConstants.CHANGE_EVENT);
           break;
       }
@@ -54,8 +53,9 @@
     },
     updateReviews: function(payload) {
       _restaurants.forEach(function(restaurant,idx) {
-        if(restaurant.id === payload.reviews.restaurant_id) {
-          _restaurants[idx].reviews.push(payload.reviews);
+      debugger;
+        if(restaurant.id === payload.reviews.restaurant.id) {
+          restaurant.reviews.push(payload.reviews);
         }
       });
     }

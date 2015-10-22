@@ -6,13 +6,10 @@
 #  title          :string           not null
 #  street_address :string           not null
 #  zip_code       :integer          not null
-#  city           :string           not null
-#  state          :string           not null
-#  phone_number   :string           not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  lat            :integer
-#  lng            :integer
+#  lat            :float
+#  lng            :float
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

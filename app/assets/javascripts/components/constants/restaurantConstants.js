@@ -86,3 +86,7 @@ window.StateConstants = {
     "WY"
   ]
 };
+window.TagConstants = {
+  TAGS: ["Italian", "Mexican", "Chinese", "Indian", "Thai", "Japanese", "Greek", "American", "Spanish", "French", "Mediterranean", "Lebanese", "Vietnamese", "Korean", "Turkish", "Soul", "Moroccan", "Caribbean", "German", "Cajun", "Brazilian", "Peruvian", "Cuban", "Polish"]
+
+};
