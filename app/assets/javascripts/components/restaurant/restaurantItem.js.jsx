@@ -5,14 +5,10 @@ var RestaurantItem = React.createClass({
     this.history.pushState(null, showURL);
   },
   averageReview: function() {
-    if( this.reviewCount() > 0 ) {
-      var avg = this.props.restaurant.reviews.reduce(function(accum, review){
-        return accum + review.rating;
-      }, 0);
-      return (avg/this.reviewCount()).toFixed(2);
-    } else {
-      return 5;
-    }
+    var avg = this.props.restaurant.reviews.reduce(function(accum, review){
+      return accum + review.rating;
+    }, 0);
+    return (avg/this.reviewCount()).toFixed(1);
   },
   reviewCount:function() {
     return this.props.restaurant.reviews.length;
@@ -32,13 +28,7 @@ var RestaurantItem = React.createClass({
                                                 {this.props.restaurant.title}
                                               </p>
           <br/>
-          <div className="rating" data-rate={this.averageReview()}>
-            <i className="star-1">★</i>
-            <i className="star-2">★</i>
-            <i className="star-3">★</i>
-            <i className="star-4">★</i>
-            <i className="star-5">★</i>
-          </div>&nbsp;&nbsp;{this.reviewCount()}&nbsp;{" reviews"}
+          <Rating rating={this.averageReview()}/>&nbsp;&nbsp;{this.reviewCount()}&nbsp;{" reviews"}
           <br/>
           <RestaurantTagIndex tags={this.props.restaurant.tags}/>
         </div>

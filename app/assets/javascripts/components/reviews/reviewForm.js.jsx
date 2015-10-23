@@ -9,24 +9,26 @@ var ReviewForm = React.createClass({
   render: function() {
     return (
 
-        <form className="review-form" onSubmit={this.submitForm}>
-          <label className="review-rating">
-            Rating
-            <select className="form-control">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value='5'>5</option>
-            </select>
-          </label>
-          <br/>
-          <label className="review-body">
-            Review
-            <textarea className="form-control"></textarea>
-          </label>
-          <input type="submit" className="review-form-submit" value="Review!"></input>
-        </form>
+        <li className="review-item group">
+          <UserSide user={this.props.user}/>
+          <div className="review-content group">
+            <div className="review-info">
+              <form className="review-form" onSubmit={this.submitForm}>
+                Start your review!
+                <label className="review-rating">
+                  <RatingForm />
+                </label>
+                <br/>
+                <label className="review-body">
+                  Review
+                  <textarea className="form-control"></textarea>
+                </label>
+                <input type="submit" className="review-form-submit" value="Post Review!"></input>
+              </form>
+            </div>
+          </div>
+        </li>
+
     );
   }
 });

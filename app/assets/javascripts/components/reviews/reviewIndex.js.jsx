@@ -43,8 +43,8 @@ var ReviewIndex = React.createClass({
     } else {
       return (
         <div className="review-index">
-          {form}
           <ul className='review-item-list'>
+            {form}
             {
               this.props.reviews.map(function(review, idx){
                 return <ReviewItem key={idx} review={review} />;

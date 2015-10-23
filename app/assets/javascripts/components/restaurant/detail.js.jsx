@@ -15,6 +15,15 @@ var RestaurantDetail = React.createClass({
   componentWillUnmount: function() {
     RestaurantStore.removeHandler(RestaurantConstants.CHANGE_EVENT, this.update);
   },
+  averageReview: function() {
+    var avg = this.state.restaurant.reviews.reduce(function(accum, review){
+      return accum + review.rating;
+    }, 0);
+    return (avg/this.reviewCount()).toFixed(1);
+  },
+  reviewCount:function() {
+    return this.state.restaurant.reviews.length;
+  },
   render: function() {
     var restaurant = this.state.restaurant;
     var address_line1 = restaurant.street_address;
@@ -24,33 +33,37 @@ var RestaurantDetail = React.createClass({
         <div>
 
           <div className="header group">
-            <div className="restaurant-title-info">
-              <h2>{this.state.restaurant.title}</h2>
-              <RestaurantTagIndex tags={this.state.restaurant.tags} />
-              <CloudinaryUploader id={this.state.restaurant.id} upload="restaurant" />
-            </div>
-            <div className="business-detail">
-              <div className="place-info">
-                <RestaurantMap />
-                {address_line1}
-                <br/>
-                {address_line2}
-                <br/>
-              </div>
-              <div className="picture-info">
-                <ImageIndex images={this.state.restaurant.pictures}/>
-              </div>
-          </div>
-          <div className="index group">
-            <div className="restaurant-detail group">
-              <div className='restaurant-info group'>
+            <div className="inner-header group">
+              <div className="restaurant-header group">
+                <div className="restaurant-title-info">
+                  <h2>{this.state.restaurant.title}</h2>
+                  <Rating rating={this.averageReview()}/>&nbsp;&nbsp;{this.reviewCount()}&nbsp;{"reviews"}
+                  <RestaurantTagIndex tags={this.state.restaurant.tags} />
+                </div>
+                <div className="restaurant-buttons">
+                  <CloudinaryUploader id={this.state.restaurant.id} upload="restaurant" />
                 </div>
               </div>
+              <div className="business-detail">
+                <div className="place-info">
+                  <RestaurantMap />
+                  <br/>
+                  {address_line1}
+                  <br/>
+                  {address_line2}
+                  <br/>
+                </div>
+                <div className="picture-info">
+                  <ImageIndex images={this.state.restaurant.pictures} limit={3}/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="index group">
               <div className='restaurant-reviews'>
                 <ReviewIndex restaurant={this.state.restaurant} reviews={this.state.restaurant.reviews}/>
               </div>
             </div>
-          </div>
         </div>
       );
     } else {

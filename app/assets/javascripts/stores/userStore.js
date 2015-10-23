@@ -1,6 +1,7 @@
 (function(root) {
   'use strict';
   var _users = {};
+  var _currentUser= {};
 
   root.UserStore = $.extend({}, EventEmitter.prototype, {
     all: function() {
@@ -21,11 +22,18 @@
           root.UserStore.addUser(payload);
           root.UserStore.change(UserConstants.CHANGE_EVENT);
           break;
+        case UserConstants.ADD_CURRENT_USER:
+          root.UserStore.addCurrentUser(payload);
+          break;
       }
     }),
     addUser: function(payload) {
       _users = payload.user;
+    },
+    addCurrentUser: function(payload) {
+      _currentUser = payload.user;
     }
+
   });
 
 

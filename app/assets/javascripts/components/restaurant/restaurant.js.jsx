@@ -20,13 +20,6 @@ var RestaurantIndex = React.createClass({
   },
   render: function(){
     return(
-      <div>
-        <div className="header group">
-          <div className="filters">
-            <LocationIndex />
-            <TagIndex />
-          </div>
-        </div>
         <div className="index group">
           <MapIndex />
           <ul className="restaurants-index">
@@ -37,7 +30,6 @@ var RestaurantIndex = React.createClass({
             }
           </ul>
         </div>
-      </div>
     );
   }
 });

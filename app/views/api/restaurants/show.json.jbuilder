@@ -4,9 +4,12 @@ if(@restaurant.length > 0)
   json.state(@restaurant[0].location.state)
   json.reviews do
     json.array!(@restaurant[0].reviews) do |review|
-      json.extract!(review, :body, :rating, :restaurant_id)
-      json.username(review.user.username)
-      json.user_id(review.user.id)
+      json.extract!(review, :body, :rating, :restaurant_id, :user_id)
+      json.user do
+        json.username(review.user.username)
+        json.image_url(review.user.image_url)
+        json.id(review.user_id)
+      end
     end
   end
 end

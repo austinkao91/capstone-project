@@ -14,8 +14,9 @@ var CloudinaryUploader = React.createClass({
   },
   render: function() {
     return(
-      <div className="upload-widget">
-        <button className="btn" onClick={this.imageUploader}>Upload Image!</button>
+      <div className="group upload-widget" onClick={this.imageUploader}>
+        <div className="glyphicon glyphicon-camera "/>
+        <p> Add Photo </p>
       </div>
     );
   }

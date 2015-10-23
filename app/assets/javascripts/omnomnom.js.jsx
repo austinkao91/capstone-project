@@ -22,8 +22,8 @@ $(document).ready(function(){
     React.render(
       <Router>
         <Route path="/" component={Index}>
-          <IndexRoute component={RestaurantIndex}/>
-          <Route path="restaurants" component={RestaurantIndex}/>
+          <IndexRoute component={SearchIndex}/>
+          <Route path="restaurants" component={SearchIndex}/>
           <Route path="restaurants/:restaurantId" component={RestaurantDetail}/>
           <Route path="restaurant/new" component={RestaurantForm}/>
           <Route path="user/:userId" component={UserProfile}/>

@@ -14,19 +14,16 @@ var ReviewItem = React.createClass({
     var review = this.props.review;
     var info;
     if(typeof review.restaurantName === "undefined") {
-      info = (
-        <div className="review-user-info">
-          {review.username}
-          <img onClick={this.navTo} className="user-pic" src={review.image_url}/>
-          <br/>
-        </div>
+        info = (
+          <UserSide user={review.user}/>
       );
     } else {
       info = (
         <div className="review-user-info">
-          {review.restaurantName}
           <img  onClick={this.navTo} className="restaurant-pic" src="#"/>
-          <br/>
+          <div className="user-side-info">
+            <p onClick={this.navTo}>{review.restaurantName}</p>
+          </div>
         </div>
       );
     }
@@ -36,7 +33,7 @@ var ReviewItem = React.createClass({
         <div className="review-content group">
           <div className="review-info">
             <span className="rating">
-              Rating:&nbsp;{review.rating}/5
+              <Rating rating={review.rating.toFixed(1)}/>
             </span>
             <span className="post-date">
               {review.created_at}

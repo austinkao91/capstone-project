@@ -62,6 +62,6 @@ class Restaurant < ActiveRecord::Base
 
   def image_url=(image_url)
     new_or_found_pictures = Picture.find_or_create_by(name: image_url)
-    self.pictures = [new_or_found_pictures]
+    self.pictures << new_or_found_pictures
   end
 end

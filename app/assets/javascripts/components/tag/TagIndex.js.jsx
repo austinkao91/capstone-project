@@ -4,7 +4,7 @@ var TagIndex = React.createClass({
   },
   componentDidMount: function() {
     TagStore.addHandler(TagConstants.CHANGE_EVENT, this.getTags);
-    ApiUtil.fetchTags();
+    if(TagStore.all().length === 0) {ApiUtil.fetchTags(); }
   },
   componentWillUnmount: function() {
     TagStore.removeHandler(TagConstants.CHANGE_EVENT, this.getTags);

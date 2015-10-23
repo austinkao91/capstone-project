@@ -10,6 +10,10 @@ var SearchBar = React.createClass({
     e.preventDefault();
     this.setState({input: e.target.innerText});
   },
+  componentDidMount: function() {
+    if(TagStore.all().length === 0 ) { ApiUtil.fetchTags(); }
+    if(LocationStore.all().length === 0) { ApiUtil.fetchLocations(); }
+  },
   matches: function() {
     var matches = [];
     var store = [];

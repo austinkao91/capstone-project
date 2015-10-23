@@ -79,13 +79,15 @@
 
 
 h1 {
+  color: #333;
   font-size: 40;
   font-weight: bold;
   text-align: center;
 }
 
 h2 {
-  font-size: 4rem;
+  color: #333;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
@@ -158,6 +160,13 @@ li * {
 .header {
   min-height: 200px;
 }
+
+.inner-header {
+  margin: auto;
+  min-width: 1000px;
+  width: 85%;
+}
+
 .map {
   display: inline-block;
   float: right;
@@ -205,10 +214,52 @@ a:hover {
   text-decoration: none;
 }
 
+.restaurant-header {
+  position: relative;
+}
+
+.restaurant-header > * {
+  display: inline-block;
+}
+
+.restaurant-buttons {
+  position: absolute;
+  right: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+.upload-widget {
+}
+
+.upload-widget {
+  font-size: 0.8em;
+  color: #333;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 5px 0 0 5px;
+  background: linear-gradient(white,#eee);
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid white;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+  cursor: pointer;
+  cursor: hand;
+}
+
+.upload-widget p {
+  font-family: "bebas", Tahoma, Geneva, sans-serif;
+  display: inline-block;
+  line-height: 1.1em;
+  padding-left:8px;
+}
+
 .restaurant-reviews {
   display:block;
   margin-left: 12%;
-  margin-top: 50px;
+  padding-top: 50px;
 }
 .restaurant-info {
   display: block;
@@ -231,7 +282,7 @@ a:hover {
   top:0;
   bottom: 0;
   width: 1px;
-  left: 140px;
+  left: 240px;
   background: #ccc;
 }
 
@@ -246,10 +297,31 @@ a:hover {
   min-width: 600px;
 }
 .review-user-info {
-  width: 140px;
+  width: 240px;
   display: inline-block;
   padding: 20px;
   text-align: left;
+}
+
+.review-user-info * {
+  display: inline-block;
+}
+
+.review-user-info img {
+  border-radius: 8px;
+}
+
+.review-user-info .user-side-info{
+  margin-left: 5px;
+}
+
+.user-side-info p {
+  color: #3b65a7;
+  cursor: pointer;
+  cursor: hand;
+}
+.user-side-info p:hover {
+  text-decoration: underline;
 }
 
 span.rating {
@@ -276,6 +348,22 @@ span.post-date {
 div.filters {
   padding-top: 5px;
 
+}
+
+.place-info {
+  padding: 7px;
+  border: 1px solid #ccc;
+  background: white;
+  font-weight: 600;
+  display: inline-block;
+  float: left;
+  position: absolute;
+  z-index: 750;
+  box-shadow: 10px 5px 5px black;
+}
+
+.business-detail {
+  bottom: -3px;
 }
 
 div.tag-index {
@@ -441,26 +529,44 @@ p.restaurant-title:hover {
   text-decoration: underline;
 }
 
-.place-info {
-  display: inline-block;
-  float: left;
-}
 .picture-info {
   display: inline-block;
-  float:left
+  margin-left: 350px;
+}
+
+.picture-info li{
+  display: inline-block;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  z-index:999;
 }
 
 .picture-info img {
-  width: 300px;
+  width: 225px;
   height: 225px;
+  object-position: center;
+}
+
+
+.picture-info li:hover {
+  -webkit-transform:scale(1.1);
+  -moz-transform:scale(1.1);
+  -ms-transform:scale(1.1);
+  -o-transform:scale(1.1);
+  transform:scale(1.1);
+  z-index: 1000;
 }
 
 .restaurant-detail-map {
-  width: 250px;
+  width: 300px;
   height: 175px;
 }
 .restaurant-title-info {
   position: relative;
+  padding: 20px 0;
 }
 .restaurant-title-info > .upload-widget {
   position: absolute;
@@ -475,6 +581,11 @@ body {
 
 .rating {
   margin: 10px 0;
+  display: inline-block;
+}
+.rating-form {
+  margin: 10px 0;
+  display: inline-block;
 }
 
 .rating i {
@@ -483,19 +594,42 @@ body {
   height: 1.5em;
   border-width: 0 0.75em;
   border-style: solid;
-  border-color: #eee;
-  border-radius: .22em;
+  border-color: #ccccc8;
+  border-radius: .18em;
   color: white;
   margin-left: 5px;
   background: url(//s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png) no-repeat;
-  background-image: url(http://www.getpaint.net/doc/latest/images/tools/magicwand.png);
+  background-image: url(http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png);
   font-style: normal;
   line-height: 1.6em;
   text-indent: -0.5em;
-  text-shadow: 1px 0 1px #b3b3b3;
+  text-shadow: 1px 0 2px #b3b3b3;
+  box-shadow: 0 0 1px black;
 }
 
+.rating-form i {
+  display: inline-block;
+  width: 0;
+  height: 1.5em;
+  border-width: 0 0.75em;
+  border-style: solid;
+  border-color: #ccccc8;
+  border-radius: .18em;
+  color: white;
+  margin-left: 5px;
+  background: url(//s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png) no-repeat;
+  background-image: url(http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png);
+  font-style: normal;
+  line-height: 1.6em;
+  text-indent: -0.5em;
+  text-shadow: 1px 0 2px #b3b3b3;
+  box-shadow: 0 0 1px black;
+}
+
+
 [data-rate^='1'] .star-1 {
+  border-color: #cc8b1f;
+  background: #cc8b1f;
 }
 
 [data-rate='1.5'] .star-2 {
@@ -529,7 +663,7 @@ body {
   border-left-color: #f26a2c;
 }
 
-[data-rate='5'] i {
+[data-rate='5.0'] i {
   border-color: #dd050b;
   background: #dd050b;
 }
