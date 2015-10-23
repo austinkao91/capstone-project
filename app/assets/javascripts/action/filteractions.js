@@ -1,8 +1,9 @@
 var FilterActions = {
-  toggleLocationFilter: function(data) {
+  toggleObjectFilter: function(data) {
+    debugger
     var payload = {
       filter: data,
-      actionType: FilterConstants.TOGGLE_LOCATION_FILTER
+      actionType: FilterConstants.TOGGLE_OBJECT_FILTER
     };
     appDispatcher.dispatch(payload);
   },

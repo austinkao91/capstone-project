@@ -1,15 +1,4 @@
 var ReviewItem = React.createClass({
-  mixins: [ReactRouter.History],
-  navTo:function(event) {
-    event.preventDefault();
-    var url;
-    if(typeof this.props.review.restaurantName === "undefined") {
-      url = "/user/" + this.props.review.user_id;
-    } else {
-      url = "/restaurants/" + this.props.review.restaurant_id;
-    }
-    this.history.pushState(null, url);
-  },
   render: function() {
     var review = this.props.review;
     var info;
@@ -19,12 +8,10 @@ var ReviewItem = React.createClass({
       );
     } else {
       info = (
-        <div className="review-user-info">
-          <img  onClick={this.navTo} className="restaurant-pic" src="#"/>
-          <div className="user-side-info">
-            <p onClick={this.navTo}>{review.restaurantName}</p>
-          </div>
-        </div>
+        <RestaurantSide
+          title={review.restaurantName}
+          restaurantId={review.restaurant_id}
+          image_url={review.restaurant_image}/>
       );
     }
     return (
@@ -32,12 +19,8 @@ var ReviewItem = React.createClass({
         {info}
         <div className="review-content group">
           <div className="review-info">
-            <span className="rating">
-              <Rating rating={review.rating.toFixed(1)}/>
-            </span>
-            <span className="post-date">
-              {review.created_at}
-            </span>
+            <Rating rating={review.rating.toFixed(1)}/>
+            <p>&nbsp;{review.created_at}</p>
           </div>
           <div className="review-body">
             {review.body}

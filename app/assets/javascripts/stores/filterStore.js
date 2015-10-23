@@ -3,7 +3,9 @@
   var _filters = {
     tags: {},
     location: {city: "San Francisco", state: "CA"},
-    minPrice: 0
+    priceRange: {price: null},
+    locationBound: {center_lat: null, center_lng: null , radius: null},
+    holder: 0
   };
   root.FilterStore = $.extend({}, EventEmitter.prototype, {
     all: function() {
@@ -28,26 +30,37 @@
           root.FilterStore.addFilter(payload);
           root.FilterStore.change(FilterConstants.CHANGE_EVENT);
           break;
-        case FilterConstants.TOGGLE_LOCATION_FILTER:
-          root.FilterStore.toggleLocationFilter(payload);
+        case FilterConstants.TOGGLE_OBJECT_FILTER:
+          root.FilterStore.toggleObjectFilter(payload);
           root.FilterStore.change(FilterConstants.CHANGE_EVENT);
           break;
       }
     }),
 
-    toggleLocationFilter: function(payload) {
-      var filter = payload.filter.location;
-      var locationFilter = _filters.location;
-      if (locationFilter.city === filter.city && locationFilter.state === filter.state) {
-        locationFilter.city = null;
-        locationFilter.state = null;
+    toggleObjectFilter: function(payload) {
+      var filterProp = Object.keys(payload.filter)[0];
+      var filter = payload.filter;
+      var locationFilter = _filters[filterProp];
+      var filterKeys = Object.keys(filter);
+      var matches = 0;
+
+      filterKeys.forEach(function(props) {
+         if (filter[props] === locationFilter[props]) {
+           matches += 1;
+         }
+      });
+
+      if ( matches === filterKeys.length ) {
+        for(var props in locationFilter) {
+          locationFilter[props] = null;
+        }
       } else {
-        locationFilter.city = filter.city;
-        locationFilter.state = filter.state;
+        _filters[filterProp] = $.extend(true, {}, filter)[filterProp];
       }
     },
 
     toggleTagFilter: function(payload) {
+      debugger
       var filter = payload.filter.tags;
       var tagFilter = _filters.tags;
       for(var i = 0; i < filter.length; i++ ) {
@@ -59,22 +72,26 @@
       }
     },
     addTagFilter: function(filter) {
+      debugger
       var tagFilter = {};
       for(var i = 0; i < filter.length; i++ ) {
         tagFilter[filter[i]] = true;
       }
       _filters.tags = tagFilter;
     },
-    addLocationFilter: function(filter) {
-      _filters.location.city = filter.city;
-      _filters.location.state = filter.state;
+    addObjectFilter: function(props, filter) {
+      debugger
+      for(var params in filter) {
+        _filters.props.params = filter.params;
+      }
     },
     addFilter: function(payload) {
+      debugger
       for (var props in payload.filter) {
         if(props === "tags") {
           this.addTagFilter(payload.filter[props]);
-        } else if (props === "location") {
-          this.addLocationFilter(payload.filter[props]);
+        } else {
+          this.addObjectFilter(props, payload.filter[props]);
         }
       }
     },

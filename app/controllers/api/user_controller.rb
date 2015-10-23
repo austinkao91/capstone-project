@@ -12,7 +12,7 @@ class Api::UserController < ApplicationController
     else
       @user = User.find(params[:id])
       if @user.update(user_params)
-        @user = User.where(id: params[:id]).includes(reviews: :restaurant)[0]
+        @user = User.where(id: params[:id]).includes(reviews: {restaurant: :pictures})[0]
         render :show
       else
         flash[:errors] = @user.errors.full_messages

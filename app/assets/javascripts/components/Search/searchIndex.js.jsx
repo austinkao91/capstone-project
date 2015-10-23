@@ -3,8 +3,7 @@ var SearchIndex = React.createClass({
     return(
       <div className="header group">
         <div className="filters">
-          <LocationIndex />
-          <TagIndex />
+          <FilterIndex />
         </div>
         <RestaurantIndex />
       </div>

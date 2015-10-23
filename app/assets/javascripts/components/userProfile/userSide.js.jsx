@@ -7,21 +7,22 @@ var UserSide = React.createClass({
   },
   render: function() {
     if(typeof this.props.user === "undefined" ) {
-      this.props.user = {
+      this.user = {
         id: window.CURRENT_USER_ID,
         image_url: window.CURRENT_USER_IMAGE_URL,
         username: window.CURRENT_USERNAME
       };
+    } else {
+        this.user = this.props.user;
     }
     return (
       <div className="review-user-info group">
         <img onClick={this.navTo}
           className="user-pic"
-          src={this.props.user ? this.props.user.image_url: null}/>
+          src={this.user ? this.user.image_url: null}/>
         <div className="user-side-info">
-          <p onClick={this.navTo}>{this.props.user ? this.props.user.username: null}</p>
+          <p onClick={this.navTo}>{this.user ? this.user.username: null}</p>
         </div>
-
       </div>
     );
   }

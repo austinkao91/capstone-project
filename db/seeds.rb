@@ -57,11 +57,29 @@ Tagging.create!([
   {tag_id: 2, restaurant_id: 7},
   {tag_id: 2, restaurant_id: 8},
   {tag_id: 2, restaurant_id: 9},
-  {tag_id: 1, restaurant_id: 9},
   {tag_id: 1, restaurant_id: 10},
   {tag_id: 2, restaurant_id: 11}
 ])
 User.create!([
   {username: "ian", password_digest: "$2a$10$7PGrtacutZwEU6Vxq37Mr.r8KsjYllF32XQEwFjq7DaDEqtyZ0UhC", session_token: "jDeOE_FkyY5BCIdx17IRTg", image_url: "http://res.cloudinary.com/dnifqmdlf/image/upload/v1444929813/images_ohgzbq.png"},
   {username: "totoro", password_digest: "$2a$10$HYMF/Gzj3Sct4Jdpld7ae.2FBTwAyKhhsMPBMP91ur7DyL9AXRlfm", session_token: "AnG5d5TJDsejljHT8E9PKg", image_url: "http://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1445448726/pmdrnnchxoev0ln3sdh9.png"}
+])
+
+PriceRange.create!(min: 0, max: 10)
+PriceRange.create!(min:10, max: 20)
+PriceRange.create!(min:20, max: 35)
+PriceRange.create!(min:35, max: 9999)
+
+PriceRangeJoining.create!([
+    {priceRange_id: 1,restaurant_id: 1},
+    {priceRange_id: 2,restaurant_id: 2},
+    {priceRange_id: 2,restaurant_id: 3},
+    {priceRange_id: 1,restaurant_id: 4},
+    {priceRange_id: 3,restaurant_id: 5},
+    {priceRange_id: 2,restaurant_id: 6},
+    {priceRange_id: 2,restaurant_id: 7},
+    {priceRange_id: 1,restaurant_id: 8},
+    {priceRange_id: 1,restaurant_id: 9},
+    {priceRange_id: 2,restaurant_id: 10},
+    {priceRange_id: 1,restaurant_id: 11}
 ])

@@ -7,17 +7,23 @@
     }
     return tagArray;
   };
-  var parseLocation = function(location) {
-    if(location.city === null || location.state === null) {
-      return [];
-    } else {
-      return [location.city, location.state];
+  var parseObject = function(object) {
+    var arrayParams = [];
+    for(var props in object) {
+      if(object[props] === null) { return [];}
+      arrayParams.push(object[props]);
     }
+    return arrayParams;
   };
 
   var parseParams = function(params) {
-    params.tags = parseTags(params.tags);
-    params.location = parseLocation(params.location);
+    for(var props in params) {
+      if(props === "tags") {
+        params.tags = parseTags(params.tags);
+      } else {
+        params[props] = parseObject(params[props]);
+      }
+    }
     return params;
   };
 

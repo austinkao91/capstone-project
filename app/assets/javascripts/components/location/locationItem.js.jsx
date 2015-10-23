@@ -4,7 +4,7 @@ var LocationItem = React.createClass({
   },
   filterRestaurants: function() {
     var location = this.props.location;
-    FilterActions.toggleLocationFilter({location: {city:location.city, state:location.state}});
+    FilterActions.toggleObjectFilter({location: {city:location.city, state:location.state}});
   },
   componentDidMount: function() {
     FilterStore.addHandler(FilterConstants.CHANGE_EVENT, this.getCheckedState);

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022021033) do
+ActiveRecord::Schema.define(version: 20151023014718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,21 @@ ActiveRecord::Schema.define(version: 20151022021033) do
   end
 
   add_index "pictures", ["imageable_id"], name: "index_pictures_on_imageable_id", using: :btree
+
+  create_table "price_range_joinings", force: :cascade do |t|
+    t.integer "priceRange_id", null: false
+    t.integer "restaurant_id", null: false
+  end
+
+  add_index "price_range_joinings", ["restaurant_id", "priceRange_id"], name: "index_price_range_joinings_on_restaurant_id_and_priceRange_id", using: :btree
+  add_index "price_range_joinings", ["restaurant_id"], name: "index_price_range_joinings_on_restaurant_id", unique: true, using: :btree
+
+  create_table "price_ranges", force: :cascade do |t|
+    t.integer  "min",        null: false
+    t.integer  "max",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "title",          null: false

@@ -21,18 +21,26 @@ class Restaurant < ActiveRecord::Base
   has_one :locationTagging
   has_one :location, through: :locationTagging
   has_many :pictures, :as => :imageable
-
+  has_one :priceRangeJoining
+  has_one :priceRange, through: :priceRangeJoining
 
   def self.filter_by(filters)
     restaurant = Restaurant.all
     filters.each do |key, value|
-      if(key == 'tags' && value != [""])
-        restaurant = restaurant.merge(Restaurant.exclusive_tag_filter(value))
-      elsif (key == 'location')
+      if (key == 'location')
         restaurant = restaurant.merge(Restaurant.location_filter(value))
+      elsif (key == 'tags' && value != [""])
+        restaurant = restaurant.merge(Restaurant.exclusive_tag_filter(value))
+      elsif (key == 'priceRange')
+        restaurant = restaurant.merge(Restaurant.priceRange_filter(value))
       end
     end
     restaurant
+  end
+
+  def self.priceRange_filter(priceRange)
+    Restaurant.joins(priceRangeJoining: :priceRange).where(price_ranges: {id: priceRange})
+
   end
 
   def self.location_filter(location)

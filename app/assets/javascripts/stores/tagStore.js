@@ -22,7 +22,7 @@
       });
       return findTag;
     },
-    dispatcherID: appDispatcher.register( function (payload) {  
+    dispatcherID: appDispatcher.register( function (payload) {
       switch (payload.actionType) {
         case TagConstants.TAGS_RECEIVED:
           root.TagStore.addTag(payload);
@@ -35,9 +35,11 @@
       }
     }),
     addTag: function(payload) {
+       
       _tags = payload.tags;
     },
     replaceTag: function(payload) {
+
       _tags.forEach(function(tag, idx) {
         if(tag.id === payload.tags.id) {
           _tags[idx] = payload.tags;

@@ -69,6 +69,16 @@ var RestaurantForm = React.createClass({
                   }
                 </select>
               </label>
+              <label>
+                Price Range
+                <select className='form-control'>
+                  {
+                    PriceRangeConstants.PRICERANGES.map(function(priceRange, idx){
+                      return <option key={idx} value={idx+1}>{priceRange}</option>;
+                    })
+                  }
+                </select>
+              </label>
               <br/>
               <input type="submit" value="Add new restaurant!"></input>
             </form>

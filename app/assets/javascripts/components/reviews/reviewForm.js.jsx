@@ -14,7 +14,8 @@ var ReviewForm = React.createClass({
           <div className="review-content group">
             <div className="review-info">
               <form className="review-form" onSubmit={this.submitForm}>
-                Start your review!
+                Start your review of&nbsp;<strong>{this.props.restaurantName}</strong>
+                <br/>
                 <label className="review-rating">
                   <RatingForm />
                 </label>

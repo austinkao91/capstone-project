@@ -51,11 +51,16 @@ class Api::RestaurantsController < ApplicationController
         :lng,
         :tag_list,
         :image_url,
-        {:location_array => []}
+        {:location_array => []},
+
     )
   end
 
   def filter_params
-    params.require(:filter).permit({:tags => []},{:location => []}, :minPrice)
+    params.require(:filter).permit({:tags => []},
+                                   {:location => []},
+                                   {:locationBound => []},
+                                   {:priceRange => []},
+                                   :holder)
   end
 end

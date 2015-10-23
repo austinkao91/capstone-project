@@ -312,10 +312,12 @@ a:hover {
 }
 
 .review-user-info .user-side-info{
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 .user-side-info p {
+  position: absolute;
+  top: 20px;
   color: #3b65a7;
   cursor: pointer;
   cursor: hand;
@@ -334,6 +336,7 @@ span.post-date {
   width: 100px;
   height: 100px;
 }
+
 .review-content{
   padding: 20px;
   text-align: left;
@@ -347,7 +350,6 @@ span.post-date {
 }
 div.filters {
   padding-top: 5px;
-
 }
 
 .place-info {
@@ -573,6 +575,21 @@ p.restaurant-title:hover {
   right: 12%;
 }
 
+.review-info {
+  padding-bottom: 15px;
+}
+
+.review-content {
+  width: 100%;
+}
+
+.review-rating {
+  padding: 8px 0;
+}
+
+.review-info * {
+  display: inline-block;
+}
 
 body {
   font-size: 20px;
@@ -580,11 +597,11 @@ body {
 }
 
 .rating {
-  margin: 10px 0;
+  margin: 0;
   display: inline-block;
 }
 .rating-form {
-  margin: 10px 0;
+  margin: 0;
   display: inline-block;
 }
 

@@ -2,7 +2,7 @@ window.RestaurantConstants = {
   RESTAURANTS_RECEIVED: "received",
   ONE_RESTAURANT_RECEIVED: "one_received",
   CHANGE_EVENT: 'change',
-  RESTAURANT_DETAIL_CHANGE_EVENT: 'restaurantDetailChange',
+  RESTAURANT_DETAIL_CHANGE_EVENT: 'restaurantDetailChange'
 };
 
 window.ReviewConstants = {
@@ -18,7 +18,7 @@ window.TagConstants = {
 window.FilterConstants = {
   CHANGE_EVENT: 'filter_change',
   TOGGLE_TAG_FILTER: 'toggle_tag_filter',
-  TOGGLE_LOCATION_FILTER: 'toggle_location_filter',
+  TOGGLE_OBJECT_FILTER: 'toggle_object_filter',
   ADD_FILTER: 'add_filter'
 };
 
@@ -87,6 +87,9 @@ window.StateConstants = {
   ]
 };
 window.TagConstants = {
-  TAGS: ["Italian", "Mexican", "Chinese", "Indian", "Thai", "Japanese", "Greek", "American", "Spanish", "French", "Mediterranean", "Lebanese", "Vietnamese", "Korean", "Turkish", "Soul", "Moroccan", "Caribbean", "German", "Cajun", "Brazilian", "Peruvian", "Cuban", "Polish"]
+  TAGS: ["Italian", "Mexican", "Chinese", "Indian", "Thai", "Japanese", "Greek", "American", "Spanish", "French", "Mediterranean", "Lebanese", "Vietnamese", "Korean", "Turkish", "Soul", "Moroccan", "Caribbean", "German", "Cajun", "Brazilian", "Peruvian", "Cuban", "Polish"].sort()
+};
 
+window.PriceRangeConstants = {
+  PRICERANGES: [" < $10", "$10 - $20", "$20 - $35", "$35+"]
 };

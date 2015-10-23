@@ -31,7 +31,10 @@ var ReviewIndex = React.createClass({
   render:function() {
     var form;
     if (this.state.showForm) {
-      form = <ReviewForm restaurant_id={this.props.restaurant.id} />;
+      form = <ReviewForm
+              restaurant_id={this.props.restaurant.id}
+              restaurantName={this.props.restaurant.title} 
+              />;
     } else {
       form = "";
     }

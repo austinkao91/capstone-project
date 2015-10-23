@@ -17,6 +17,5 @@ var UserReviewIndex = React.createClass({
         </div>
       );
     }
-
   }
 });

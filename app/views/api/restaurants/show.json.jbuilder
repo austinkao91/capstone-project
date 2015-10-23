@@ -5,6 +5,7 @@ if(@restaurant.length > 0)
   json.reviews do
     json.array!(@restaurant[0].reviews) do |review|
       json.extract!(review, :body, :rating, :restaurant_id, :user_id)
+      json.created_at(review.created_at.to_date)
       json.user do
         json.username(review.user.username)
         json.image_url(review.user.image_url)
