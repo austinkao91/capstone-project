@@ -43,23 +43,25 @@ var RestaurantIndex = React.createClass({
     var restaurants = this.state.restaurants.slice(firstRestaurant, lastRestaurant);
     return(
         <div className="index group">
-          <MapIndex restaurants={restaurants} />
-          <div className="restaurants-index">
-            <ul className="restaurants-index-list">
-              {
-                restaurants.map(function(restaurant, idx){
+          <div className="index-container group">
+            <MapIndex restaurants={restaurants} />
+            <div className="restaurants-index">
+              <ul className="restaurants-index-list">
+                {
+                  restaurants.map(function(restaurant, idx){
 
-                  return <RestaurantItem restaurant={restaurant} listNum={idx} key={idx}/>;
-                })
-              }
-            </ul>
-            <PageDisplay
-              setPage={this.setPage}
-              nextPage={this.nextPage}
-              prevPage={this.prevPage}
-              pageNum={this.state.restaurants.length}
-              currentPage={this.state.page}
-              showing={this.state.showLimit}/>
+                    return <RestaurantItem restaurant={restaurant} listNum={idx} key={idx}/>;
+                  })
+                }
+              </ul>
+              <PageDisplay
+                setPage={this.setPage}
+                nextPage={this.nextPage}
+                prevPage={this.prevPage}
+                pageNum={this.state.restaurants.length}
+                currentPage={this.state.page}
+                showing={this.state.showLimit}/>
+            </div>
           </div>
         </div>
     );

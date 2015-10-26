@@ -77,9 +77,11 @@
   text-align: center;
 }
 
-form.navbar-form{
-  margin-bottom: 4px;
+.user-nav-search form.navbar-form{
+  margin-bottom: 8px;
+  margin-top: 0px;
   border-bottom: none;
+  height: 25px;
 }
 
 h1 {
@@ -223,21 +225,6 @@ li.restaurant-item {
   margin-right: 2.5%;
   margin-bottom: 2.5%;
   float:left;
-}
-
-.log-btn {
-  float:right;
-  width: 15%;
-}
-
-
-.sign-up {
-  border: 1px solid #ddd;
-  background-color: #ccc;
-  border-style: outset;
-  border-top: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 .log-in {
@@ -499,6 +486,7 @@ nav.navbar {
   padding: 7px 10px;
 }
 
+
 .nav-links-list > li:hover {
   text-decoration: none;
   background: #8F0101;
@@ -510,11 +498,42 @@ nav.navbar {
   border-style: inset;
 }
 
-.container-fluid {
-  margin: auto;
-  width: 85%;
+.logo a {
+  color: #eee;
+  font-size: 18px;
+  font-weight: bold;
 }
+
+.logo {
+  float: left;
+  width: 115px;
+  margin-top: 40px;
+}
+
+.logo a:hover {
+  text-decoration: none;
+}
+
+
+.container-content {
+  width: 85%;
+  margin: auto;
+  min-width: 900px;
+}
+
+.log-btn {
+  float: right;
+  width: 91px;
+  margin-top: 20px;
+}
+
+.index-container {
+  width: 85%;
+  margin: auto;
+}
+
 .home {
+  position: relative;
   border-bottom: 1px solid #853330;
   background:center, linear-gradient(#c41200, #af0606);
   color: #eee;
@@ -522,14 +541,14 @@ nav.navbar {
   font-weight: bold;
   font-size: 14px;
   box-shadow: 0 0 5px black;
+  width: 100%;
+  height: 100px;
 }
+
 .nav-links-list a{
   color: #eee;
 }
 
-.navbar-header a.navbar-brand {
-  color: white;
-}
 
 li:hover .user-links {
   display: block;
@@ -558,18 +577,6 @@ li.nav-user-links {
   padding-top: 20px;
 }
 
-.navbar-header {
-  padding-top: 10px;
-  width: 10%;
-  display: block;
-}
-.container-fluid {
-  position: relative;
-}
-
-.navbar-collapse > * {
-  display: inline-block;
-}
 .user-links{
   display: none;
   position: absolute;
@@ -584,6 +591,34 @@ li.nav-user-links {
   white-space: nowrap;
 }
 
+
+.sign-up {
+  background:linear-gradient(#be0100 4%, #a20000 5%, #7c0000 100%);
+  font-size: 15.5px;
+  border-radius: 3px;
+  border: 1px solid #7b0000;
+  padding: 8px 15px;
+
+}
+
+.sign-up:hover {
+  background: #850000;
+}
+
+.log:hover {
+  background: rgba(109,10,0,0.5);
+  box-shadow: inset 0 1px 0 #7b0000,0 1px 0 #c33f01;
+}
+.log {
+  margin-top: 5px;
+  text-align: center;
+  padding: 4px 7.5px;
+}
+
+
+.log-content > a {
+  color: #eee;
+}
 
 li.content > * {
   display: inline-block;
@@ -647,24 +682,35 @@ li.content > * {
   display: inline-block;
 }
 
+.search > * {
+  float: left;
+}
+
+
 .user-nav-search {
-  width: 75%;
-  margin: auto;
+  padding-top: 15px;
+  margin-left: 115px;
+  margin-right: 91px;
 }
 
 .user-nav-search .form-group {
   width: 45%;
   padding-right: 5px;
+  overflow: visible;
 }
 .user-nav-search .btn {
   width: 40px;
 }
 .user-nav-search .form-group .form-control{
+  overflow: visible;
   width: 100%;
 }
 
 .search-result {
+  overflow:visible;
   position: relative;
+  position: relative;
+  z-index: 1000;
 }
 .search-result-list {
   width: 100%;
