@@ -1,6 +1,5 @@
 var FilterActions = {
   toggleObjectFilter: function(data) {
-    debugger
     var payload = {
       filter: data,
       actionType: FilterConstants.TOGGLE_OBJECT_FILTER

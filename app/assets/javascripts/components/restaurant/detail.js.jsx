@@ -27,7 +27,7 @@ var RestaurantDetail = React.createClass({
   render: function() {
     var restaurant = this.state.restaurant;
     var address_line1 = restaurant.street_address;
-    var address_line2 = restaurant.city + ", " + restaurant.state + " " + restaurant.zip_code;
+    var address_line2 = restaurant.city + ", " + restaurant.state;
     if(Object.keys(restaurant).length > 0) {
       return(
         <div>
@@ -38,10 +38,13 @@ var RestaurantDetail = React.createClass({
                 <div className="restaurant-title-info">
                   <h2>{this.state.restaurant.title}</h2>
                   <Rating rating={this.averageReview()}/>&nbsp;&nbsp;{this.reviewCount()}&nbsp;{"reviews"}
-                  <RestaurantTagIndex tags={this.state.restaurant.tags} />
+                  <div className="filter-info">
+                    <Price price={this.state.restaurant.priceRange}/>&nbsp;{"•"}&nbsp;<RestaurantTagIndex tags={this.state.restaurant.tags} />
+                  </div>
                 </div>
                 <div className="restaurant-buttons">
                   <CloudinaryUploader id={this.state.restaurant.id} upload="restaurant" />
+                  <BookMark id={this.state.restaurant.id} />
                 </div>
               </div>
               <div className="business-detail">

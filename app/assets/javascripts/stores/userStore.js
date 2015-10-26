@@ -24,6 +24,7 @@
           break;
         case UserConstants.ADD_CURRENT_USER:
           root.UserStore.addCurrentUser(payload);
+          root.UserStore.change(UserConstants.CHANGE_EVENT);
           break;
       }
     }),

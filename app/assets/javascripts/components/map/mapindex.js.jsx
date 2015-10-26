@@ -1,6 +1,6 @@
 var MapIndex = React.createClass({
   getInitialState: function() {
-    return {restaurants: RestaurantStore.all(), markers: []};
+    return {markers: []};
   },
   getMapCenter: function() {
     var loc = FilterStore.all().location;
@@ -33,7 +33,6 @@ var MapIndex = React.createClass({
     }.bind(this));
   },
   componentDidMount: function(){
-
     var map = React.findDOMNode(this.refs.map);
     var mapOptions = {
       center: {lat: 37.7758, lng: -122.435},
@@ -41,13 +40,11 @@ var MapIndex = React.createClass({
     };
     this.map = new google.maps.Map(map, mapOptions);
     this.geoCoder = new google.maps.Geocoder();
-    RestaurantStore.addHandler(RestaurantConstants.CHANGE_EVENT, this.onChange);
     FilterStore.addHandler(FilterConstants.CHANGE_EVENT, this.getMapCenter);
     LocationStore.addHandler(LocationConstants.CHANGE_EVENT, this.getMapCenter);
   },
   componentWillUnmount: function() {
     LocationStore.removeHandler(LocationConstants.CHANGE_EVENT, this.getMapCenter);
-    RestaurantStore.removeHandler(RestaurantConstants.CHANGE_EVENT, this.onChange);
     FilterStore.removeHandler(FilterConstants.CHANGE_EVENT, this.getMapCenter);
   },
   clearMarkers: function() {
@@ -56,15 +53,13 @@ var MapIndex = React.createClass({
     });
     this.setState({markers: []});
   },
-  onChange: function() {
+  componentWillReceiveProps: function(nextProps){
     this.clearMarkers();
-    this.setState( { restaurants: RestaurantStore.all() }, function() {
-      this.addMarkers();
-    }.bind(this));
+    this.addMarkers(nextProps);
   },
-  addMarkers: function() {
-    if( this.state.restaurants ) {
-      var restaurants = this.state.restaurants;
+  addMarkers: function(props) {
+    if( props.restaurants ) {
+      var restaurants = props.restaurants;
       restaurants.forEach(function(restaurant,marker_id){
         if(restaurant.lat === null || restaurant.lng === null) {
           this.geoLocationMarker(restaurant, marker_id+1);
@@ -77,9 +72,9 @@ var MapIndex = React.createClass({
   placeMarker: function(lat, lng, restaurant, marker_id) {
     var that = this;
     var pos = {lat: lat, lng: lng};
-    var data = "hello world";
+    var data = restaurant.title;
     var infowindow = new google.maps.InfoWindow({
-      content: data
+      content: restaurant.title
     });
     var marker = new google.maps.Marker({
       position: pos,
@@ -88,16 +83,20 @@ var MapIndex = React.createClass({
       animation: google.maps.Animation.DROP,
       title: restaurant.title
     });
-    google.maps.event.addListener(marker, 'click', function() {
+    google.maps.event.addListener(marker, 'mouseover', function() {
       infowindow.open(this.map,marker);
     }.bind(this));
+    google.maps.event.addListener(marker, 'mouseout', function() {
+      infowindow.close();
+    }.bind(this));
     this.state.markers.push(marker);
+    this.setState({markers: this.state.markers });
     marker.setMap(that.map);
 
   },
   geoLocationMarker: function(restaurant, marker_id) {
     var loc = {
-      address: restaurant.street_address + " " + restaurant.city
+      address: restaurant.street_address + " " + restaurant.city + " " + restaurant.state
     };
     this.geoCoder.geocode(loc, function(result, status) {
         var latLng;

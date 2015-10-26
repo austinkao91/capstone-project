@@ -1,7 +1,7 @@
 var NavigationBar = React.createClass({
   render: function() {
     return (
-      <nav className="navbar navbar-default">
+      <nav className="home navbar navbar-default">
 
         <div className="container-fluid">
 

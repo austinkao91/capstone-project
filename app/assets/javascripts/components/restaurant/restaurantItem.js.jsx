@@ -16,7 +16,7 @@ var RestaurantItem = React.createClass({
   render: function() {
     var restaurant = this.props.restaurant;
     var address_line1 = restaurant.street_address;
-    var address_line2 = restaurant.city + ", " + restaurant.state + " " + restaurant.zip_code;
+    var address_line2 = restaurant.city + ", " + restaurant.state;
     return(
       <li className={"restaurant-item group"}>
         <div className="item-picture">
@@ -30,7 +30,10 @@ var RestaurantItem = React.createClass({
           <br/>
           <Rating rating={this.averageReview()}/>&nbsp;&nbsp;{this.reviewCount()}&nbsp;{" reviews"}
           <br/>
-          <RestaurantTagIndex tags={this.props.restaurant.tags}/>
+
+          <div className="filter-info">
+            <Price price={restaurant.priceRange}/>&nbsp;{"•"}&nbsp;<RestaurantTagIndex tags={restaurant.tags}/>
+          </div>
         </div>
         <div className="address">
           {address_line1}

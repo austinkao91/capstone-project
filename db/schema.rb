@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023014718) do
+ActiveRecord::Schema.define(version: 20151026003001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20151023014718) do
   create_table "restaurants", force: :cascade do |t|
     t.string   "title",          null: false
     t.string   "street_address", null: false
-    t.integer  "zip_code",       null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.float    "lat"
@@ -97,12 +96,12 @@ ActiveRecord::Schema.define(version: 20151023014718) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",                                                                                                   null: false
-    t.string   "password_digest",                                                                                            null: false
-    t.string   "session_token",                                                                                              null: false
-    t.datetime "created_at",                                                                                                 null: false
-    t.datetime "updated_at",                                                                                                 null: false
-    t.string   "image_url",       default: "http://res.cloudinary.com/dnifqmdlf/image/upload/v1444929813/images_ohgzbq.png"
+    t.string   "username",                                                                                                           null: false
+    t.string   "password_digest",                                                                                                    null: false
+    t.string   "session_token",                                                                                                      null: false
+    t.datetime "created_at",                                                                                                         null: false
+    t.datetime "updated_at",                                                                                                         null: false
+    t.string   "image_url",       default: "http://res.cloudinary.com/omnombloop/image/upload/v1445819452/anonymousUser_rb4i4l.png"
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree

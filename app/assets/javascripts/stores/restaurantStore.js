@@ -39,6 +39,14 @@
           root.RestaurantStore.updateReviews(payload);
           root.RestaurantStore.change(RestaurantConstants.CHANGE_EVENT);
           break;
+        case ReviewConstants.DELETE_REVIEW:
+          root.RestaurantStore.deleteReview(payload);
+          root.RestaurantStore.change(RestaurantConstants.CHANGE_EVENT);
+          break;
+        case ReviewConstants.CHANGE_REVIEW:
+          root.RestaurantStore.changeReview(payload);
+          root.RestaurantStore.change(RestaurantConstants.CHANGE_EVENT);
+          break;
       }
     }),
     addRestaurant: function(payload) {
@@ -53,11 +61,41 @@
     },
     updateReviews: function(payload) {
       _restaurants.forEach(function(restaurant,idx) {
-      debugger;
         if(restaurant.id === payload.reviews.restaurant.id) {
           restaurant.reviews.push(payload.reviews);
         }
       });
+    },
+    deleteReview: function(payload) {
+      var idx;
+      _restaurants.forEach(function(restaurant,idx) {
+        if(restaurant.id === payload.reviews.restaurant.id) {
+          idx = RestaurantStore.findReviews(restaurant, payload.reviews);
+          if(idx > -1) {
+            _restaurants[0].reviews.splice(idx,1);
+          }
+        }
+      });
+    },
+    changeReview: function(payload) {
+      var idx;
+      _restaurants.forEach(function(restaurant,idx) {
+        if(restaurant.id === payload.reviews.restaurant.id) {
+          idx = RestaurantStore.findReviews(restaurant, payload.reviews);
+          if(idx > -1) {
+            _restaurants[0].reviews[idx] = payload.reviews;
+          }
+        }
+      });
+    },
+    findReviews: function(restaurant, findReview) {
+      var reviewIdx = -1;
+      restaurant.reviews.forEach(function(review,idx){
+        if(review.id === findReview.id) {
+          reviewIdx = idx;
+        }
+      });
+      return reviewIdx;
     }
   });
 

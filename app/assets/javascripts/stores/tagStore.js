@@ -35,7 +35,7 @@
       }
     }),
     addTag: function(payload) {
-       
+
       _tags = payload.tags;
     },
     replaceTag: function(payload) {

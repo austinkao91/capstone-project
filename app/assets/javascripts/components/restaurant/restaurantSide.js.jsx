@@ -11,8 +11,8 @@ var RestaurantSide = React.createClass({
         <img  onClick={this.navTo}
           className="restaurant-pic"
           src={this.props.image_url}/>
-        <div className="user-side-info">
-          <p onClick={this.navTo}>{this.props.title}</p>
+        <div className="user-info">
+          <p className="user-side-info" onClick={this.navTo}>{this.props.title}</p>
         </div>
       </div>
     );

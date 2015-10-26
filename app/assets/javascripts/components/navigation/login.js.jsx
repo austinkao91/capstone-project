@@ -25,12 +25,32 @@ var LogStatus = React.createClass({
       return (
         <ul className="nav log-btn">
           <li className="nav-user-links">
-            <p>Welcome &nbsp; {window.CURRENT_USERNAME}</p>
-            <a href="#">User</a>
-            <ul className="user-links">
-              <li className="content" onClick={this.userProfile}>Your Profile</li>
-              <li className="content" onClick={this.logOut}>Log Out</li>
-            </ul>
+            <img src={window.CURRENT_USER_IMAGE_URL}/>
+            <div className="user-links group">
+              <div className="nav-user-info group">
+                <img src={window.CURRENT_USER_IMAGE_URL}/>
+                <div className="user-info">
+                  <p className="user-side-info">
+                    {window.CURRENT_USERNAME}
+                  </p>
+                  <div className="rating-num group">
+                    <RatingStar rate="star"/>&nbsp;
+                    <div className="rating-len group">
+                      <b>{window.CURRENT_USER_REVIEWS}</b>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul className="user-link-list">
+                <li className="content group" onClick={this.userProfile}>
+                  <div className="glyphicon glyphicon-user"/>
+                    <p>
+                      About Me
+                    </p>
+                </li>
+              </ul>
+              <p className="log-out" onClick={this.logOut}>Log Out</p>
+              </div>
           </li>
         </ul>
       );

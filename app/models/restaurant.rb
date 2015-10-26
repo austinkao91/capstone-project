@@ -5,7 +5,6 @@
 #  id             :integer          not null, primary key
 #  title          :string           not null
 #  street_address :string           not null
-#  zip_code       :integer          not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  lat            :float
@@ -13,7 +12,7 @@
 #
 
 class Restaurant < ActiveRecord::Base
-  validates :title, :street_address, :zip_code, presence: true
+  validates :title, :street_address, presence: true
 
   has_many :reviews
   has_many :taggings
@@ -23,6 +22,10 @@ class Restaurant < ActiveRecord::Base
   has_many :pictures, :as => :imageable
   has_one :priceRangeJoining
   has_one :priceRange, through: :priceRangeJoining
+
+  def price_range=(price_range)
+    self.priceRange = PriceRange.find(price_range)
+  end
 
   def self.filter_by(filters)
     restaurant = Restaurant.all

@@ -23,6 +23,6 @@ class Api::UserController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:image_url)
+    params.require(:user).permit(:image_url, :bookMark)
   end
 end

@@ -33,7 +33,7 @@ var ReviewIndex = React.createClass({
     if (this.state.showForm) {
       form = <ReviewForm
               restaurant_id={this.props.restaurant.id}
-              restaurantName={this.props.restaurant.title} 
+              restaurantName={this.props.restaurant.title}
               />;
     } else {
       form = "";
@@ -46,12 +46,17 @@ var ReviewIndex = React.createClass({
     } else {
       return (
         <div className="review-index">
-          <ul className='review-item-list'>
+          <h1>Recommended Reviews</h1>
+          <ul className='review-item-list group'>
             {form}
             {
               this.props.reviews.map(function(review, idx){
-                return <ReviewItem key={idx} review={review} />;
-              })
+                return <ReviewItemDisplay
+                  key={idx}
+                  review={review}
+                  restaurant_id={this.props.restaurant.id}
+                  restaurantName={this.props.restaurant.title}  />;
+              }.bind(this))
             }
           </ul>
         </div>

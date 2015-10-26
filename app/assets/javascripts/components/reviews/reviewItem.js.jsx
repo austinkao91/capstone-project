@@ -25,9 +25,12 @@ var ReviewItem = React.createClass({
           <div className="review-body">
             {review.body}
           </div>
+          <ReviewOptions
+            enable={this.props.enable}
+            reviewId={review.id}
+            userId={review.user_id} />
         </div>
-
-      </li>
+    </li>
     );
   }
 });

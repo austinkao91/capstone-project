@@ -60,7 +60,6 @@
     },
 
     toggleTagFilter: function(payload) {
-      debugger
       var filter = payload.filter.tags;
       var tagFilter = _filters.tags;
       for(var i = 0; i < filter.length; i++ ) {
@@ -72,7 +71,6 @@
       }
     },
     addTagFilter: function(filter) {
-      debugger
       var tagFilter = {};
       for(var i = 0; i < filter.length; i++ ) {
         tagFilter[filter[i]] = true;
@@ -80,13 +78,11 @@
       _filters.tags = tagFilter;
     },
     addObjectFilter: function(props, filter) {
-      debugger
       for(var params in filter) {
         _filters.props.params = filter.params;
       }
     },
     addFilter: function(payload) {
-      debugger
       for (var props in payload.filter) {
         if(props === "tags") {
           this.addTagFilter(payload.filter[props]);

@@ -80,6 +80,27 @@
         }
       });
     },
+    deleteReview: function(data) {
+      $.ajax({
+        url: 'api/reviews/'+data.reviewId,
+        method: 'delete',
+        data: {review: data},
+        success: function(responseData) {
+          ReviewActions.deleteReviews(responseData);
+        }
+      });
+    },
+    updateReview: function(data) {
+      $.ajax({
+        url: 'api/reviews/'+data.reviewId,
+        method: 'patch',
+        data: {review: data},
+        success: function(responseData) {
+          ReviewActions.changeReviews(responseData);
+        }
+      });
+
+    },
     createReview: function(data) {
       $.ajax({
         url: 'api/reviews',

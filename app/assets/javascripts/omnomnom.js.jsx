@@ -10,13 +10,14 @@ var Index = React.createClass({
     return(
       <div className="omnomnom-index">
         <NavigationBar />
-        { this.props.children }
+        {this.props.children}
       </div>
     );
   }
 });
 
 $(document).ready(function(){
+  EventEmitter.defaultMaxListeners = 500;
   var root = document.getElementById("app");
   if(root) {
     React.render(

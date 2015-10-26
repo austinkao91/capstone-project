@@ -6,7 +6,9 @@ window.RestaurantConstants = {
 };
 
 window.ReviewConstants = {
-  UPDATE_REVIEWS: 'update_reviews'
+  UPDATE_REVIEWS: 'update_reviews',
+  DELETE_REVIEW: 'delete_review',
+  CHANGE_REVIEW: 'change_review'
 };
 
 window.TagConstants = {

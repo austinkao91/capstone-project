@@ -77,12 +77,15 @@
   text-align: center;
 }
 
+form.navbar-form{
+  margin-bottom: 4px;
+  border-bottom: none;
+}
 
 h1 {
-  color: #333;
-  font-size: 40;
+  color: #c41200;
+  font-size: 40px;
   font-weight: bold;
-  text-align: center;
 }
 
 h2 {
@@ -99,6 +102,10 @@ h2 {
   transform: translateX(-50%);
 }
 
+.restaurants-index-list {
+  border-bottom: 1px solid #ddd;
+}
+
 .image {
   display: block;
   float: right;
@@ -113,15 +120,43 @@ li.restaurant-item {
   position: relative;
 }
 
-
-li * {
-  display: inline-block;
+.page-display > * {
+  display: block;
 }
 
+.page-display {
+  display: block;
+}
+
+.page-display-content{
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.page-display p {
+  float: left;
+}
+
+.page-nav {
+  float: right;
+}
+.page-nav > * {
+  display: block;
+  float: left;
+}
+
+.page-list > li {
+  display: block;
+  float: left;
+}
 
 .item-info {
   float: left;
   padding-left: 5px;
+}
+
+.item-info > * {
+  display: inline-block;
 }
 
 .item-picture {
@@ -153,7 +188,7 @@ li * {
   position: relative;
   min-height: 500px;
   margin: auto;
-  min-width: 1000px;
+  min-width: 1100px;
   width: 100%;
   background: white;
 }
@@ -163,9 +198,10 @@ li * {
 
 .inner-header {
   margin: auto;
-  min-width: 1000px;
+  min-width: 1100px;
   width: 85%;
 }
+
 
 .map {
   display: inline-block;
@@ -229,9 +265,11 @@ a:hover {
   transform: translateY(-50%);
 }
 
-
-.upload-widget {
+.restaurant-buttons > * {
+  display: block;
+  float: left;
 }
+
 
 .upload-widget {
   font-size: 0.8em;
@@ -241,12 +279,65 @@ a:hover {
   border-radius: 5px 0 0 5px;
   background: linear-gradient(white,#eee);
   border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid white;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+  cursor: pointer;
+  cursor: hand;
+}
+.bookmark {
+  font-size: 0.8em;
+  color: #333;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 0 5px 5px 0;
+  background: linear-gradient(white,#eee);
+  border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid white;
   box-shadow: 0 2px 2px rgba(0,0,0,0.1);
   cursor: pointer;
   cursor: hand;
+}
+
+.review-options > *{
+  font-size: 0.8em;
+  color: #333;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 0 5px 5px 0;
+  background: linear-gradient(white,#eee);
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid white;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+  cursor: pointer;
+  cursor: hand;
+}
+
+.review-options {
+  display: block;
+  float: right;
+}
+
+.review-options > *:hover {
+  background: #F5F5F0;
+}
+
+.bookmark:hover {
+  background: #F5F5F0;
+}
+.upload-widget:hover {
+  background: #F5F5F0;
+}
+
+.bookmark p {
+  font-family: "bebas", Tahoma, Geneva, sans-serif;
+  display: inline-block;
+  line-height: 1.1em;
+  padding-left:8px;
 }
 
 .upload-widget p {
@@ -258,7 +349,8 @@ a:hover {
 
 .restaurant-reviews {
   display:block;
-  margin-left: 12%;
+  width: 85%;
+  margin: auto;
   padding-top: 50px;
 }
 .restaurant-info {
@@ -272,18 +364,14 @@ a:hover {
 }
 
 .review-item-list {
-  margin-top: 20px;
+  margin-top: 15px;
   width:100%;
   position: relative;
 }
-.review-item:before {
-  content: "";
-  position: absolute;
-  top:0;
-  bottom: 0;
-  width: 1px;
-  left: 240px;
-  background: #ccc;
+
+.review-item > * {
+  display: block;
+  float: left;
 }
 
 .review-item {
@@ -293,21 +381,27 @@ a:hover {
   border-top: 1px solid #ccc;
   margin-bottom: 20px;
 }
+
 .review-form {
-  min-width: 600px;
+  min-width: 300px;
+}
+.review-form p{
+  font-weight: bold;
 }
 .review-user-info {
-  width: 240px;
+  width: 300px;
   display: inline-block;
   padding: 20px;
   text-align: left;
 }
 
-.review-user-info * {
-  display: inline-block;
+.review-user-info > * {
+  display: block;
+  float: left;
 }
 
 .review-user-info img {
+
   border-radius: 8px;
 }
 
@@ -315,23 +409,25 @@ a:hover {
   margin-left: 10px;
 }
 
-.user-side-info p {
-  position: absolute;
-  top: 20px;
+.filter-info > * {
+  display: inline-block;
+}
+
+.user-info > p {
+  padding-left: 6px;
+}
+
+.user-side-info {
+  left: 115px;
   color: #3b65a7;
   cursor: pointer;
   cursor: hand;
 }
-.user-side-info p:hover {
+
+.user-side-info:hover {
   text-decoration: underline;
 }
 
-span.rating {
-  padding: 5px;
-}
-span.post-date {
-  padding: 5px;
-}
 .user-pic {
   width: 100px;
   height: 100px;
@@ -341,7 +437,7 @@ span.post-date {
   padding: 20px;
   text-align: left;
   display:inline-block;
-  width: 300px;
+  width: 65%;
   top: 0;
   position: absolute;
 }
@@ -396,18 +492,43 @@ nav.navbar {
 .nav-links-list > li {
   display: inline-block;
   float: left;
-  padding: 5px 10px;
+  border-top: 1px solid transparent;
+  border-left: 0.5px solid transparent;
+  border-right: 0.5px solid transparent;
+  border-bottom: 1px solid transparent;
+  padding: 7px 10px;
 }
 
 .nav-links-list > li:hover {
   text-decoration: none;
-  background: #ddd;
-  border-radius: 5px;
+  background: #8F0101;
+  border-radius: 3px;
+  border-top: 1px solid #ab0606;
+  border-left: 0.5px solid black;
+  border-right: 0.5px solid black;
+  border-bottom: 1px solid #CF0101;
+  border-style: inset;
 }
 
 .container-fluid {
   margin: auto;
   width: 85%;
+}
+.home {
+  border-bottom: 1px solid #853330;
+  background:center, linear-gradient(#c41200, #af0606);
+  color: #eee;
+  font-family: "bebas", Tahoma, Geneva, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 0 5px black;
+}
+.nav-links-list a{
+  color: #eee;
+}
+
+.navbar-header a.navbar-brand {
+  color: white;
 }
 
 li:hover .user-links {
@@ -417,12 +538,21 @@ li.nav-user-links {
   position: relative;
 }
 
-.nav-user-links p {
-  text-align: right;
+.navbar .navbar-default {
+  min-width: 1100px;
+  width: 85%;
 }
-.nav-user-links a {
-  text-align: right;
+
+.nav-user-links > * {
+  display: block;
+  float: right;
+}
+.nav-user-links img {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #9F0606;
   padding: 0;
+
 }
 .nav-user-links {
   padding-top: 20px;
@@ -431,12 +561,10 @@ li.nav-user-links {
 .navbar-header {
   padding-top: 10px;
   width: 10%;
+  display: block;
 }
 .container-fluid {
   position: relative;
-}
-.navbar-header {
-  display: block;
 }
 
 .navbar-collapse > * {
@@ -445,6 +573,7 @@ li.nav-user-links {
 .user-links{
   display: none;
   position: absolute;
+  top: 59px;
   right: 0;
   z-index: 1000;
   border-bottom-left-radius: 7px;
@@ -454,17 +583,64 @@ li.nav-user-links {
   border-bottom: 1px solid #eee;
   white-space: nowrap;
 }
-.user-links > li {
-  text-align: right;
-  display: block;
-  font-size: 20px;
-  padding: 20px 30px;
-  background: white;
-  border-top: 1px solid #eee;
+
+
+li.content > * {
+  display: inline-block;
+  margin: auto;
+  color: #3b65a7;
 }
 
-.user-links > li:hover {
-  background: #eee;
+.user-link-list {
+  display: block;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
+.user-link-list > li {
+  text-align: right;
+  display: block;
+  font-size: 15px;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.user-links {
+  padding: 15px;
+  background: white;
+}
+
+.user-links > *{
+  margin-bottom: 10px;
+}
+
+.rating-len {
+  color: #333;
+}
+
+.log-out {
+  color: #3b65a7;
+  font-weight: normal;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.log-out:hover {
+  text-decoration: underline;
+}
+
+.nav-user-info > * {
+  display: block;
+  float: left;
+}
+
+.user-link-list > li p {
+  padding-left: 8px;
+}
+
+.user-link-list > li:hover p {
+  text-decoration: underline;
 }
 
 .collapse.navbar-collapse > * {
@@ -501,7 +677,7 @@ li.nav-user-links {
 }
 
 p.restaurant-title {
-  color: #3b65a7;
+    color: #3b65a7;
   cursor: pointer;
   cursor: hand;
 }
@@ -565,6 +741,7 @@ p.restaurant-title:hover {
 .restaurant-detail-map {
   width: 300px;
   height: 175px;
+  border: 1px solid #ccc;
 }
 .restaurant-title-info {
   position: relative;
@@ -576,16 +753,24 @@ p.restaurant-title:hover {
 }
 
 .review-info {
+  display: inline-block;
   padding-bottom: 15px;
 }
 
-.review-content {
-  width: 100%;
+.review-form-info {
+  padding: 20px 20px 0 20px;
+  display: inline-block;
 }
 
-.review-rating {
-  padding: 8px 0;
+.review-form-info * {
+  display: inline-block;
+
 }
+
+.rating-form h5 {
+  margin-left: 20px;
+}
+
 
 .review-info * {
   display: inline-block;
@@ -597,12 +782,26 @@ body {
 }
 
 .rating {
-  margin: 0;
+  margin: 10px 0;
   display: inline-block;
 }
 .rating-form {
-  margin: 0;
+  margin: 10px 0;
+  width: 100%;
   display: inline-block;
+  border-radius: 3px;
+  padding: 15px 10px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+}
+
+.review-info .rating {
+  margin: 0;
+}
+
+.rating .encompassing {
+  display: inline-block;
+  margin-right: 5px;
 }
 
 .rating i {
@@ -614,7 +813,6 @@ body {
   border-color: #ccccc8;
   border-radius: .18em;
   color: white;
-  margin-left: 5px;
   background: url(//s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png) no-repeat;
   background-image: url(http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png);
   font-style: normal;
@@ -624,25 +822,10 @@ body {
   box-shadow: 0 0 1px black;
 }
 
-.rating-form i {
-  display: inline-block;
-  width: 0;
-  height: 1.5em;
-  border-width: 0 0.75em;
-  border-style: solid;
-  border-color: #ccccc8;
-  border-radius: .18em;
-  color: white;
-  margin-left: 5px;
-  background: url(//s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png) no-repeat;
-  background-image: url(http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png);
-  font-style: normal;
-  line-height: 1.6em;
-  text-indent: -0.5em;
-  text-shadow: 1px 0 2px #b3b3b3;
-  box-shadow: 0 0 1px black;
-}
 
+[date-rate='0.5'] .star-1 {
+    border-left-color: #cc8b1f;
+}
 
 [data-rate^='1'] .star-1 {
   border-color: #cc8b1f;
@@ -680,7 +863,11 @@ body {
   border-left-color: #f26a2c;
 }
 
-[data-rate='5.0'] i {
+[data-rate^='5.0'] .star-1,
+[data-rate^='5.0'] .star-2,
+[data-rate^='5.0'] .star-3,
+[data-rate^='5.0'] .star-4,
+[data-rate^='5.0'] .star-5{
   border-color: #dd050b;
   background: #dd050b;
 }
@@ -693,4 +880,153 @@ body {
   .rating i {
     text-shadow: none;
   }
+  .rating-form label {
+    text-shadow: none;
+  }
+
+  .rating-form {
+    webkit-print-color-adjust: exact;
+  }
+}
+
+.rating-form .encompassing {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.rating-form i{
+  display: inline-block;
+  width: 0;
+  height: 1.5em;
+  border-width: 0 0.75em;
+  background-position: 0 0;
+  border-style: solid;
+  border-color: #ccccc8;
+  border-radius: .18em;
+  color: white;
+  margin-left: 5px;
+  font-style: normal;
+  line-height: 1.6em;
+  text-indent: -0.5em;
+  text-shadow: 1px 0 2px #b3b3b3;
+  box-shadow: 0 0 1px black;
+}
+
+.encompassing {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+
+
+.star i{
+  width: 0;
+  height: 0.6em;
+  border-width: 0 0.15em;
+  background-position: 0 0;
+  border-style: solid;
+  border-color: #ccccc8;
+  border-radius: .18em;
+  color: white;
+  margin-left: 5px;
+  font-style: normal;
+  line-height: 1.05em;
+  text-indent: -0.4em;
+}
+
+.star i {
+  border-color: #f26a2c;
+  background: #f26a2c;
+}
+
+.rating-num {
+  padding: 6px;
+}
+
+.rating-num > *{
+
+  display: block;
+  float: left;
+  font-size: 12px;
+}
+
+b {
+  font-weight: bold;
+}
+
+.review-form-submit {
+  border: 1px solid #a50508;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+  cursor: pointer;
+  cursor: hand;
+  background: linear-gradient(#ff2000 2%, #ea050b 10%, #d40d04 100%);
+  border-radius: 3px;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.review-form-submit p {
+  transform: translateY(-23%);
+  color: #eee;
+  margin-left: 5px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.review-form-submit div {
+  color: #333;
+  opacity: 0.6;
+}
+
+.review-body {
+  width: 100%;
+  padding: 7.5px 0;
+}
+
+.review-form > * {
+  display: block;
+}
+
+.review-body p {
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 7.5px;
+}
+
+.review-body textarea {
+  width: 100%;
+  height: 150px;
+}
+
+li.current {
+  border: 1px solid #ddd;
+  background: #eee;
+  color: #333;
+  font-weight: bold;
+  padding: 3px 8px;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.display-page-content p {
+  padding: 3px;
+}
+
+li.page-number {
+  font-size: 16px;
+  border: 1px solid white;
+  padding: 3px 8px;
+  color: #3b65a7;
+  cursor: pointer;
+  cursor: hand;
+}
+
+li.page-number:hover {
+  text-decoration: underline;
+}
+
+.page-button {
+  color: #3b65a7;
+  cursor: pointer;
+  cursor: hand;
 }
