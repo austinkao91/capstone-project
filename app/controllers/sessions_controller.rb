@@ -18,6 +18,11 @@ class SessionsController < ApplicationController
     end
   end
 
+  def guest_log_in
+    sign_in(User.find(1))
+    redirect_to root_url
+  end
+
   def destroy
     sign_out
     render json: {}

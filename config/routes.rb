@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     resources :user, only: [:show, :update]
     resources :locations, only: [:index, :create, :show,:update]
   end
+  get 'guest' => 'sessions#guest_log_in'
 end

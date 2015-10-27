@@ -1,7 +1,12 @@
 var NavigationLinks = React.createClass({
   mixins: [ReactRouter.History],
   newRestaurant: function() {
-    this.history.pushState(null, "restaurant/new");
+    debugger;
+    if(window.CURRENT_USER_ID) {
+      this.history.pushState(null, "restaurant/new");
+    } else {
+      window.location = "/session/new";
+    }
   },
   navHome: function() {
     this.history.pushState(null, "/#");
@@ -10,11 +15,11 @@ var NavigationLinks = React.createClass({
     return(
       <div className="nav-links group">
         <ul className="nav-links-list">
-          <li>
-            <a href="" onClick={this.navHome}>Home</a>
+          <li className="navigation-link">
+            <p onClick={this.navHome}>Home</p>
           </li>
-          <li>
-            <a href="" onClick={this.newRestaurant} >New Restaurant</a>
+          <li className="navigation-link">
+            <p onClick={this.newRestaurant} >New Restaurant</p>
           </li>
         </ul>
       </div>
