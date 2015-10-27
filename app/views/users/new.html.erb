@@ -1,9 +1,9 @@
-<div class="nav-bar"><a href="/#">Omnomnom</a></div>
+<div class="home"><a class="home-link" href="/#">Omnomnom</a></div>
 
-<div class="sign">
+<div class="sign group">
   <div class="sign-form">
       <h1>Sign Up for Omnomnom</h1>
-        <form action="/users" method="post">
+        <form class="sign-form-fields" action="/users" method="post">
           <%= auth_token %>
           <label> Username
             <input type="text" class="form-control" name="user[username]" value="<%= @user.username %>">
@@ -17,13 +17,11 @@
             <input type="password" class="form-control" name="user[password_confirm]" value="">
           </label>
           <br>
-          <input type="submit" value="Sign Up!">
+          <input class="form-control sign-submit" type="submit" value="Sign Up!">
         </form>
       <p>Already with omnom? <a href="<%= new_session_url %>">Log in</a></p>
-    </div>
   </div>
-
   <div class="image">
-    <img src="/assets/signup_illustration.png"></img>
+    <img src="https://res.cloudinary.com/omnombloop/image/upload/v1445931029/signup_illustration_bze0or.png"></img>
   </div>
 </div>

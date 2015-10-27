@@ -20,7 +20,7 @@ var ImageIndex = React.createClass({
       return (
         <ul className="image-list">
           {
-            <img src="http://res.cloudinary.com/omnombloop/image/upload/v1445820062/noPicture_rvdxyy.png"/>
+            <img src="https://res.cloudinary.com/omnombloop/image/upload/v1445820062/noPicture_rvdxyy.png"/>
           }
         </ul>
       );

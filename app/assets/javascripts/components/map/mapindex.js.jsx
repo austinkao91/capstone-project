@@ -78,7 +78,7 @@ var MapIndex = React.createClass({
     });
     var marker = new google.maps.Marker({
       position: pos,
-      icon: "http://maps.google.com/mapfiles/kml/paddle/" + marker_id + ".png",
+      icon: "https://maps.google.com/mapfiles/kml/paddle/" + marker_id + ".png",
       map: that.map,
       animation: google.maps.Animation.DROP,
       title: restaurant.title

@@ -20,6 +20,8 @@
     for(var props in params) {
       if(props === "tags") {
         params.tags = parseTags(params.tags);
+      } else if(props === "holder"){
+        continue;
       } else {
         params[props] = parseObject(params[props]);
       }

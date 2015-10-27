@@ -8,6 +8,7 @@ var LocationItem = React.createClass({
   },
   componentDidMount: function() {
     FilterStore.addHandler(FilterConstants.CHANGE_EVENT, this.getCheckedState);
+    this.getCheckedState();
   },
   componentWillUnmount: function() {
     FilterStore.removeHandler(FilterConstants.CHANGE_EVENT, this.getCheckedState);
@@ -20,6 +21,7 @@ var LocationItem = React.createClass({
     var itemLocation = this.props.location;
     var location = FilterStore.all().location;
     if(location.city === itemLocation.city && location.state === itemLocation.state) {
+
          checked = true;
     }
     this.setState({checked: checked});

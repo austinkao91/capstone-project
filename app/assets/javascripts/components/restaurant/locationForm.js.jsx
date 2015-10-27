@@ -16,7 +16,6 @@ var RestaurantLocationForm = React.createClass({
   },
   createLocation: function(event) {
     event.preventDefault();
-    debugger;
     var title = event.currentTarget[0].value.trim();
     var tag_list = event.currentTarget[1].value;
     var price_range = parseInt(event.currentTarget[2].value);
@@ -45,7 +44,6 @@ var RestaurantLocationForm = React.createClass({
     };
     this.geoCoder.geocode(loc, function(result, status) {
         var latLng;
-        debugger;
         if( status === "OK") {
           latLng = result[0].geometry.location;
           var lat = latLng.lat();
@@ -76,7 +74,7 @@ var RestaurantLocationForm = React.createClass({
           <p>Add more details to the restaurant below</p>
           <div className="restaurant-body-contents">
             <div className="restaurant-form-picture">
-              <img src="http://res.cloudinary.com/omnombloop/image/upload/v1445913800/2000px-Restaurant_building_clip_art.svg_pjsx1h.png"/>
+              <img src="https://res.cloudinary.com/omnombloop/image/upload/v1445913800/2000px-Restaurant_building_clip_art.svg_pjsx1h.png"/>
             </div>
             <ClickMap street_address={this.state.street_address}
                               location_array={this.state.location_array}
@@ -100,7 +98,7 @@ var RestaurantLocationForm = React.createClass({
           <div className="restaurant-body-contents">
             <LocationField submitLocation={this.submitLocation}/>
             <div className="restaurant-form-picture">
-              <img src="http://res.cloudinary.com/omnombloop/image/upload/v1445913800/2000px-Restaurant_building_clip_art.svg_pjsx1h.png"/>
+              <img src="https://res.cloudinary.com/omnombloop/image/upload/v1445913800/2000px-Restaurant_building_clip_art.svg_pjsx1h.png"/>
             </div>
           </div>
         </div>

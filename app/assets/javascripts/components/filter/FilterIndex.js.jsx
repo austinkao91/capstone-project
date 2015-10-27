@@ -21,12 +21,17 @@ var FilterIndex = React.createClass({
   render: function(){
     var location = this.state.filters.location;
     var tag = this.tagsToString(this.state.filters.tags);
+    var locInfo = "";
+    if(location.city && location.state) {
+      locInfo = "in " + location.city + ", " + location.state;
+    }
+
     return(
       <div className="filters">
         <LocationIndex />
         <TagIndex />
         <div className="search-params">
-          <b>Best {tag} Food</b> in {location.city + ", " + location.state}
+          <b>Best {tag} Food</b> {locInfo}
         </div>
         <PriceRangeIndex />
       </div>

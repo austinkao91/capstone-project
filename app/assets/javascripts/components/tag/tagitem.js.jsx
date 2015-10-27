@@ -7,6 +7,7 @@ var TagItem = React.createClass({
   },
   componentDidMount: function() {
     FilterStore.addHandler(FilterConstants.CHANGE_EVENT, this.getCheckedState);
+    this.getCheckedState();
   },
   componentWillUnmount: function() {
     FilterStore.removeHandler(FilterConstants.CHANGE_EVENT, this.getCheckedState);
@@ -31,7 +32,7 @@ var TagItem = React.createClass({
           <input type="checkbox"
             checked
             onChange={this.filterRestaurants}>
-            {this.props.tag.title}&nbsp;({this.props.tag.restaurants.length})
+            {this.props.tag.title}&nbsp;
           </input>
         </li>
       );
@@ -40,7 +41,7 @@ var TagItem = React.createClass({
         <li className="tag-item">
           <input type="checkbox"
             onChange={this.filterRestaurants}>
-            {this.props.tag.title}&nbsp;({this.props.tag.restaurants.length})
+            {this.props.tag.title}&nbsp;
           </input>
         </li>
       );
