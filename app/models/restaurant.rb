@@ -13,7 +13,7 @@
 
 class Restaurant < ActiveRecord::Base
   validates :title, :street_address, presence: true
-  validates :street_address, uniqueness: {scope: [:lat, :lng, :location]}
+  validates :street_address, uniqueness: {scope: [:lat, :lng]}
   has_many :reviews
   has_many :taggings
   has_many :tags, through: :taggings

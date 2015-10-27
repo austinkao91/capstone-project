@@ -13,6 +13,7 @@
 
 class Review < ActiveRecord::Base
   validates :user_id, :restaurant_id, :rating, :body, presence: true
+  validates :user_id, uniqueness: {scope: :restaurant_id}
   belongs_to :user
   belongs_to :restaurant
 
