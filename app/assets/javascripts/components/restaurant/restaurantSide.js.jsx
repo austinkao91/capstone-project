@@ -1,4 +1,4 @@
-var RestaurantSide = React.createClass({
+  var RestaurantSide = React.createClass({
   mixins: [ReactRouter.History],
   navTo: function(event) {
     event.preventDefault();
@@ -7,13 +7,11 @@ var RestaurantSide = React.createClass({
   },
   render: function() {
     return (
-      <div className="review-user-info group">
-        <img  onClick={this.navTo}
-          className="restaurant-pic"
-          src={this.props.image_url}/>
-        <div className="user-info">
-          <p className="user-side-info" onClick={this.navTo}>{this.props.title}</p>
+      <div className="review-restaurant-info group">
+          <div className="restaurant-info">
+          <p className="restaurant-side-info" onClick={this.navTo}>{this.props.title}</p>
         </div>
+        <ImageIndex  onClick={this.navTo} images={this.props.image_url}/>
       </div>
     );
   }

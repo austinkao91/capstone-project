@@ -13,14 +13,31 @@ var UserProfile = React.createClass({
     this.setState({user: UserStore.all()});
   },
   render: function() {
-
+    var button;
+    if(window.CURRENT_USER_ID === this.state.user.id) {
+      button = <CloudinaryUploader upload="user" />;
+    }
     return (
       <div>
         <div className="header group">
-          <div className="user-info">
-            <h1>{this.state.user.username}</h1>
-            <img src={this.state.user.image_url}></img>
-            {window.CURRENT_USER_ID === this.state.user.id ? <CloudinaryUploader upload="user" /> : ""}
+          <div className="header-user-info">
+            <div className="user-profile-img">
+              <img src={this.state.user.image_url ? this.state.user.image_url: null}></img>
+            </div>
+            <div className="user-stats">
+              <h1>{this.state.user.username ? this.state.user.username: null}</h1>
+              <div className="large">
+                <div className="rating-num group">
+                  <RatingStar rate="star"/>&nbsp;
+                  <div className="rating-len group">
+                    <b>{this.state.user.reviews? this.state.user.reviews.length: null}</b>&nbsp;reviews
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="user-actions">
+              {button}
+            </div>
           </div>
         </div>
         <div className="index group">

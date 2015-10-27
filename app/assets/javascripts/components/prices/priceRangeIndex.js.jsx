@@ -17,8 +17,7 @@ var PriceRangeIndex = React.createClass({
     var priceRange = [1,2,3,4];
     var price = "";
     return (
-      <div className="price-range-index">
-        <ul>
+        <ul className="price-range-index group">
           {
             priceRange.map(function(priceRange, idx) {
               price +=  "$";
@@ -33,7 +32,6 @@ var PriceRangeIndex = React.createClass({
           }
 
         </ul>
-      </div>
     );
   }
 });

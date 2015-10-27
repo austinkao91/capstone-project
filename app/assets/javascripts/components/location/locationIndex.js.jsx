@@ -15,7 +15,7 @@ var LocationIndex = React.createClass({
   render: function() {
     return (
       <div className="location-index">
-        <ul>
+        <ul className="location-index-list">
           {
             this.state.locations.map(function(location, idx){
               return <LocationItem location={location} key={idx}/>;

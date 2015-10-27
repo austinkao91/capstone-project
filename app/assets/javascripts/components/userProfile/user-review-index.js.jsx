@@ -7,6 +7,7 @@ var UserReviewIndex = React.createClass({
     } else {
       return (
         <div className="review-index">
+          <h1>User's Reviews</h1>
           <ul className='review-item-list group'>
             {
               this.props.reviews.map(function(review, idx){

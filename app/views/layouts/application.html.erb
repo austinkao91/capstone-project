@@ -27,9 +27,9 @@
 <body>
 
 <% if flash[:errors] %>
-  <ul>
+  <ul className="errors">
     <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
+      <li className="error-item"><%= error %></li>
     <% end %>
   </ul>
 <% end %>

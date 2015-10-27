@@ -26,7 +26,7 @@ $(document).ready(function(){
           <IndexRoute component={SearchIndex}/>
           <Route path="restaurants" component={SearchIndex}/>
           <Route path="restaurants/:restaurantId" component={RestaurantDetail}/>
-          <Route path="restaurant/new" component={RestaurantForm}/>
+          <Route path="restaurant/new" component={RestaurantLocationForm}/>
           <Route path="user/:userId" component={UserProfile}/>
         </Route>
       </Router>,

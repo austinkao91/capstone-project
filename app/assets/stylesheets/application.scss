@@ -81,7 +81,7 @@
   margin-bottom: 8px;
   margin-top: 0px;
   border-bottom: none;
-  height: 25px;
+  height: 30px;
 }
 
 h1 {
@@ -166,11 +166,33 @@ li.restaurant-item {
   float:left;
 }
 
+.price-range-index > li {
+  display: block;
+  float: left;
+}
+
+.price-range-index {
+  position:absolute;
+  bottom: 20px;
+}
+
 .item-picture img {
   width: 100px;
   height: 100px;
   padding: 5px;
   border-radius: 15px;
+}
+
+.search-params {
+  position: absolute;
+  bottom: 65px;
+  font-size: 24px;
+}
+
+.restaurant-form-contents {
+  margin: auto;
+  width: 85%;
+  min-width: 900px;
 }
 
 .address {
@@ -186,21 +208,30 @@ li.restaurant-item {
 }
 
 
+
+
 .index {
   position: relative;
   min-height: 500px;
   margin: auto;
+  padding-bottom: 5%;
   min-width: 1100px;
   width: 100%;
+  height: 100%;
   background: white;
 }
 .header {
   min-height: 200px;
+  min-width: 1100px;
+  position: relative;
+}
+
+.header-user-info > * {
+  display: inline-block;
 }
 
 .inner-header {
   margin: auto;
-  min-width: 1100px;
   width: 85%;
 }
 
@@ -212,7 +243,6 @@ li.restaurant-item {
   width: 25%;
   height: 100%;
   margin-left: 2.5%;
-  margin-right: 2.5%;
   margin-bottom: 2.5%;
   margin-top: 20px;
 
@@ -221,10 +251,13 @@ li.restaurant-item {
   display: inline-block;
   width: 65%;
   margin-top: 20px;
-  margin-left: 2.5%;
   margin-right: 2.5%;
   margin-bottom: 2.5%;
   float:left;
+}
+
+.nav-user-info p{
+  padding-left: 10px;
 }
 
 .log-in {
@@ -257,6 +290,60 @@ a:hover {
   float: left;
 }
 
+.restaurant-form-info {
+  width: 50%;
+  display: block;
+  float: left;
+  clear: left;
+}
+
+label#restaurant-name {
+  width: 80%;
+  padding: 5% 0;
+  display: inline-block;
+  float: left;
+}
+
+label#tag {
+  width:50%;
+  padding-bottom: 5%;
+  padding-right: 5%;
+  display: inline-block;
+  float: left;
+}
+label#price-range {
+  width:30%;
+  padding-bottom:5%;
+  padding-right: 5%;
+  display: inline-block;
+  float: left;
+}
+
+.error-message {
+  color: red;
+  display: block;
+  clear: left;
+}
+
+.restaurant-form-map {
+  width: 50%;
+  display: block;
+  float: left;
+}
+
+.errors {
+  width: 30%;
+  margin: auto;
+  background: #ddd;
+  border: 1px solid black;
+  padding: 10px 20px;
+}
+
+.restaurant-body-contents {
+  width: 100%;
+  height: 100%;
+  margin-top: 10%;
+}
 
 .upload-widget {
   font-size: 0.8em;
@@ -286,6 +373,55 @@ a:hover {
   box-shadow: 0 2px 2px rgba(0,0,0,0.1);
   cursor: pointer;
   cursor: hand;
+}
+
+.priceItem {
+  font-size: 0.8em;
+  color: #333;
+  padding: 10px 16px;
+  background: #F5F5F0;
+  border-left: 1px solid #ccccc8;
+  border-top: 1px solid #ccccc8;
+  border-bottom: 1px solid #ccccc8;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.firstPrice {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.location-index-list > * {
+  display: inline-block;
+  float: right;
+}
+
+.location-item {
+  font-size: 15px;
+  color: #3b65a7;
+  cursor: pointer;
+  cursor: hand;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.location-item:hover {
+  text-decoration: underline;
+}
+
+.lastPrice {
+  border-top-right-radius: 4px;
+  border-right: 1px solid #ccccc8;
+  border-bottom-right-radius: 4px;
+}
+.price-range-index .selected {
+  background: #c4f3a4;
+  border-right: 1px solid #348c42;
+  border-color: #348c42;
+  color: #348c42;
 }
 
 .review-options > *{
@@ -340,14 +476,13 @@ a:hover {
   margin: auto;
   padding-top: 50px;
 }
-.restaurant-info {
-  display: block;
-  margin-top: 100px;
-  margin-left: 12%;
-}
+
 .review-index {
+  padding-top: 50px;
   position: relative;
-  width: 70%;
+  width: 80%;
+  margin: auto;
+  min-width: 900px;
 }
 
 .review-item-list {
@@ -357,7 +492,6 @@ a:hover {
 }
 
 .review-item > * {
-  display: block;
   float: left;
 }
 
@@ -378,31 +512,102 @@ a:hover {
 .review-user-info {
   width: 300px;
   display: inline-block;
-  padding: 20px;
+  padding: 20px 20px 20px 0;
   text-align: left;
 }
 
 .review-user-info > * {
+  display: inline-block;
+  float: left;
+}
+
+
+.restaurant-form-contents > h2 {
+  padding-top: 3%;
+  text-align: center;
+}
+.restaurant-form-contents > p {
+  padding-top: 2%;
+  text-align: center;
+}
+
+.restaurant-form-location {
+  margin: 5% 0;
+  width: 50%;
   display: block;
   float: left;
 }
 
-.review-user-info img {
-
-  border-radius: 8px;
+.restaurant-form-picture {
+  height: 100%;
+  width: 50%;
+  display: block;
+  float: right;
 }
 
-.review-user-info .user-side-info{
-  margin-left: 10px;
+.restaurant-form-picture img {
+  width: 80%;
+  margin-left: 10%;
+  height: 100%;
+}
+
+
+label#street-address {
+  width: 100%;
+  padding: 5% 0;
+  display: inline-block;
+  float: left;
+}
+
+label#city {
+  width: 70%;
+  padding: 5% 0;
+  display: inline-block;
+  float: left
+}
+
+
+label#states {
+  width: 20%;
+  margin-left: 10%;
+  padding: 5% 0;
+  display: inline-block;
+  float: left;
+}
+
+.restaurant-form-submit {
+  clear: left;
+  display: block;
+}
+
+.user-info p {
+  padding-left: 10px;
+}
+
+.review-user-info img {
+  border-radius: 8px;
+  height: 100px;
+  width: 100px;
+}
+
+.review-restaurant-info {
+  width: 300px;
+  display: inline-block;
+  padding: 20px 20px 20px 0;
+  text-align: left;
+}
+
+
+.review-restaurant-info img {
+  height: 100px;
+  width: 100px;
+  border-radius: 8px;
 }
 
 .filter-info > * {
   display: inline-block;
 }
 
-.user-info > p {
-  padding-left: 6px;
-}
 
 .user-side-info {
   left: 115px;
@@ -415,24 +620,35 @@ a:hover {
   text-decoration: underline;
 }
 
+.restaurant-side-info {
+  left: 115px;
+  color: #3b65a7;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.restaurant-side-info:hover {
+  text-decoration: underline;
+}
+
 .user-pic {
   width: 100px;
   height: 100px;
 }
 
 .review-content{
-  padding: 20px;
+  padding: 20px 0 20px 20px;
   text-align: left;
   display:inline-block;
   width: 65%;
-  top: 0;
-  position: absolute;
 }
 .review-body {
   display: block;
 }
 div.filters {
   padding-top: 5px;
+  margin: auto;
+  width: 85%;
 }
 
 .place-info {
@@ -456,9 +672,8 @@ div.tag-index {
   opacity: 0.6;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 95%;
-  height: 95%;
   margin: auto;
+  display: inline-block;
 }
 
 div.tag-index > ul {
@@ -486,6 +701,9 @@ nav.navbar {
   padding: 7px 10px;
 }
 
+.nav-links {
+  display: inline-block;
+}
 
 .nav-links-list > li:hover {
   text-decoration: none;
@@ -543,6 +761,7 @@ nav.navbar {
   box-shadow: 0 0 5px black;
   width: 100%;
   height: 100px;
+  min-width: 1100px;
 }
 
 .nav-links-list a{
@@ -670,6 +889,47 @@ li.content > * {
   float: left;
 }
 
+.header-user-info img{
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  width: 200px;
+  height: 200px;
+}
+.user-profile-img {
+  position:relative;
+  transform: translateY(30%);
+  z-index: 500;
+}
+
+.header-user-info {
+  margin: auto;
+  width: 85%;
+  position: relative;
+}
+
+.user-actions {
+  border-left: 1px solid #ddd;
+  padding: 30px;
+}
+
+.user-stats {
+  width: 50%;
+  padding-left: 30px;
+  transform: translateY(-20%);
+}
+
+.user-actions > .upload-widget {
+  border-radius: 5px;
+}
+
+.user-stats h1 {
+  padding-left: 10px;
+}
+
+.large .rating-num> * {
+  font-size: 20px;
+}
+
 .user-link-list > li p {
   padding-left: 8px;
 }
@@ -686,8 +946,12 @@ li.content > * {
   float: left;
 }
 
+.search {
+  height: 45px;
+}
 
 .user-nav-search {
+  padding-left: 15px;
   padding-top: 15px;
   margin-left: 115px;
   margin-right: 91px;
@@ -788,6 +1052,20 @@ p.restaurant-title:hover {
   width: 300px;
   height: 175px;
   border: 1px solid #ccc;
+}
+
+.restaurant-form-map {
+  float: left;
+  clear:left;
+  min-height: 200px;
+  text-align: center;
+  width: 40%;
+  height: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-bottom: 2.5%;
+  margin-top: 20px;
+
 }
 .restaurant-title-info {
   position: relative;
@@ -1024,6 +1302,32 @@ b {
   opacity: 0.6;
 }
 
+.restaurant-form-submit p {
+  transform: translateY(-23%);
+  color: #eee;
+  margin-left: 5px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.restaurant-form-submit {
+  border: 1px solid #a50508;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+  cursor: pointer;
+  cursor: hand;
+  background: linear-gradient(#ff2000 2%, #ea050b 10%, #d40d04 100%);
+  border-radius: 3px;
+  padding: 5px 10px;
+  position: relative;
+}
+.restaurant-form-submit div {
+  color: #333;
+  opacity: 0.6;
+}
+
+.restaurant-form-submit >* {
+  display: inline-block;
+}
 .review-body {
   width: 100%;
   padding: 7.5px 0;

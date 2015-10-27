@@ -3,21 +3,20 @@ var PriceRangeItem = React.createClass({
     FilterActions.toggleObjectFilter({priceRange: {price: this.props.value}});
   },
   render: function(){
-    if(this.props.checkedIdx === this.props.value) {
-      return(
-          <input type="checkbox"
-            checked
-            onChange={this.filterRestaurants}>
-            {this.props.price}&nbsp;
-          </input>
-      );
-    } else {
-      return(
-          <input type="checkbox"
-            onChange={this.filterRestaurants}>
-            {this.props.price}&nbsp;
-          </input>
-      );
+    var className = "group priceItem ";
+
+    if(this.props.value === 1) {
+      className += "firstPrice ";
+    } else if(this.props.value === 4){
+      className += "lastPrice ";
     }
+    if(this.props.checkedIdx === this.props.value) {
+      className += "selected ";
+    }
+    return(
+      <div className={className} onClick={this.filterRestaurants}>
+        <p>{this.props.price}</p>
+      </div>
+    );
   }
 });

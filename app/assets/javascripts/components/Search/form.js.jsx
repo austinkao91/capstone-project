@@ -14,7 +14,7 @@ var SearchForm = React.createClass({
   },
   render: function() {
     return (
-      <form className="navbar-form search group" role="search">
+      <form className="search group" role="search">
         <SearchBar placeholder="Find Food" id="tags"/>
         <SearchBar placeholder="Nearby Location" id="location"/>
 

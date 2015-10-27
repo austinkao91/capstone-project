@@ -25,25 +25,16 @@ var LocationItem = React.createClass({
     this.setState({checked: checked});
   },
   render: function() {
+    var className;
     if(this.state.checked) {
-      return(
-        <li className="location-item">
-          <input type="checkbox"
-            checked
-            onChange={this.filterRestaurants}>
-            {this.props.location.city}, {this.props.location.state}&nbsp;({this.props.location.restaurants.length})
-          </input>
-        </li>
-      );
-    } else {
-      return(
-        <li className="location-item">
-          <input type="checkbox"
-            onChange={this.filterRestaurants}>
-            {this.props.location.city}, {this.props.location.state}&nbsp;({this.props.location.restaurants.length})
-          </input>
-        </li>
-      );
+      className="selected";
     }
+    return(
+      <li className="location-item">
+          <div className={className} onClick={this.filterRestaurants}>
+            <p>{this.props.location.city}, {this.props.location.state}</p>
+          </div>
+      </li>
+    );
   }
 });

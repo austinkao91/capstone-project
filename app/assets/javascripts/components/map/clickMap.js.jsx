@@ -1,19 +1,20 @@
   var ClickMap = React.createClass({
   getInitialState: function() {
-    return {activated: true, coordinates: [], markers: []};
+    return {markers: []};
   },
   componentDidMount: function(){
     var map = React.findDOMNode(this.refs.map);
     var mapOptions = {
-      center: {lat: 37.7758, lng: -122.435},
+      center: {lat: this.props.lat, lng: this.props.lng},
       zoom: 13
     };
+    var locInfo = {
+      title: this.props.street_address + " " + this.props.location_array[0] + " " + this.props.location_array[1]
+    };
+
     this.map = new google.maps.Map(map, mapOptions);
-    this.geoCoder = new google.maps.Geocoder();
+    this.placeMarker(this.props.lat, this.props.lng, locInfo);
     google.maps.event.addListener(this.map, 'click', this.onChange);
-  },
-  toggleActivation: function() {
-    this.setState({activated: !this.state.activated});
   },
   clearMarkers: function() {
     this.state.markers.forEach(function(marker) {
@@ -81,6 +82,6 @@
     }.bind(this));
   },
   render: function() {
-    return  <div className="restaurant-detail-map" ref="map"/>;
+    return  <div className="restaurant-form-map" ref="map"/>;
   }
 });

@@ -3,7 +3,8 @@ var RestaurantForm = React.createClass({
     return {
       street_address: "",
       location_array: [],
-    }
+      checked: false
+    };
   },
   componentDidMount: function() {
     if(typeof window.CURRENT_USER_ID === "undefined") {
@@ -26,74 +27,80 @@ var RestaurantForm = React.createClass({
       price_range: price_range
     });
   },
-  getInfo: function(result) {
-    debugger;
-  },
-  handleChange: function() {
-
-  },
   render: function() {
+    var submitButton;
+    if(this.state.checked) {
+
+    } else {
+      submitButton=(<button type="submit"
+            className="restaurant-form-submit group">
+              <div className="glyphicon glyphicon-star "/>
+              <p>&nbsp;Check Location&nbsp;</p>
+      </button>);
+    }
     return (
       <div>
-
-        <div className="header group"/>
         <div className="index group">
-          <ClickMap getInfo={this.getInfo}/>
-          <div className="restaurant-form">
-            <form onSubmit={this.submitForm}>
-              <label>
-                  Restaurant Name
-                <input type="text" className="form-control"></input>
-              </label>
-              <br/>
-              <label>
-                Street Address
-                <input type="text"
-                  className="form-control"
-                  onChange={this.handleChange}
-                  value={this.state.street_address}/>
-              </label>
-              <br/>
-              <label>
-                City
-                <input type="text" className="form-control"></input>
-              </label>
-              <br/>
-              <label>
-                State
-                <select className='form-control'>
-                  {
-                    StateConstants.STATES.map(function(state, idx){
-                      return <option key={idx} value={state}>{state}</option>;
-                    })
-                  }
-                </select>
-              </label>
-              <br/>
+          <div className="restaurant-form-contents">
+            <h2>Is there a restaurant missing on OMNOMNOM?</h2>
+            <p>Enter the information below to add it to our database!</p>
+            <ClickMap getInfo={this.getInfo}/>
+            <div className="restaurant-form">
+              <form onSubmit={this.submitForm}>
 
-              <label>
-                Tag
-                <select className='form-control'>
-                  {
-                    TagConstants.TAGS.map(function(tag, idx){
-                      return <option key={idx} value={tag}>{tag}</option>;
-                    })
-                  }
-                </select>
-              </label>
-              <label>
-                Price Range
-                <select className='form-control'>
-                  {
-                    PriceRangeConstants.PRICERANGES.map(function(priceRange, idx){
-                      return <option key={idx} value={idx+1}>{priceRange}</option>;
-                    })
-                  }
-                </select>
-              </label>
-              <br/>
-              <input type="submit" value="Add new restaurant!"></input>
-            </form>
+                <label>
+                  Street Address
+                  <input type="text"
+                    className="form-control"
+                    onChange={this.handleChange}
+                    value={this.state.street_address}/>
+                </label>
+                <br/>
+                <label>
+                  City
+                  <input type="text" className="form-control"></input>
+                </label>
+                <br/>
+                <label>
+                  State
+                  <select className='form-control'>
+                    {
+                      StateConstants.STATES.map(function(state, idx){
+                        return <option key={idx} value={state}>{state}</option>;
+                      })
+                    }
+                  </select>
+                </label>
+                <br/>
+                  <label>
+                      Restaurant Name
+                    <input type="text" className="form-control"></input>
+                  </label>
+                  <br/>
+                  <label>
+                    Tag
+                    <select className='form-control'>
+                      {
+                        TagConstants.TAGS.map(function(tag, idx){
+                          return <option key={idx} value={tag}>{tag}</option>;
+                        })
+                      }
+                    </select>
+                  </label>
+                  <label>
+                    Price Range
+                    <select className='form-control'>
+                      {
+                        PriceRangeConstants.PRICERANGES.map(function(priceRange, idx){
+                          return <option key={idx} value={idx+1}>{priceRange}</option>;
+                        })
+                      }
+                    </select>
+                  </label>
+
+                {submitButton}
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
 var SearchIndex = React.createClass({
   render: function() {
     return(
-      <div className="header group">
-        <div className="filters">
+      <div className="search-page">
+        <div className="header group">
           <FilterIndex />
         </div>
         <RestaurantIndex />

@@ -39,11 +39,10 @@
 
     toggleObjectFilter: function(payload) {
       var filterProp = Object.keys(payload.filter)[0];
-      var filter = payload.filter;
+      var filter = payload.filter[filterProp];
       var locationFilter = _filters[filterProp];
       var filterKeys = Object.keys(filter);
       var matches = 0;
-
       filterKeys.forEach(function(props) {
          if (filter[props] === locationFilter[props]) {
            matches += 1;
@@ -55,7 +54,7 @@
           locationFilter[props] = null;
         }
       } else {
-        _filters[filterProp] = $.extend(true, {}, filter)[filterProp];
+        _filters[filterProp] = $.extend(true, {}, filter);
       }
     },
 
@@ -79,7 +78,7 @@
     },
     addObjectFilter: function(props, filter) {
       for(var params in filter) {
-        _filters.props.params = filter.params;
+        _filters[props][params] = filter[params];
       }
     },
     addFilter: function(payload) {

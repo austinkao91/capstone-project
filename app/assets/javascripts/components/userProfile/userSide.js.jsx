@@ -26,6 +26,7 @@ var UserSide = React.createClass({
     var reviewInfo;
     if(user.reviews) {
       reviewInfo = (
+        
         <div className="rating-num group">
           <RatingStar rate="star"/>&nbsp;
           <div className="rating-len group">
