@@ -8,7 +8,9 @@
     cloudinary.setCloudName("<%= ENV['cloud_name'] %>");
 
     window.CLOUDINARY_OPTIONS = {
-      upload_preset: "<%= ENV['cloud_preset']%>"
+      upload_preset: "<%= ENV['cloud_preset']%>",
+      theme: "minimal",
+      cropping: 'server'
     };
     cloudinary.setCloudName("<%= ENV['cloud_name'] %>");
   </script>

@@ -1,12 +1,15 @@
 var RestaurantDetail = React.createClass({
   getInitialState: function() {
-    return {restaurant: this.getRestaurantState()};
+    return {restaurant: this.getRestaurantState(), load: false};
   },
   getRestaurantState: function() {
     return RestaurantStore.find(parseInt(this.props.params.restaurantId));
   },
+  load: function(callback) {
+    this.setState({load: true}, callback);
+  },
   update: function() {
-    this.setState({restaurant: this.getRestaurantState()});
+    this.setState({restaurant: this.getRestaurantState()}, this.setState.bind(this, {load: false}));
   },
   componentWillMount: function() {
     ApiUtil.getOne(parseInt(this.props.params.restaurantId));
@@ -28,10 +31,16 @@ var RestaurantDetail = React.createClass({
     var restaurant = this.state.restaurant;
     var address_line1 = restaurant.street_address;
     var address_line2 = restaurant.city + ", " + restaurant.state;
+    if(this.state.load) {
+      return (
+        <div className="loading">
+          <h1>Loading</h1>
+        </div>
+      );
+    }
     if(Object.keys(restaurant).length > 0) {
       return(
         <div>
-
           <div className="header group">
             <div className="inner-header group">
               <div className="restaurant-header group">

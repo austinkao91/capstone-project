@@ -1,6 +1,6 @@
 var CloudinaryUploader = React.createClass({
-  imageUploader: function(e) {
-    e.preventDefault();
+  imageUploader: function(event) {
+    event.preventDefault();
 
     cloudinary.openUploadWidget({upload_preset: window.CLOUDINARY_OPTIONS.upload_preset},
       this.uploadImage) ;

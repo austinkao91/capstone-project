@@ -1,6 +1,7 @@
 var RestaurantLocationForm = React.createClass({
   getInitialState: function() {
     return {
+      loading: false,
       street_address: "",
       location_array: [],
       lat: null,
@@ -22,6 +23,7 @@ var RestaurantLocationForm = React.createClass({
     var street_address = this.state.street_address;
     var location_array = this.state.location_array;
     if(this.state.checked && title !== "") {
+      this.error = null;
       ApiUtil.create({
         title: title,
         street_address: street_address,
@@ -34,8 +36,11 @@ var RestaurantLocationForm = React.createClass({
       this.setState({});
     }
   },
-  submitLocation: function(event) {
+  submit: function(event) {
     event.preventDefault();
+    this.setState({load: true}, this.submitLocation.bind(null, event));
+  },
+  submitLocation: function(event) {
     var street_address = event.currentTarget[0].value;
     var city = event.currentTarget[1].value;
     var state = event.currentTarget[2].value;
@@ -49,6 +54,7 @@ var RestaurantLocationForm = React.createClass({
           var lat = latLng.lat();
           var lng = latLng.lng();
           this.setState({
+            loading: false,
             street_address: street_address,
             location_array: [city, state],
             lat: lat,
@@ -65,6 +71,13 @@ var RestaurantLocationForm = React.createClass({
     var error;
     if(this.error) {
       error = <div className="error-message">{this.error}</div>;
+    }
+    if(this.state.load) {
+      return (
+        <div className="restaurant-form-contets">
+          <h1>Loading</h1>
+        </div>
+      );
     }
     if(this.state.checked) {
       content = (

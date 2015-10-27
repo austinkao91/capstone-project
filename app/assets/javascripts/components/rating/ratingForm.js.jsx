@@ -6,10 +6,12 @@ var RatingForm = React.createClass({
     this.rates = [1,2,3,4,5];
   },
   handleHover: function(event) {
+    event.preventDefault();
     var rating = parseInt(event.currentTarget.className[0]).toFixed(1);
     this.setState({ rating: rating});
   },
-  handleClick: function() {
+  handleClick: function(event) {
+    event.preventDefault();
     var defaultIdx = parseInt(event.target.className[0]).toFixed(1);
     this.props.setRating(defaultIdx);
     this.setState({defaultIdx: defaultIdx});
