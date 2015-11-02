@@ -23,6 +23,7 @@ class Restaurant < ActiveRecord::Base
   has_one :priceRangeJoining
   has_one :priceRange, through: :priceRangeJoining
 
+
   def price_range=(price_range)
     self.priceRange = PriceRange.find(price_range)
   end
