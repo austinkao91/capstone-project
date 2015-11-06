@@ -11,7 +11,7 @@
           <div className="restaurant-info">
           <p className="restaurant-side-info" onClick={this.navTo}>{this.props.title}</p>
         </div>
-        <ImageIndex  onClick={this.navTo} images={this.props.image_url}/>
+        <ImageIndex limit={1} onClick={this.navTo} images={this.props.image_url}/>
       </div>
     );
   }
