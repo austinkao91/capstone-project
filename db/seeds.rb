@@ -24,14 +24,14 @@ LocationTagging.create!([
   {restaurant_id: 15, location_id: 4}
 ])
 Picture.create!([
-  {name: "http://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1445445756/sr0r0stzwc89g0kjamjw.png", imageable_id: 1, imageable_type: "Restaurant"},
-  {name: "http://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1445448702/vt7p8qrxoklget18ia0q.jpg", imageable_id: 5, imageable_type: "Restaurant"},
-  {name: "http://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1445892352/yvcpo82tipspgdtxuval.jpg", imageable_id: 1, imageable_type: "Restaurant"},
-  {name: "http://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1445966751/cyl9ht0vzglnsv62fjtv.jpg", imageable_id: 15, imageable_type: "Restaurant"},
-  {name: "http://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1445966939/tsc8gcolzsfsgktx3fco.jpg", imageable_id: 4, imageable_type: "Restaurant"},
-  {name: "http://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1446578361/dcqud4pshfpiudtqovci.jpg", imageable_id: 2, imageable_type: "Restaurant"},
-  {name: "http://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1446578484/g7jq1gl7qqrozsnd5g5j.jpg", imageable_id: 8, imageable_type: "Restaurant"},
-  {name: "http://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1446578679/feoaexmvuv8qfla740v7.jpg", imageable_id: 9, imageable_type: "Restaurant"}
+  {name: "https://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1445445756/sr0r0stzwc89g0kjamjw.png", imageable_id: 1, imageable_type: "Restaurant"},
+  {name: "https://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1445448702/vt7p8qrxoklget18ia0q.jpg", imageable_id: 5, imageable_type: "Restaurant"},
+  {name: "https://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1445892352/yvcpo82tipspgdtxuval.jpg", imageable_id: 1, imageable_type: "Restaurant"},
+  {name: "https://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1445966751/cyl9ht0vzglnsv62fjtv.jpg", imageable_id: 15, imageable_type: "Restaurant"},
+  {name: "https://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1445966939/tsc8gcolzsfsgktx3fco.jpg", imageable_id: 4, imageable_type: "Restaurant"},
+  {name: "https://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1446578361/dcqud4pshfpiudtqovci.jpg", imageable_id: 2, imageable_type: "Restaurant"},
+  {name: "https://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1446578484/g7jq1gl7qqrozsnd5g5j.jpg", imageable_id: 8, imageable_type: "Restaurant"},
+  {name: "https://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1446578679/feoaexmvuv8qfla740v7.jpg", imageable_id: 9, imageable_type: "Restaurant"}
 ])
 PriceRange.create!([
   {min: 0, max: 10},
@@ -111,6 +111,6 @@ Tagging.create!([
   {tag_id: 5, restaurant_id: 15}
 ])
 User.create!([
-  {username: "totoro", password_digest: "$2a$10$HYMF/Gzj3Sct4Jdpld7ae.2FBTwAyKhhsMPBMP91ur7DyL9AXRlfm", session_token: "EQs84z-TDFQ8F8gblMHzWA", image_url: "http://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1445890872/glw2s0fr0trdtuzclsio.png"},
-  {username: "ian", password_digest: "$2a$10$7PGrtacutZwEU6Vxq37Mr.r8KsjYllF32XQEwFjq7DaDEqtyZ0UhC", session_token: "U2COmoEzm9R3IIh1RUCLlQ", image_url: "http://res.cloudinary.com/omnombloop/image/upload/v1445819452/anonymousUser_rb4i4l.png"}
+  {username: "totoro", password_digest: "$2a$10$HYMF/Gzj3Sct4Jdpld7ae.2FBTwAyKhhsMPBMP91ur7DyL9AXRlfm", session_token: "EQs84z-TDFQ8F8gblMHzWA", image_url: "https://res.cloudinary.com/omnombloop/image/upload/c_limit,h_60,w_90/v1445890872/glw2s0fr0trdtuzclsio.png"},
+  {username: "ian", password_digest: "$2a$10$7PGrtacutZwEU6Vxq37Mr.r8KsjYllF32XQEwFjq7DaDEqtyZ0UhC", session_token: "U2COmoEzm9R3IIh1RUCLlQ", image_url: "https://res.cloudinary.com/omnombloop/image/upload/v1445819452/anonymousUser_rb4i4l.png"}
 ])
