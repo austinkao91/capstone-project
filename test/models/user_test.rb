@@ -8,7 +8,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  image_url       :string           default("http://res.cloudinary.com/dnifqmdlf/image/upload/v1444929813/images_ohgzbq.png")
+#  image_url       :string           default("https://res.cloudinary.com/dnifqmdlf/image/upload/v1444929813/images_ohgzbq.png")
 #
 
 require 'test_helper'
