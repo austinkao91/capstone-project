@@ -2,10 +2,12 @@ var ImageIndex = React.createClass({
   render: function() {
     if( this.props.images.length > 0 ) {
       var images;
+      debugger
       if(typeof this.props.limit === "undefined") {
         images = this.props.images;
       } else {
-        images = this.props.images.slice(0,this.props.limit);
+        var len = this.props.images.length;
+        images = this.props.images.slice(len-this.props.limit,len);
       }
       return(
         <ul className="image-list">

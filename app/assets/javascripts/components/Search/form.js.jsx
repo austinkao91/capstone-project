@@ -4,11 +4,13 @@ var SearchForm = React.createClass({
     event.preventDefault();
 
     var loc_array = event.currentTarget.form[1].value.split(", ");
+    var filter = {};
+    if(loc_array.length === 2) {
+      filter.location = {city: loc_array[0].trim(), state: loc_array[1].trim()};
+    }
+    filter.tags = event.currentTarget.form[0].value.trim().split(/\s+/g);
 
-    var filter = {
-      tags: event.currentTarget.form[0].value.trim().split(/\s+/g),
-      location: {city: loc_array[0].trim(), state: loc_array[1].trim()}
-    };
+    debugger
     FilterActions.addFilters(filter);
     this.history.pushState(null, "/restaurants");
   },
