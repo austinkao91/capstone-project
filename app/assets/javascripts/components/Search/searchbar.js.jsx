@@ -32,10 +32,15 @@ var SearchBar = React.createClass({
     }
 
     store.forEach(function(elem){
-      var sub = elem.title.slice(0,this.state.input.length);
-      if(sub.toLowerCase() === this.state.input.toLowerCase()) {
-        matches.push(elem.title);
+      var push = false;
+      debugger
+      for(i = 0; i < elem.title.length - this.state.input.length+1; i++ ) {
+        var sub = elem.title.slice(i, i + this.state.input.length);
+        if(sub.toLowerCase() === this.state.input.toLowerCase()) {
+          push = true;
+        }
       }
+      if(push){ matches.push(elem.title); }
     }.bind(this));
     if(matches.length === 0) {
       matches.push("No Matches");

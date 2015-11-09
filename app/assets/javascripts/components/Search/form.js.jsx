@@ -10,7 +10,6 @@ var SearchForm = React.createClass({
     }
     filter.tags = event.currentTarget.form[0].value.trim().split(/\s+/g);
 
-    debugger
     FilterActions.addFilters(filter);
     this.history.pushState(null, "/restaurants");
   },

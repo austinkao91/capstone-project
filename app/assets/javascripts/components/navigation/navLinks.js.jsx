@@ -1,7 +1,6 @@
 var NavigationLinks = React.createClass({
   mixins: [ReactRouter.History],
   newRestaurant: function() {
-    debugger;
     if(window.CURRENT_USER_ID) {
       this.history.pushState(null, "restaurant/new");
     } else {

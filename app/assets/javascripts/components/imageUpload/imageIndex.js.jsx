@@ -2,7 +2,6 @@ var ImageIndex = React.createClass({
   render: function() {
     if( this.props.images.length > 0 ) {
       var images;
-      debugger
       if(typeof this.props.limit === "undefined") {
         images = this.props.images;
       } else {
