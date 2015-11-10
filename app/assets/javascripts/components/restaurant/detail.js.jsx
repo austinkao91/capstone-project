@@ -53,7 +53,6 @@ var RestaurantDetail = React.createClass({
                 </div>
                 <div className="restaurant-buttons">
                   <CloudinaryUploader id={this.state.restaurant.id} upload="restaurant" />
-                  <BookMark id={this.state.restaurant.id} />
                 </div>
               </div>
               <div className="business-detail">
