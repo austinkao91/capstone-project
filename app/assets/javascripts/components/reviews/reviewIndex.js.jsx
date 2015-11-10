@@ -14,6 +14,10 @@ var ReviewIndex = React.createClass({
     RestaurantStore.removeHandler(RestaurantConstants.CHANGE_EVENT,
                                 this.checkUserId);
   },
+  redirectTo: function(event) {
+    event.preventDefault();
+    window.location =  "/session/new";
+  },
   checkUserId: function(nextProps) {
     if(typeof nextProps === "undefined") { nextProps = this.props;}
 
@@ -29,6 +33,15 @@ var ReviewIndex = React.createClass({
     this.setState({showForm: show});
   },
   render:function() {
+    var logIn;
+    if(typeof window.CURRENT_USER_ID) {
+      logIn = (
+        <p className="log-in-notification">
+          Want to add a review? Click here to <a onClick={this.redirectTo}>Log In</a>!
+        </p>
+      );
+    }
+
     var form;
     if (this.state.showForm) {
       form = <ReviewForm
@@ -41,12 +54,15 @@ var ReviewIndex = React.createClass({
 
     if(typeof this.props.reviews === 'undefined') {
       return (
-        <div className="review-index"></div>
+        <div className="review-index">
+          {logIn}
+        </div>
       );
     } else {
       return (
         <div className="review-index">
           <h1>Recommended Reviews</h1>
+          {logIn}
           <ul className='review-item-list group'>
             {form}
             {

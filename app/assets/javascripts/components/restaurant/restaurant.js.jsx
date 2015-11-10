@@ -33,6 +33,10 @@ var RestaurantIndex = React.createClass({
       this.setState({page: this.state.page-1});
     }
   },
+  redirectTo: function(event) {
+    event.preventDefault();
+    this.history.pushState(null, "/restaurant/new");
+  },
   setPage: function(page) {
     if(this.state.page >= 1 &&
       this.state.page <= Math.ceil(this.state.restaurants.length/this.state.showLimit)) {
@@ -52,7 +56,29 @@ var RestaurantIndex = React.createClass({
     if(lastRestaurant >= this.state.restaurants.length) {
       lastRestaurant = this.state.restaurants.length;
     }
-    var restaurants = this.state.restaurants.slice(firstRestaurant, lastRestaurant);
+    var restaurants;
+    var restaurantIndexList;
+    if(this.state.restaurants.length === 0 ) {
+      restaurantIndexList = (
+        <ul className="restaurants-index-list">
+          <li className="notification">
+            Sorry! We couldn't find what you were looking for!
+            Click <a onClick={this.redirectTo}>here</a> to add a restaurant to our database
+          </li>
+          <br/>
+        </ul>
+      );
+    } else {
+      restaurants = this.state.restaurants.slice(firstRestaurant, lastRestaurant);
+      restaurantIndexList = (<ul className="restaurants-index-list">
+        {
+          restaurants.map(function(restaurant, idx){
+
+            return <RestaurantItem restaurant={restaurant} listNum={idx} key={idx}/>;
+          })
+        }
+      </ul>);
+    }
     if(this.state.load) {
       if(!this.state.set) {
         console.log("setting");
@@ -75,14 +101,7 @@ var RestaurantIndex = React.createClass({
             <div className="index-container group">
               <MapIndex restaurants={this.state.restaurants} />
               <div className="restaurants-index">
-                <ul className="restaurants-index-list">
-                  {
-                    restaurants.map(function(restaurant, idx){
-
-                      return <RestaurantItem restaurant={restaurant} listNum={idx} key={idx}/>;
-                    })
-                  }
-                </ul>
+                {restaurantIndexList}
                 <PageDisplay
                   setPage={this.setPage}
                   nextPage={this.nextPage}

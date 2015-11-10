@@ -1,0 +1,61 @@
+0000000000000000000000000000000000000000 490c3ff47c54be12cd86bc7f1e27368f08e533b3 Austin Kao <austinkao91@gmail.com> 1444635150 -0700	commit (initial): project proposal committed
+490c3ff47c54be12cd86bc7f1e27368f08e533b3 30d11db823cf5d62932e33c7faae765e5052ff7d Austin Kao <austinkao91@gmail.com> 1444752782 -0700	commit: updated proposal, user_auth complete
+30d11db823cf5d62932e33c7faae765e5052ff7d d5a9f9af5c22a91535f388fd7277d867bedac333 Austin Kao <austinkao91@gmail.com> 1444752936 -0700	commit: added navigation bar wireframe
+d5a9f9af5c22a91535f388fd7277d867bedac333 1a501afc15027f29096f2c0eb226fc5f5d73e85c Austin Kao <austinkao91@gmail.com> 1444761177 -0700	commit: restaurant models added, react router added, restaurant index component added
+1a501afc15027f29096f2c0eb226fc5f5d73e85c d6286a7e1b3e654160c2a7573af2386c73805265 Austin Kao <austinkao91@gmail.com> 1444762267 -0700	commit: installed bootstrap
+d6286a7e1b3e654160c2a7573af2386c73805265 f1017e7b3efe778fb80e636ba758899c06273917 Austin Kao <austinkao91@gmail.com> 1444769848 -0700	commit: fixed restaurant model, added seed data
+f1017e7b3efe778fb80e636ba758899c06273917 b508ffd99be647a898acea6976e992e7346302fb Austin Kao <austinkao91@gmail.com> 1444775199 -0700	commit: made restaurant form, need to consider success and failure features
+b508ffd99be647a898acea6976e992e7346302fb eb6d05dbf6143e29b7ce2496eb4d207583c724db Austin Kao <austinkao91@gmail.com> 1444790882 -0700	commit: working on restaurants
+eb6d05dbf6143e29b7ce2496eb4d207583c724db 4ff07c62e6ac5052b44c2927cded8e2920c1ad0c Austin Kao <austinkao91@gmail.com> 1444842570 -0700	commit: fixed form and nav bar, working on styling
+4ff07c62e6ac5052b44c2927cded8e2920c1ad0c f21711fa51c66c950f337df80417e67eb8f2da23 Austin Kao <austinkao91@gmail.com> 1444846210 -0700	commit: basic styling complete, need to fix reload issue, move up map to next phase
+f21711fa51c66c950f337df80417e67eb8f2da23 a542cef58b77e9af1741600274b1eecd0124504a Austin Kao <austinkao91@gmail.com> 1444860234 -0700	commit: added geolocation api, remember to cache geolocation data, starting reviews and tags
+a542cef58b77e9af1741600274b1eecd0124504a 3ad5bf7251dd428e7c2e8027f779d2ef155f603f Austin Kao <austinkao91@gmail.com> 1444934446 -0700	commit: working on review feature, need to prevent from reviewing the same restaurant at model and view levels
+3ad5bf7251dd428e7c2e8027f779d2ef155f603f 616e6d8801eaf992a32f03cde1d056d25ff07be5 Austin Kao <austinkao91@gmail.com> 1444946129 -0700	commit: fixed review feature, working on tagging
+616e6d8801eaf992a32f03cde1d056d25ff07be5 eb27db10039d394de6c92ce6f078298c52087a3b Austin Kao <austinkao91@gmail.com> 1444955810 -0700	commit: finished tag feature, adding filter searches
+eb27db10039d394de6c92ce6f078298c52087a3b 82cffdadb58a82b5416495a26e95fea675350c20 Austin Kao <austinkao91@gmail.com> 1444982247 -0700	commit: completed adding filters by tags
+82cffdadb58a82b5416495a26e95fea675350c20 261aeead70798d6fc3bb9c12d52203ab9beabe6e Austin Kao <austinkao91@gmail.com> 1445041901 -0700	commit: residual bugs with restaurant store, updating store model
+261aeead70798d6fc3bb9c12d52203ab9beabe6e 15b96b051741c18d2573427d728f2a59336df3c5 Austin Kao <austinkao91@gmail.com> 1445316448 -0700	commit: refactoring location
+15b96b051741c18d2573427d728f2a59336df3c5 6d0e1c27d168f2f1a85568341121a5bdea3a44ac Austin Kao <austinkao91@gmail.com> 1445320750 -0700	commit: fixed tagging
+6d0e1c27d168f2f1a85568341121a5bdea3a44ac 71d166d4da1fea5953272ca8d93370ce47719dcf Austin Kao <austinkao91@gmail.com> 1445380595 -0700	commit: trying to get figaro to work
+71d166d4da1fea5953272ca8d93370ce47719dcf 1548014ed1bddad33297f83389cf70a9bcfed432 Austin Kao <austinkao91@gmail.com> 1445380846 -0700	commit: figaro working
+1548014ed1bddad33297f83389cf70a9bcfed432 1a338d3529bae18ed1d8b36358209e9cee5d413e Austin Kao <austinkao91@gmail.com> 1445389382 -0700	commit: working on centering map
+1a338d3529bae18ed1d8b36358209e9cee5d413e 1a2c68d0cc1e8594be79163f78b5f139047106fa Austin Kao <austinkao91@gmail.com> 1445405320 -0700	commit: kind of fixed back issues with map
+1a2c68d0cc1e8594be79163f78b5f139047106fa 0cbcd17b61b31565c6b16961be735073b9d7d361 Austin Kao <austinkao91@gmail.com> 1445405789 -0700	commit: update production.rb for heroku
+0cbcd17b61b31565c6b16961be735073b9d7d361 f191cfc75d9af6281122c740d33e4a386fd6c612 Austin Kao <austinkao91@gmail.com> 1445406290 -0700	commit: changed to https on cloudinary
+f191cfc75d9af6281122c740d33e4a386fd6c612 71c3032adf36423b9c380bda67a0e3242326fa4f Austin Kao <austinkao91@gmail.com> 1445406478 -0700	commit: added seed dump
+71c3032adf36423b9c380bda67a0e3242326fa4f 6aeb37c8ec9265a41796721c5d08b98177f67ff8 Austin Kao <austinkao91@gmail.com> 1445407857 -0700	commit: fixed map hopefully
+6aeb37c8ec9265a41796721c5d08b98177f67ff8 d2df208a1c39ebc68244c259c35c95b89b66a152 Austin Kao <austinkao91@gmail.com> 1445411608 -0700	commit: fixed issues with search bar
+d2df208a1c39ebc68244c259c35c95b89b66a152 376bfa09c04ae770a48ef719d111fed9fe7cc7c1 Austin Kao <austinkao91@gmail.com> 1445413501 -0700	commit: testing
+376bfa09c04ae770a48ef719d111fed9fe7cc7c1 b96fc6a9664af11630b82b500250373e3907955b Austin Kao <austinkao91@gmail.com> 1445413680 -0700	commit: testing
+b96fc6a9664af11630b82b500250373e3907955b 4be13f0e519b6e68b6891a4739e561eaba529246 Austin Kao <austinkao91@gmail.com> 1445414107 -0700	commit: fixed ocean bug
+4be13f0e519b6e68b6891a4739e561eaba529246 fc65a3e52b3d0bee9e9826d4b24c0bd289ab5ecb Austin Kao <austinkao91@gmail.com> 1445418324 -0700	commit: working on tag links
+fc65a3e52b3d0bee9e9826d4b24c0bd289ab5ecb a8b1c69ac42746f78ffc32b4ec2695440fec0427 Austin Kao <austinkao91@gmail.com> 1445450641 -0700	commit: baseline complete
+a8b1c69ac42746f78ffc32b4ec2695440fec0427 8792070b7f2daa84c6cc5759dd5f85537641470c Austin Kao <austinkao91@gmail.com> 1445451460 -0700	commit: fixed bug with map rendering after creating a new restaurnat
+8792070b7f2daa84c6cc5759dd5f85537641470c adad31a72b5849d3bcd0d6e571164225f0a9d7cf Austin Kao <austinkao91@gmail.com> 1445451585 -0700	commit: seed dump added
+adad31a72b5849d3bcd0d6e571164225f0a9d7cf 1e70ca2f963f17f37b6adc28b0077e90e6dbcaf6 Austin Kao <austinkao91@gmail.com> 1445454106 -0700	commit: styled restaurant detail page
+1e70ca2f963f17f37b6adc28b0077e90e6dbcaf6 0cad5835a67e5a120f4d0dc15e876bbec4fef2eb Austin Kao <austinkao91@gmail.com> 1445494285 -0700	commit: revamping css styling
+0cad5835a67e5a120f4d0dc15e876bbec4fef2eb 6acbdd431da90da1564e9a313d3cfc1ddc8d6f47 Austin Kao <austinkao91@gmail.com> 1445558699 -0700	commit: working on styling restaurant details
+6acbdd431da90da1564e9a313d3cfc1ddc8d6f47 25e5a76ba9aef087a7e86416fcb23866fc153a2c Austin Kao <austinkao91@gmail.com> 1445573736 -0700	commit: refactored filters and included a price model
+25e5a76ba9aef087a7e86416fcb23866fc153a2c 856ebfa51a1cc65b5f5f66df82fadb4586eba9bf Austin Kao <austinkao91@gmail.com> 1445820169 -0700	commit: lots of styling for restaurant pages and navbar
+856ebfa51a1cc65b5f5f66df82fadb4586eba9bf 44daf4e49067b7a62a8c8476a925682fcb7529a2 Austin Kao <austinkao91@gmail.com> 1445833694 -0700	commit: styled navbar
+44daf4e49067b7a62a8c8476a925682fcb7529a2 e4e1d9c7eb1e1c80678be960e3f91eada1ec876a Austin Kao <austinkao91@gmail.com> 1445919341 -0700	commit: finished styling add restaurant
+e4e1d9c7eb1e1c80678be960e3f91eada1ec876a 4a421523509b21e48b75ae4a4aa4eac953865d13 Austin Kao <austinkao91@gmail.com> 1445919589 -0700	commit: reseeeded
+4a421523509b21e48b75ae4a4aa4eac953865d13 42ce8d6929f9719fec4d690c0a301bcb36937a21 Austin Kao <austinkao91@gmail.com> 1445924422 -0700	commit: updated model validations
+42ce8d6929f9719fec4d690c0a301bcb36937a21 3b3ea61541729840349e8b430570a38affca2430 Austin Kao <austinkao91@gmail.com> 1445941444 -0700	commit: completed filters
+3b3ea61541729840349e8b430570a38affca2430 3441e5d1e14e57e33c0d0127813d70f014e5cfb0 Austin Kao <austinkao91@gmail.com> 1445944945 -0700	commit: added guest log in
+3441e5d1e14e57e33c0d0127813d70f014e5cfb0 1c5b9c2ee7cfa51daf3002e4a1e1905be3647c46 Austin Kao <austinkao91@gmail.com> 1445946111 -0700	commit: changed readme
+1c5b9c2ee7cfa51daf3002e4a1e1905be3647c46 5e52a5d997333ed993a9f126fa8cad870bc66553 Austin Kao <austinkao91@gmail.com> 1445946162 -0700	commit: changed readme again
+5e52a5d997333ed993a9f126fa8cad870bc66553 ce3929d3a2d8f1ed0341d654f661232d3f981d68 Austin Kao <austinkao91@gmail.com> 1445967530 -0700	commit: made some tweaks
+ce3929d3a2d8f1ed0341d654f661232d3f981d68 9b406f4d072a83d661767b29f6cf2df20c09e047 Austin Kao <austinkao91@gmail.com> 1446489718 -0800	commit: cloud name added
+9b406f4d072a83d661767b29f6cf2df20c09e047 56bc5db10dd61395c0a08e78665de80953b7d28c Austin Kao <austinkao91@gmail.com> 1446489969 -0800	commit: testing cloud name
+56bc5db10dd61395c0a08e78665de80953b7d28c 0a3c1701d4ef64c2f64be64b13cc7180066c8c44 Austin Kao <austinkao91@gmail.com> 1446781868 -0800	commit: testing newrelic_rpm
+0a3c1701d4ef64c2f64be64b13cc7180066c8c44 d1692832b03eff3432bc5bfe0d381c7b7e1bba43 Austin Kao <austinkao91@gmail.com> 1446782334 -0800	commit: changed api key
+d1692832b03eff3432bc5bfe0d381c7b7e1bba43 48b261fcaa222229ba4a551daaf6fee502b71b48 Austin Kao <austinkao91@gmail.com> 1446782848 -0800	commit: secured image links over https
+48b261fcaa222229ba4a551daaf6fee502b71b48 e0a418705459c4b6954f1705d0f3e31682cb3f49 Austin Kao <austinkao91@gmail.com> 1446783741 -0800	commit: installed cloudinary gem
+e0a418705459c4b6954f1705d0f3e31682cb3f49 9ac839b533807e957e92277e99522dcd24988d18 Austin Kao <austinkao91@gmail.com> 1446784199 -0800	commit: secured links
+9ac839b533807e957e92277e99522dcd24988d18 46fc38d10a07ec34bcb0b7ee62371686be485a43 Austin Kao <austinkao91@gmail.com> 1447110476 -0800	commit: fixed footer, pictures, and search features
+46fc38d10a07ec34bcb0b7ee62371686be485a43 1d9ba310699f7f1810b032d1a0a6941833e4d977 Austin Kao <austinkao91@gmail.com> 1447111226 -0800	commit: changed to dynamic search
+1d9ba310699f7f1810b032d1a0a6941833e4d977 0025689a2f7ffe399f5fb0be83f1b5a1f8eab6fa Austin Kao <austinkao91@gmail.com> 1447116883 -0800	commit: fixed new restaurant redirct issue, updated search bar responses
+0025689a2f7ffe399f5fb0be83f1b5a1f8eab6fa 1b59354328bbd7a4cd29d84d2c71fb2d1b97a802 Austin Kao <austinkao91@gmail.com> 1447117613 -0800	commit: added seed data
+1b59354328bbd7a4cd29d84d2c71fb2d1b97a802 cb3d4423127ec330212d703814bcfaf83e1b59cc Austin Kao <austinkao91@gmail.com> 1447118668 -0800	commit: fixed synchronizations issues while making new restaurants
+                                                                                                                                                                

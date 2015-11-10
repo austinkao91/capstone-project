@@ -1428,7 +1428,7 @@ li.page-number:hover {
 	width: 100%;
 	text-align: left;
 	font: normal 16px sans-serif;
-	padding: 25px 30px;
+	padding: 10px 40px;
   position: fixed;
   bottom: 0;
 }
@@ -1494,4 +1494,17 @@ li.page-number:hover {
 	.footer-distributed .footer-left p.footer-links{
 		line-height: 1.8;
 	}
+}
+
+.notification a:hover{
+  cursor: pointer;
+  cursor: hand;
+}
+.log-in-notification {
+  padding: 10px;
+}
+
+.log-in-notification a:hover {
+  cursor: pointer;
+  cursor: hand;
 }

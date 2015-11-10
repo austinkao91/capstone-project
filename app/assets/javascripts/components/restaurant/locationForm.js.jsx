@@ -33,6 +33,8 @@ var RestaurantLocationForm = React.createClass({
         tag_list: tag_list,
         price_range: price_range
       });
+      ApiUtil.fetchTags();
+      ApiUtil.fetchLocations();
     } else {
       this.error = "Restaurant name cannot be blank!";
       this.setState({});
