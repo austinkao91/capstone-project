@@ -10,12 +10,14 @@ var RestaurantLocationForm = React.createClass({
     };
   },
   componentDidMount: function() {
+    console.log("mounting")
     if(typeof window.CURRENT_USER_ID === "undefined") {
       window.location = "/session/new";
     }
     this.geoCoder = new google.maps.Geocoder();
   },
   createLocation: function(event) {
+    console.log("creating location")
     event.preventDefault();
     var title = event.currentTarget[0].value.trim();
     var tag_list = event.currentTarget[1].value;
@@ -38,11 +40,22 @@ var RestaurantLocationForm = React.createClass({
   },
   submit: function(event) {
     event.preventDefault();
-    this.setState({load: true}, this.submitLocation.bind(null, event));
+    this.submitLocation.bind(null, event);
   },
   submitLocation: function(event) {
-    var street_address = event.currentTarget[0].value;
-    var city = event.currentTarget[1].value;
+    event.preventDefault();
+    var street_address = event.currentTarget[0].value.trim();
+    if(street_address === "") {
+      this.error = "Please fill in all fields!";
+      this.setState({});
+      return;
+    }
+    var city = event.currentTarget[1].value.trim();
+    if(city === "") {
+      this.error = "Please fill in all fields!";
+      this.setState({});
+      return;
+    }
     var state = event.currentTarget[2].value;
     var loc = {
       address: street_address + " " + city + " " + state
@@ -53,6 +66,7 @@ var RestaurantLocationForm = React.createClass({
           latLng = result[0].geometry.location;
           var lat = latLng.lat();
           var lng = latLng.lng();
+          this.error = null;
           this.setState({
             loading: false,
             street_address: street_address,
@@ -67,6 +81,7 @@ var RestaurantLocationForm = React.createClass({
     }.bind(this));
   },
   render: function() {
+    console.log("rerendering")
     var content;
     var error;
     if(this.error) {
@@ -74,7 +89,7 @@ var RestaurantLocationForm = React.createClass({
     }
     if(this.state.load) {
       return (
-        <div className="restaurant-form-contets">
+        <div className="restaurant-form-contents">
           <h1>Loading</h1>
         </div>
       );
@@ -109,6 +124,7 @@ var RestaurantLocationForm = React.createClass({
           <h2>Know about a restaurant OMNOMNOM doesn't?</h2>
           <p>Start by filling out the address form below!</p>
           <div className="restaurant-body-contents">
+            {error}
             <LocationField submitLocation={this.submitLocation}/>
             <div className="restaurant-form-picture">
               <img src="https://res.cloudinary.com/omnombloop/image/upload/v1445913800/2000px-Restaurant_building_clip_art.svg_pjsx1h.png"/>

@@ -7,6 +7,8 @@ var SearchForm = React.createClass({
     var filter = {};
     if(loc_array.length === 2) {
       filter.location = {city: loc_array[0].trim(), state: loc_array[1].trim()};
+    } else {
+      filter.location = {city: null, state: null};
     }
     filter.tags = event.currentTarget.form[0].value.trim().split(/\s+/g);
 
