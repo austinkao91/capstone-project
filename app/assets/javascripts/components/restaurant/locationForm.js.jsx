@@ -10,14 +10,12 @@ var RestaurantLocationForm = React.createClass({
     };
   },
   componentDidMount: function() {
-    console.log("mounting")
     if(typeof window.CURRENT_USER_ID === "undefined") {
       window.location = "/session/new";
     }
     this.geoCoder = new google.maps.Geocoder();
   },
   createLocation: function(event) {
-    console.log("creating location")
     event.preventDefault();
     var title = event.currentTarget[0].value.trim();
     var tag_list = event.currentTarget[1].value;

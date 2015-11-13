@@ -81,7 +81,6 @@ var RestaurantIndex = React.createClass({
     }
     if(this.state.load) {
       if(!this.state.set) {
-        console.log("setting");
         setInterval(this.elapsedTimeScreen, 500);
         this.state.set = true;
       }

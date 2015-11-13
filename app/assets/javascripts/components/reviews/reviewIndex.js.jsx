@@ -34,7 +34,7 @@ var ReviewIndex = React.createClass({
   },
   render:function() {
     var logIn;
-    if(typeof window.CURRENT_USER_ID) {
+    if(typeof window.CURRENT_USER_ID === "undefined") {
       logIn = (
         <p className="log-in-notification">
           Want to add a review? Click here to <a onClick={this.redirectTo}>Log In</a>!
