@@ -25,8 +25,7 @@ var PriceRangeIndex = React.createClass({
                 <PriceRangeItem
                   value={priceRange}
                   price={price}
-                  checkedIdx={this.state.checkedIdx}
-                  />
+                  checkedIdx={this.state.checkedIdx}/>
               </li>;
             }.bind(this))
           }

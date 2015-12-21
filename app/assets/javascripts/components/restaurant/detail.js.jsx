@@ -1,9 +1,13 @@
 var RestaurantDetail = React.createClass({
   getInitialState: function() {
-    return {restaurant: this.getRestaurantState(), load: false};
+    return {restaurant: this.getRestaurantState(), load: false, showModal: false};
   },
   getRestaurantState: function() {
     return RestaurantStore.find(parseInt(this.props.params.restaurantId));
+  },
+  modalClick: function(event) {
+    event.preventDefault();
+    this.setState({showModal: !this.state.showModal});
   },
   load: function(callback) {
     this.setState({load: true}, callback);
@@ -31,6 +35,7 @@ var RestaurantDetail = React.createClass({
     var restaurant = this.state.restaurant;
     var address_line1 = restaurant.street_address;
     var address_line2 = restaurant.city + ", " + restaurant.state;
+    console.log(this.state.showModal);
     if(this.state.load) {
       return (
         <div className="loading">
@@ -42,8 +47,12 @@ var RestaurantDetail = React.createClass({
       return(
         <div>
           <div className="header group">
-            <div className="inner-header group">
-              <div className="restaurant-header group">
+            <ImageModal
+              modalClick={this.modalClick}
+              show={this.state.showModal}
+              images={this.state.restaurant.pictures}/>
+            <div className="restaurant-header group">
+              <div className="inner-header group">
                 <div className="restaurant-title-info">
                   <h2>{this.state.restaurant.title}</h2>
                   <Rating rating={this.averageReview()}/>&nbsp;&nbsp;{this.reviewCount()}&nbsp;{"reviews"}
@@ -57,7 +66,7 @@ var RestaurantDetail = React.createClass({
               </div>
               <div className="business-detail">
                 <div className="place-info">
-                  <RestaurantMap />
+                  <RestaurantMap/>
                   <br/>
                   {address_line1}
                   <br/>
@@ -65,16 +74,21 @@ var RestaurantDetail = React.createClass({
                   <br/>
                 </div>
                 <div className="picture-info">
-                  <ImageIndex images={this.state.restaurant.pictures} limit={3}/>
+                  <ImageIndex
+                    modalClick={this.modalClick}
+                    images={this.state.restaurant.pictures}
+                    limit={3}/>
                 </div>
               </div>
             </div>
           </div>
           <div className="index group">
-              <div className='restaurant-reviews'>
-                <ReviewIndex restaurant={this.state.restaurant} reviews={this.state.restaurant.reviews}/>
-              </div>
+            <div className='restaurant-reviews'>
+              <ReviewIndex
+                restaurant={this.state.restaurant}
+                reviews={this.state.restaurant.reviews}/>
             </div>
+          </div>
         </div>
       );
     } else {

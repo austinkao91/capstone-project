@@ -2,18 +2,21 @@ var ImageIndex = React.createClass({
   render: function() {
     if( this.props.images.length > 0 ) {
       var images;
+
       if(typeof this.props.limit === "undefined") {
         images = this.props.images;
       } else {
         var len = this.props.images.length;
         images = this.props.images.slice(len-this.props.limit,len);
       }
+
       return(
         <ul className="image-list">
           {
             images.map(function(image,idx) {
-              return <li key={idx}><img src={image.name}/></li>;
-            })
+              return <li key={idx} onClick={this.props.modalClick}><img src={image.name}/></li>;
+            }.bind(this))
+
           }
         </ul>
       );
