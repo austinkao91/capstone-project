@@ -46,11 +46,11 @@ var RestaurantDetail = React.createClass({
     if(Object.keys(restaurant).length > 0) {
       return(
         <div>
+          <ImageModal
+            modalClick={this.modalClick}
+            show={this.state.showModal}
+            images={this.state.restaurant.pictures}/>
           <div className="header group">
-            <ImageModal
-              modalClick={this.modalClick}
-              show={this.state.showModal}
-              images={this.state.restaurant.pictures}/>
             <div className="restaurant-header group">
               <div className="inner-header group">
                 <div className="restaurant-title-info">

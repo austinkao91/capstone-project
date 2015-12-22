@@ -3,7 +3,7 @@ var PageButton = React.createClass({
     var mark = false;
     var next = false;
     var prev = false;
-    var className = "page-button" + this.props.class;
+    var className = "page-button " + this.props.name;
     if(this.props.mark === "prev") {
       if(this.props.current > 1) {
         mark = true;

@@ -23,15 +23,15 @@ var ImageModal = React.createClass({
       return (
         <div className="modal-show">
           <div className="slideshow">
-            <pageButton
-              class="slideshow"
+            <PageButton
+              name="slideshow"
               current={this.props.currentIdx}
               pageLimit={limit}
               action={this.leftClick}
               mark="prev"/>
             <img src={currentImage.name}></img>
-            <pageButton
-              class="slideshow"
+            <PageButton
+              name="slideshow"
               current={this.props.currentIdx}
               pageLimit={limit}
               action={this.rightClick}
@@ -42,7 +42,7 @@ var ImageModal = React.createClass({
     } else {
       return (
         <div className="modal-hide"></div>
-      )
+      );
     }
   }
 });

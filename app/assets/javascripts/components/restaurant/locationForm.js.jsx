@@ -81,7 +81,6 @@ var RestaurantLocationForm = React.createClass({
     }.bind(this));
   },
   render: function() {
-    console.log("rerendering")
     var content;
     var error;
     if(this.error) {

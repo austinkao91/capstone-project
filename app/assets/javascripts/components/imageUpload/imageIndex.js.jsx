@@ -14,9 +14,13 @@ var ImageIndex = React.createClass({
         <ul className="image-list">
           {
             images.map(function(image,idx) {
-              return <li key={idx} onClick={this.props.modalClick}><img src={image.name}/></li>;
+              return (
+                <li key={idx}
+                  onClick={this.props.modalClick}>
+                    <img src={image.name}/>
+                </li>
+              );
             }.bind(this))
-
           }
         </ul>
       );
