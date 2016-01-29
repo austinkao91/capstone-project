@@ -11,3 +11,4 @@ Rails.application.routes.draw do
   end
   get 'guest' => 'sessions#guest_log_in'
 end
+          

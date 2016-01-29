@@ -1,3 +1,3 @@
 json.array!(@tag) do |tag|
-  json.extract!(tag, :title, :restaurants)
+  json.extract!(tag, :title)
 end

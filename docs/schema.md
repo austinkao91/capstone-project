@@ -15,20 +15,20 @@ author_id   | integer   | not null, foreign key (references users), indexed
 rating      | intger    | not null
 description | text      |
 
-## tags
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-taggings_id | integer   | not null, foreign key (references users), indexed
-description | integer   | not null, foreign key (references notes), indexed
+  ## tags
+  column name | data type | details
+  ------------|-----------|-----------------------
+  id          | integer   | not null, primary key
+  taggings_id | integer   | not null, foreign key (references users), indexed
+  description | integer   | not null, foreign key (references notes), indexed
 
-## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-name        | string    | not null
-restaurant_id     | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
-tag_id      | integer   | not null, foreign key (references tags), indexed
+  ## taggings
+  column name | data type | details
+  ------------|-----------|-----------------------
+  id          | integer   | not null, primary key
+  name        | string    | not null
+  restaurant_id     | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
+  tag_id      | integer   | not null, foreign key (references tags), indexed
 
 ## users
 column name     | data type | details
