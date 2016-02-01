@@ -21,7 +21,7 @@ class Api::LocationsController < ApplicationController
   end
 
   def index
-    @location = Location.all.includes(restaurants: :location)
+    @location = Location.all
   end
 
   def show

@@ -4,12 +4,13 @@ var TagIndex = React.createClass({
   },
   componentDidMount: function() {
     TagStore.addHandler(TagConstants.CHANGE_EVENT, this.getTags);
-    if(TagStore.all().length === 0) {ApiUtil.fetchTags(); }
+    ApiUtil.fetchTags();
   },
   componentWillUnmount: function() {
     TagStore.removeHandler(TagConstants.CHANGE_EVENT, this.getTags);
   },
   getTags: function() {
+    debugger
     this.setState({tags: TagStore.all()});
   },
   take: function(tag, limit) {

@@ -7,6 +7,7 @@ var TagActions = {
     appDispatcher.dispatch(payload);
   },
   receiveAllTags: function(data) {
+    
     var payload = {
       tags: data,
       actionType: TagConstants.TAGS_RECEIVED

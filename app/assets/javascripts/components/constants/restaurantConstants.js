@@ -14,7 +14,8 @@ window.ReviewConstants = {
 window.TagConstants = {
   TAGS_RECEIVED: "tag_received",
   ONE_TAG_RECEIVED: "one_tag_received",
-  CHANGE_EVENT: 'tag_change'
+  CHANGE_EVENT: 'tag_change',
+  TAGS: ["Italian", "Mexican", "Chinese", "Indian", "Thai", "Japanese", "Greek", "American", "Spanish", "French", "Mediterranean", "Lebanese", "Vietnamese", "Korean", "Turkish", "Soul", "Moroccan", "Caribbean", "German", "Cajun", "Brazilian", "Peruvian", "Cuban", "Polish"].sort()
 };
 
 window.FilterConstants = {
@@ -87,9 +88,6 @@ window.StateConstants = {
     "WV",
     "WY"
   ]
-};
-window.TagConstants = {
-  TAGS: ["Italian", "Mexican", "Chinese", "Indian", "Thai", "Japanese", "Greek", "American", "Spanish", "French", "Mediterranean", "Lebanese", "Vietnamese", "Korean", "Turkish", "Soul", "Moroccan", "Caribbean", "German", "Cajun", "Brazilian", "Peruvian", "Cuban", "Polish"].sort()
 };
 
 window.PriceRangeConstants = {

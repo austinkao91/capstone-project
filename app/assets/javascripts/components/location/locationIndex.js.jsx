@@ -4,7 +4,7 @@ var LocationIndex = React.createClass({
   },
   componentDidMount: function() {
     LocationStore.addHandler(LocationConstants.CHANGE_EVENT, this.getLocations);
-    if(LocationStore.all().length === 0) {ApiUtil.fetchLocations();}
+    ApiUtil.fetchLocations();
   },
   componentWillUnmount: function() {
     LocationStore.removeHandler(LocationConstants.CHANGE_EVENT, this.getLocations);

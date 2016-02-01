@@ -35,7 +35,6 @@ var RestaurantDetail = React.createClass({
     var restaurant = this.state.restaurant;
     var address_line1 = restaurant.street_address;
     var address_line2 = restaurant.city + ", " + restaurant.state;
-    console.log(this.state.showModal);
     if(this.state.load) {
       return (
         <div className="loading">

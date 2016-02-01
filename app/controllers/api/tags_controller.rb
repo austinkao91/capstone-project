@@ -10,7 +10,7 @@ class Api::TagsController < ApplicationController
   end
 
   def index
-    @tag = Tag.all.includes(restaurants: :location)
+    @tag = Tag.all
   end
 
   def show
