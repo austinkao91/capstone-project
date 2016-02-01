@@ -1,5 +1,9 @@
 var SearchForm = React.createClass({
   mixins: [ReactRouter.History],
+  componentDidMount: function() {
+    ApiUtil.fetchTags();
+    ApiUtil.fetchLocations();
+  },
   searchRestaurants: function(event) {
     event.preventDefault();
 

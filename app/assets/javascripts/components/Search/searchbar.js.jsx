@@ -10,10 +10,7 @@ var SearchBar = React.createClass({
     e.preventDefault();
     this.setState({input: e.target.innerText});
   },
-  componentDidMount: function() {
-    if(TagStore.all().length === 0 ) { ApiUtil.fetchTags(); }
-    if(LocationStore.all().length === 0) { ApiUtil.fetchLocations(); }
-  },
+
   matches: function() {
     var matches = [];
     var store = [];
@@ -33,7 +30,6 @@ var SearchBar = React.createClass({
 
     store.forEach(function(elem){
       var push = false;
-      debugger
       for(i = 0; i < elem.title.length - this.state.input.length+1; i++ ) {
         var sub = elem.title.slice(i, i + this.state.input.length);
         if(sub.toLowerCase() === this.state.input.toLowerCase()) {
