@@ -47,8 +47,8 @@ var RestaurantDetail = React.createClass({
         <div>
 
           <div className="header group">
-            <div className="restaurant-header group">
-              <div className="inner-header group">
+            <div className="inner-header group">
+              <div className="restaurant-header group">
                 <div className="restaurant-title-info">
                   <h2>{this.state.restaurant.title}</h2>
                   <Rating rating={this.averageReview()}/>&nbsp;&nbsp;{this.reviewCount()}&nbsp;{"reviews"}
