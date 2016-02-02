@@ -21,6 +21,8 @@ var RestaurantIndex = React.createClass({
     ApiUtil.fetch(FilterStore.all());
   },
   componentWillUnmount: function() {
+    FilterStore.removeHandler(FilterConstants.CHANGE_EVENT,
+                             this.fetchRestaurants);
     RestaurantStore.removeHandler(RestaurantConstants.CHANGE_EVENT, this.setRestaurant);
   },
   nextPage: function() {

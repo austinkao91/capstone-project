@@ -21,6 +21,9 @@ var LocationIndex = React.createClass({
     var count = 0;
     var idx = 0;
     var found = false;
+    if(filterLocation.city === null && filterLocation.state === null) {
+      found = true;
+    }
     while(idx <= this.state.locations.length-1 && count < limit ){
       if(filterLocation.city === location[idx].city &&
           filterLocation.state === location[idx].state) {
