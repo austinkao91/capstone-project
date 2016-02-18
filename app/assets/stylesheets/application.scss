@@ -140,6 +140,10 @@ li.restaurant-item {
   position: relative;
 }
 
+li.restaurant-item:hover {
+  background-color: #EFEFEF;
+}
+
 .page-display > * {
   display: block;
 }
@@ -238,7 +242,7 @@ li.restaurant-item {
   background: white;
 }
 .header {
-  min-height: 200px;
+  min-height: 140px;
   min-width: 1100px;
   position: relative;
 }
@@ -254,6 +258,19 @@ li.restaurant-item {
 
 
 .map {
+
+  width: 250px;
+  height: 375px;
+}
+
+.map-relative {
+  position: relative;
+}
+.map-fixed {
+  position: fixed;
+}
+
+.map-container {
   display: inline-block;
   float: right;
   min-height: 500px;
@@ -262,7 +279,6 @@ li.restaurant-item {
   margin-left: 2.5%;
   margin-bottom: 2.5%;
   margin-top: 20px;
-
 }
 .restaurants-index {
   display: inline-block;
@@ -748,7 +764,6 @@ nav.navbar {
 .logo {
   float: left;
   width: 115px;
-  margin-top: 40px;
 }
 
 .logo a:hover {

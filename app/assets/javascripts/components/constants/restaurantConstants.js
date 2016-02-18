@@ -2,7 +2,10 @@ window.RestaurantConstants = {
   RESTAURANTS_RECEIVED: "received",
   ONE_RESTAURANT_RECEIVED: "one_received",
   CHANGE_EVENT: 'change',
-  RESTAURANT_DETAIL_CHANGE_EVENT: 'restaurantDetailChange'
+  RESTAURANT_DETAIL_CHANGE_EVENT: 'restaurantDetailChange',
+  HOVER_ACTIVE: 'hover_active',
+  HOVER_RESET: 'hover_reset',
+  HOVER_EVENT: "hover_event"
 };
 
 window.ReviewConstants = {

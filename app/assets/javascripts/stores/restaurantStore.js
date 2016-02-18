@@ -1,6 +1,8 @@
 (function(root) {
   'use strict';
   var _restaurants = [];
+  var _hover_active_restaurant = [];
+  var _hover_passive_restaurant = [];
   var _display_restaurant = {};
   var CHANGE_EVENT = 'change';
   var RESTAURANT_DETAIL_CHANGE_EVENT = 'restaurantDetailChange';
@@ -8,6 +10,12 @@
   root.RestaurantStore = $.extend({}, EventEmitter.prototype, {
     all: function() {
       return _restaurants.slice();
+    },
+    active: function() {
+      return _hover_active_restaurant.slice();
+    },
+    passive: function() {
+      return _hover_passive_restaurant.slice();
     },
     addHandler: function(eventName, handler) {
       this.on(eventName, handler);
@@ -47,8 +55,23 @@
           root.RestaurantStore.changeReview(payload);
           root.RestaurantStore.change(RestaurantConstants.CHANGE_EVENT);
           break;
+        case RestaurantConstants.HOVER_ACTIVE:
+          root.RestaurantStore.hover_active(payload);
+          root.RestaurantStore.change(RestaurantConstants.HOVER_EVENT);
+          break;
+        case RestaurantConstants.HOVER_RESET:
+          root.RestaurantStore.hover_reset(payload);
+          root.RestaurantStore.change(RestaurantConstants.HOVER_EVENT);
+          break;
       }
     }),
+    hover_active: function(payload) {
+      _hover_active_restaurant = [payload.restaurants];
+    },
+    hover_reset: function(payload) {
+      _hover_passive_restaurant = _hover_active_restaurant;
+      _hover_active_restaurant = [];
+    },
     addRestaurant: function(payload) {
       _restaurants = payload.restaurants;
     },

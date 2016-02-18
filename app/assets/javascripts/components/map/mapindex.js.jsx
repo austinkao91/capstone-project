@@ -1,6 +1,6 @@
 var MapIndex = React.createClass({
   getInitialState: function() {
-    return {markers: []};
+    return {markers: [], active: [], passive: []};
   },
   getMapCenter: function() {
     var loc = FilterStore.all().location;
@@ -42,16 +42,36 @@ var MapIndex = React.createClass({
     this.geoCoder = new google.maps.Geocoder();
     FilterStore.addHandler(FilterConstants.CHANGE_EVENT, this.getMapCenter);
     LocationStore.addHandler(LocationConstants.CHANGE_EVENT, this.getMapCenter);
+    RestaurantStore.addHandler(RestaurantConstants.HOVER_EVENT, this.getActive);
+  },
+  getActive: function() {
+    this.setState({active: RestaurantStore.active(), passive: RestaurantStore.passive()});
   },
   componentWillUnmount: function() {
     LocationStore.removeHandler(LocationConstants.CHANGE_EVENT, this.getMapCenter);
     FilterStore.removeHandler(FilterConstants.CHANGE_EVENT, this.getMapCenter);
+    RestaurantStore.removeHandler(RestaurantConstants.HOVER_EVENT, this.getActive);
   },
   clearMarkers: function() {
     this.state.markers.forEach(function(marker) {
       marker.setMap(null);
     });
-    this.setState({markers: []});
+    this.removeAnimation();
+    this.state.markers = [];
+    this.state.active = [];
+    this.state.passive = [];
+    this.setState({
+      markers: this.state.markers,
+      active: this.state.active,
+      passive: this.state.passive
+    });
+  },
+  removeAnimation: function() {
+    if(this.state.passive.length > 0) {
+      var idx = (this.state.passive[0].listNum - 1) + "";
+      var marker = this.state.markers[idx];
+      marker.setAnimation(null);
+    }
   },
   componentWillReceiveProps: function(nextProps){
     this.clearMarkers();
@@ -89,8 +109,10 @@ var MapIndex = React.createClass({
     google.maps.event.addListener(marker, 'mouseout', function() {
       infowindow.close();
     }.bind(this));
+
+
     this.state.markers.push(marker);
-    this.setState({markers: this.state.markers });
+    this.setState({markers: this.state.markers});
     marker.setMap(that.map);
 
   },
@@ -111,6 +133,17 @@ var MapIndex = React.createClass({
         }
     }.bind(this));
   },
+  hoverBounce: function() {
+    if(this.state.active.length > 0) {
+      var idx = (this.state.active[0].listNum - 1) + "";
+      var marker = this.state.markers[idx];
+      var lat = this.state.active[0].lat;
+      var lng = this.state.active[0].lng;
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+      this.map.setCenter(new google.maps.LatLng(lat,lng));
+    }
+
+  },
   getBounds: function() {
     var mapBounds = this.map.getBounds();
     var lat = mapBounds.Qa;
@@ -123,6 +156,8 @@ var MapIndex = React.createClass({
     this.getBounds();
   },
   render: function() {
-    return  <div className="map" ref="map"/>;
+    this.removeAnimation();
+    this.hoverBounce();
+    return <div className="map" ref="map"/>;
   }
 });

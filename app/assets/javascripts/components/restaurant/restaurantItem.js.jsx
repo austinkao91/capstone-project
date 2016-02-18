@@ -13,12 +13,24 @@ var RestaurantItem = React.createClass({
   reviewCount:function() {
     return this.props.restaurant.reviews.length;
   },
+  handleMouseOver: function(event) {
+    event.preventDefault();
+    this.props.restaurant.listNum = this.props.listNum + 1;
+    RestaurantActions.hoverActive(this.props.restaurant);
+  },
+  handleMouseOut: function(event) {
+    event.preventDefault();
+    this.props.restaurant.listNum = this.props.listNum + 1;
+    RestaurantActions.hoverReset(this.props.restaurant);
+  },
   render: function() {
     var restaurant = this.props.restaurant;
     var address_line1 = restaurant.street_address;
     var address_line2 = restaurant.city + ", " + restaurant.state;
     return(
-      <li className={"restaurant-item group"}>
+      <li onMouseOver={this.handleMouseOver}
+        onMouseOut={this.handleMouseOut}
+        className={"restaurant-item group"}>
         <div className="item-picture">
           <ImageIndex images={this.props.restaurant.pictures} limit={1}/>
         </div>

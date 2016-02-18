@@ -19,5 +19,18 @@ var RestaurantActions = {
       restaurants: data
     };
     appDispatcher.dispatch(payload);
+  },
+  hoverActive: function(data) {
+    var payload = {
+      actionType: RestaurantConstants.HOVER_ACTIVE,
+      restaurants: data
+    };
+    appDispatcher.dispatch(payload);
+  },
+  hoverReset: function() {
+    var payload = {
+      actionType: RestaurantConstants.HOVER_RESET,
+    };
+    appDispatcher.dispatch(payload);
   }
 };

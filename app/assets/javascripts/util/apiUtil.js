@@ -31,7 +31,7 @@
 
   window.ApiUtil = {
     fetch: function(params) {
-      debugger
+      
       params = parseParams(params);
       $.ajax({
         url: 'api/restaurants',

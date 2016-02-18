@@ -4,7 +4,9 @@ var NavigationBar = React.createClass({
       <nav className="home">
           <div className="container-content group">
               <div className="logo group">
-                <a href="#">OMNOMNOM</a>
+                <a href="#">
+                  <img src="https://res.cloudinary.com/omnombloop/image/upload/c_scale,w_100/v1455792170/cookie_xrrycm.png"/>
+                </a>
               </div>
               <LogStatus />
               <div className="user-nav-search group">
