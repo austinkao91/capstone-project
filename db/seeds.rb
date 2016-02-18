@@ -2,8 +2,9 @@ Location.create!([
   {city: "San Francisco", state: "CA", lat: 37.7749295, lng: -122.4194155},
   {city: "Berkeley", state: "CA", lat: 37.8715926, lng: -122.272747},
   {city: "Sunnyvale", state: "CA", lat: 37.36883, lng: -122.0363496},
-  {city: "Fremont", state: "CA", lat: nil, lng: nil},
-  {city: "San Jose", state: "CA", lat: nil, lng: nil}
+  {city: "Fremont", state: "CA", lat: 37.5482697, lng: -121.9885719},
+  {city: "San Jose", state: "CA", lat: 37.3382082, lng: -121.8863286},
+  {city: "Fairbanks", state: "AK", lat: nil, lng: nil}
 ])
 LocationTagging.create!([
   {restaurant_id: 1, location_id: 1},
@@ -22,7 +23,8 @@ LocationTagging.create!([
   {restaurant_id: 14, location_id: 2},
   {restaurant_id: 15, location_id: 3},
   {restaurant_id: 16, location_id: 4},
-  {restaurant_id: 17, location_id: 5}
+  {restaurant_id: 17, location_id: 5},
+  {restaurant_id: 18, location_id: 6}
 ])
 Picture.create!([
   {name: "http://res.cloudinary.com/omnombloop/image/upload/v1447112522/uirowucd2tmqvb60mudt.jpg", imageable_id: 1, imageable_type: "Restaurant"},
@@ -43,7 +45,12 @@ Picture.create!([
   {name: "http://res.cloudinary.com/omnombloop/image/upload/v1447117455/wedrh7jg2uuk9ar2pqya.jpg", imageable_id: 15, imageable_type: "Restaurant"},
   {name: "http://res.cloudinary.com/omnombloop/image/upload/v1447117774/vcrfarggr5cef6yosf7g.jpg", imageable_id: 16, imageable_type: "Restaurant"},
   {name: "http://res.cloudinary.com/omnombloop/image/upload/v1447118600/o6nvajweg0ocvlwxgrjz.jpg", imageable_id: 17, imageable_type: "Restaurant"},
-  {name: "http://res.cloudinary.com/omnombloop/image/upload/v1450747529/dokypfrf1zdszpkxfyfd.png", imageable_id: 9, imageable_type: "Restaurant"}
+  {name: "http://res.cloudinary.com/omnombloop/image/upload/v1450747529/dokypfrf1zdszpkxfyfd.png", imageable_id: 9, imageable_type: "Restaurant"},
+  {name: "http://res.cloudinary.com/omnombloop/image/upload/v1455750031/cu7ufrho9lkcgcc7hbqv.png", imageable_id: 9, imageable_type: "Restaurant"},
+  {name: "http://res.cloudinary.com/omnombloop/image/upload/v1455750407/cnjee2fpuvvocfv1b8vj.png", imageable_id: 4, imageable_type: "Restaurant"},
+  {name: "http://res.cloudinary.com/omnombloop/image/upload/v1455750700/ukp5gv7otw9rtxsihngf.jpg", imageable_id: 4, imageable_type: "Restaurant"},
+  {name: "http://res.cloudinary.com/omnombloop/image/upload/v1455750790/jm3xsqxfstwjjemdvlui.jpg", imageable_id: 4, imageable_type: "Restaurant"},
+  {name: "http://res.cloudinary.com/omnombloop/image/upload/v1455751141/nablaojcxovthahdxudf.jpg", imageable_id: 4, imageable_type: "Restaurant"}
 ])
 PriceRange.create!([
   {min: 0, max: 10},
@@ -68,7 +75,8 @@ PriceRangeJoining.create!([
   {priceRange_id: 1, restaurant_id: 14},
   {priceRange_id: 3, restaurant_id: 15},
   {priceRange_id: 1, restaurant_id: 16},
-  {priceRange_id: 1, restaurant_id: 17}
+  {priceRange_id: 1, restaurant_id: 17},
+  {priceRange_id: 1, restaurant_id: 18}
 ])
 Restaurant.create!([
   {title: "Tu Lan", street_address: "8 6th Street", lat: 37.7818232, lng: -122.4102034},
@@ -87,7 +95,8 @@ Restaurant.create!([
   {title: "Cafe Strada", street_address: "2323 College Ave", lat: 37.868617, lng: -122.2544747},
   {title: "Palace Korean BBQ Buffet", street_address: "1092 E El Camino Real", lat: 37.351591, lng: -122.0014525},
   {title: "Xiao Taipei", street_address: "46848 Warm Spring Blvd", lat: 37.4885054, lng: -121.9285877},
-  {title: "Dunkin Donuts", street_address: "100034 Stevens Creek Blvd", lat: 37.3230072, lng: -121.9612044}
+  {title: "Dunkin Donuts", street_address: "100034 Stevens Creek Blvd", lat: 37.3230072, lng: -121.9612044},
+  {title: "Alaskan Restaurant", street_address: "910 Yukon Dr", lat: 64.857529, lng: -147.848972}
 ])
 Review.create!([
   {body: "One of my favorite vietnamese places to eat at!", rating: 4, restaurant_id: 1, user_id: 1},
@@ -141,11 +150,12 @@ Tagging.create!([
   {tag_id: 3, restaurant_id: 14},
   {tag_id: 5, restaurant_id: 15},
   {tag_id: 2, restaurant_id: 16},
-  {tag_id: 3, restaurant_id: 17}
+  {tag_id: 3, restaurant_id: 17},
+  {tag_id: 3, restaurant_id: 18}
 ])
 User.create!([
-  {username: "ian", password_digest: "$2a$10$7PGrtacutZwEU6Vxq37Mr.r8KsjYllF32XQEwFjq7DaDEqtyZ0UhC", session_token: "U2COmoEzm9R3IIh1RUCLlQ", image_url: "https://res.cloudinary.com/omnombloop/image/upload/v1445819452/anonymousUser_rb4i4l.png"},
   {username: "Ian", password_digest: "$2a$10$jSKbj8jrW41idkgeTjV7FeIi9HjNjnYlT76aRrMHDIn.DCRSJ24ki", session_token: "oYW25rcayrVFouBEY6Mgpw", image_url: "https://res.cloudinary.com/omnombloop/image/upload/v1445819452/anonymousUser_rb4i4l.png"},
   {username: "david", password_digest: "$2a$10$uVbwK.1zsvZuCU9T.CqsR.jNLYD6j3EzzQhEo3rrsqKEGwKCarWX6", session_token: "zpLUGOHFqVpSWjDn-3JGlQ", image_url: "https://res.cloudinary.com/omnombloop/image/upload/v1445819452/anonymousUser_rb4i4l.png"},
-  {username: "totoro", password_digest: "$2a$10$HYMF/Gzj3Sct4Jdpld7ae.2FBTwAyKhhsMPBMP91ur7DyL9AXRlfm", session_token: "aOZ1ZTVZ2pfdByiKPQIizA", image_url: "https://res.cloudinary.com/omnombloop/image/upload/v1445890872/glw2s0fr0trdtuzclsio.png"}
+  {username: "totoro", password_digest: "$2a$10$HYMF/Gzj3Sct4Jdpld7ae.2FBTwAyKhhsMPBMP91ur7DyL9AXRlfm", session_token: "aOZ1ZTVZ2pfdByiKPQIizA", image_url: "https://res.cloudinary.com/omnombloop/image/upload/v1445890872/glw2s0fr0trdtuzclsio.png"},
+  {username: "ian", password_digest: "$2a$10$7PGrtacutZwEU6Vxq37Mr.r8KsjYllF32XQEwFjq7DaDEqtyZ0UhC", session_token: "xPV0fDyhoIMMAt6IroM33g", image_url: "https://res.cloudinary.com/omnombloop/image/upload/v1445819452/anonymousUser_rb4i4l.png"}
 ])
