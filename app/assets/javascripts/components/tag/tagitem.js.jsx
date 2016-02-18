@@ -32,7 +32,9 @@ var TagItem = React.createClass({
           <input type="checkbox"
             checked
             onChange={this.filterRestaurants}>
-            {this.props.tag.title}&nbsp;
+            <span onClick={this.filterRestaurants}>
+              {this.props.tag.title}&nbsp;
+            </span>
           </input>
         </li>
       );
@@ -41,7 +43,9 @@ var TagItem = React.createClass({
         <li className="tag-item">
           <input type="checkbox"
             onChange={this.filterRestaurants}>
-            {this.props.tag.title}&nbsp;
+            <span onClick={this.filterRestaurants}>
+              {this.props.tag.title}&nbsp;
+            </span>
           </input>
         </li>
       );

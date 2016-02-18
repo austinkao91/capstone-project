@@ -6,8 +6,14 @@ var ImageIndex = React.createClass({
       if(typeof this.props.limit === "undefined") {
         images = this.props.images;
       } else {
-        var len = this.props.images.length;
-        images = this.props.images.slice(len-this.props.limit,len);
+        var len;
+        if(this.props.images.length > this.props.limit) {
+            len = this.props.images.length;
+            images = this.props.images.slice(len-this.props.limit,len);
+        } else {
+          images = this.props.images;
+        }
+
       }
 
       return(
