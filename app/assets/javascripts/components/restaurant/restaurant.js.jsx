@@ -100,12 +100,7 @@ var RestaurantIndex = React.createClass({
       return(
           <div className="index group">
             <div className="index-container group">
-              <div className="map-container">
-                <div className="map-holder">
-                  <MapIndex restaurants={this.state.restaurants} />
-
-                </div>
-              </div>
+              <MapIndex restaurants={this.state.restaurants} />
               <div className="restaurants-index">
                 {restaurantIndexList}
                 <PageDisplay

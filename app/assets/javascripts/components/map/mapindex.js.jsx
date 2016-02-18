@@ -1,7 +1,9 @@
 var MapIndex = React.createClass({
+  mixins: [ReactRouter.History],
   getInitialState: function() {
-    return {markers: [], active: [], passive: []};
+    return {markers: [], active: [], passive: [], lock: false};
   },
+
   getMapCenter: function() {
     var loc = FilterStore.all().location;
     var locCenter = LocationStore.find_by_location(loc);
@@ -43,6 +45,7 @@ var MapIndex = React.createClass({
     FilterStore.addHandler(FilterConstants.CHANGE_EVENT, this.getMapCenter);
     LocationStore.addHandler(LocationConstants.CHANGE_EVENT, this.getMapCenter);
     RestaurantStore.addHandler(RestaurantConstants.HOVER_EVENT, this.getActive);
+    window.addEventListener("scroll", this.handleScroll);
   },
   getActive: function() {
     this.setState({active: RestaurantStore.active(), passive: RestaurantStore.passive()});
@@ -51,9 +54,21 @@ var MapIndex = React.createClass({
     LocationStore.removeHandler(LocationConstants.CHANGE_EVENT, this.getMapCenter);
     FilterStore.removeHandler(FilterConstants.CHANGE_EVENT, this.getMapCenter);
     RestaurantStore.removeHandler(RestaurantConstants.HOVER_EVENT, this.getActive);
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  handleScroll: function(event) {
+    var node = React.findDOMNode(this);
+    if(event.srcElement.body.scrollTop >= 250) {
+      this.state.lock = true;
+    } else {
+      this.state.lock = false;
+    }
+    this.setState({lock: this.state.lock});
+
   },
   clearMarkers: function() {
     this.state.markers.forEach(function(marker) {
+      google.maps.event.clearInstanceListeners(marker);
       marker.setMap(null);
     });
     this.removeAnimation();
@@ -106,6 +121,10 @@ var MapIndex = React.createClass({
     google.maps.event.addListener(marker, 'mouseover', function() {
       infowindow.open(this.map,marker);
     }.bind(this));
+    google.maps.event.addListener(marker, 'click', function() {
+      var showURL = "restaurants/" + restaurant.id;
+      this.history.pushState(null, showURL);
+    }.bind(this));
     google.maps.event.addListener(marker, 'mouseout', function() {
       infowindow.close();
     }.bind(this));
@@ -152,12 +171,32 @@ var MapIndex = React.createClass({
     var bounds ={bounds: {northEast: {lat: lat.j, lng: lng.J}, southWest: {lat: lat.J, lng: lng.j}}};
     filterAction.addFilter(bounds);
   },
+  getOffSet: function(){
+    var width = window.outerWidth;
+    var offset = (980/2-250);
+    return {marginLeft: offset};
+  },
   mapListener: function() {
     this.getBounds();
   },
   render: function() {
     this.removeAnimation();
     this.hoverBounce();
-    return <div className="map" ref="map"/>;
+    var mapLoc;
+    var leftOffSet;
+    if(this.state.lock) {
+      mapLoc = "map-locked";
+      // leftOffSet = this.getOffSet();
+    } else {
+      mapLoc = "map-holder";
+    }
+
+    return (
+      <div className="map-container">
+        <div className={mapLoc} style={leftOffSet}>
+          <div className="map" ref="map"/>
+        </div>
+      </div>
+    );
   }
 });

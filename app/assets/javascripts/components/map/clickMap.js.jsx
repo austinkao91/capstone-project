@@ -18,6 +18,7 @@
   },
   clearMarkers: function() {
     this.state.markers.forEach(function(marker) {
+      google.maps.event.clearInstanceListeners(marker);
       marker.setMap(null);
     });
     this.setState({coordinates: [], markers: []});

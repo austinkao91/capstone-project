@@ -263,22 +263,27 @@ li.restaurant-item:hover {
   height: 375px;
 }
 
-.map-relative {
+.map-holder {
   position: relative;
+  width: 25%;
+  margin-left: 2.5%;
+  margin-bottom: 2.5%;
+  margin-top: 20px;
 }
-.map-fixed {
+.map-locked {
   position: fixed;
+  top: 0px;
+  padding-top: 10px;
+  left:50%;
+  transform: translateX(97.5%);
 }
 
 .map-container {
   display: inline-block;
   float: right;
   min-height: 500px;
-  width: 25%;
-  height: 100%;
-  margin-left: 2.5%;
-  margin-bottom: 2.5%;
-  margin-top: 20px;
+
+
 }
 .restaurants-index {
   display: inline-block;
@@ -308,7 +313,7 @@ a:hover {
 }
 
 .restaurant-header > * {
-  display: inline-block;
+  // display: inline-block;
 }
 
 .restaurant-buttons {

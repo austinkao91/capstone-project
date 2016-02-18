@@ -18,6 +18,7 @@ var RestaurantMap = React.createClass({
   },
   clearMarkers: function() {
     this.state.markers.forEach(function(marker) {
+      google.maps.event.clearInstanceListeners(marker);
       marker.setMap(null);
     });
     this.setState({markers: []});
