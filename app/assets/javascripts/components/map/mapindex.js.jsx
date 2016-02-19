@@ -57,8 +57,9 @@ var MapIndex = React.createClass({
     window.removeEventListener("scroll", this.handleScroll);
   },
   handleScroll: function(event) {
-    var node = React.findDOMNode(this);
-    if(event.srcElement.body.scrollTop >= 250) {
+    var doc = document.documentElement;
+    var top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+    if(top >= 250) {
       this.state.lock = true;
     } else {
       this.state.lock = false;
