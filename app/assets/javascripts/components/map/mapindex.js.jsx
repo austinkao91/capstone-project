@@ -96,6 +96,7 @@ var MapIndex = React.createClass({
   addMarkers: function(props) {
     if( props.restaurants ) {
       var restaurants = props.restaurants;
+
       restaurants.forEach(function(restaurant,marker_id){
         if(restaurant.lat === null || restaurant.lng === null) {
           this.geoLocationMarker(restaurant, marker_id+1);

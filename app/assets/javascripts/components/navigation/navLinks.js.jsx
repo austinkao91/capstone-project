@@ -8,6 +8,7 @@ var NavigationLinks = React.createClass({
     }
   },
   navHome: function() {
+    FilterActions.resetFilters();
     this.history.pushState(null, "/#");
   },
   render: function(){

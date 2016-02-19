@@ -25,7 +25,8 @@ window.FilterConstants = {
   CHANGE_EVENT: 'filter_change',
   TOGGLE_TAG_FILTER: 'toggle_tag_filter',
   TOGGLE_OBJECT_FILTER: 'toggle_object_filter',
-  ADD_FILTER: 'add_filter'
+  ADD_FILTER: 'add_filter',
+  RESET_FILTER: 'reset_filter'
 };
 
 window.UserConstants = {

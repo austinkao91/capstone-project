@@ -34,6 +34,10 @@
           root.FilterStore.toggleObjectFilter(payload);
           root.FilterStore.change(FilterConstants.CHANGE_EVENT);
           break;
+        case FilterConstants.RESET_FILTER:
+          root.FilterStore.resetFilter();
+          root.FilterStore.change(FilterConstants.CHANGE_EVENT);
+          break;
       }
     }),
 
@@ -90,5 +94,14 @@
         }
       }
     },
+    resetFilter: function() {
+      _filters = {
+        tags: {},
+        location: {city: "San Francisco", state: "CA"},
+        priceRange: {price: null},
+        locationBound: {center_lat: null, center_lng: null , radius: null},
+        holder: 0
+      };
+    }
   });
 }(this));

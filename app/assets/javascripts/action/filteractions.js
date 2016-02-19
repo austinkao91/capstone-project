@@ -19,5 +19,11 @@ var FilterActions = {
       actionType: FilterConstants.ADD_FILTER
     };
     appDispatcher.dispatch(payload);
+  },
+  resetFilters: function() {
+    var payload = {
+      actionType: FilterConstants.RESET_FILTER
+    };
+    appDispatcher.dispatch(payload);
   }
 };
