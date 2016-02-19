@@ -265,23 +265,22 @@ li.restaurant-item:hover {
 
 .map-holder {
   position: relative;
-  width: 25%;
-  margin-left: 2.5%;
   margin-bottom: 2.5%;
   margin-top: 20px;
 }
 .map-locked {
   position: fixed;
   top: 0px;
-  padding-top: 10px;
-  left:50%;
-  transform: translateX(97.5%);
+  // width: inherit;
+  margin-top: 20px;
+
 }
 
 .map-container {
   display: inline-block;
-  float: right;
+  float: left;
   min-height: 500px;
+  width: 25%;
 
 
 }
@@ -289,8 +288,8 @@ li.restaurant-item:hover {
   display: inline-block;
   width: 70%;
   margin-top: 20px;
-  margin-right: 2.5%;
-  margin-bottom: 2.5%;
+  margin-right: 20px;
+  margin-bottom: 20px;
   float:left;
 }
 
@@ -952,7 +951,7 @@ li.content > * {
 
 .user-actions {
   border-left: 1px solid #ddd;
-  padding: 30px;
+  padding: 20px;
 }
 
 .user-stats {
@@ -1444,7 +1443,7 @@ li.page-number:hover {
 	width: 100%;
 	text-align: left;
 	font: normal 16px sans-serif;
-	padding: 10px 40px;
+	padding: 5px 40px;
   position: fixed;
   bottom: 0;
 }

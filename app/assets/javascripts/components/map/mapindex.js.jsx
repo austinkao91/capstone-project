@@ -159,6 +159,13 @@ var MapIndex = React.createClass({
       var lat = this.state.active[0].lat;
       var lng = this.state.active[0].lng;
       marker.setAnimation(google.maps.Animation.BOUNCE);
+      marker.setZIndex(google.maps.Marker.MAX_ZINDEX + 1);
+      if(this.state.passive.length > 0) {
+        var p_idx = this.state.passive[0].listNum-1 + "";
+        var passive_marker = this.state.markers[p_idx];
+        passive_marker.setZIndex(google.maps.Marker.MAX_ZINDEX - 1);
+
+      }
       this.map.setCenter(new google.maps.LatLng(lat,lng));
     }
 
@@ -172,9 +179,14 @@ var MapIndex = React.createClass({
     filterAction.addFilter(bounds);
   },
   getOffSet: function(){
-    var width = window.outerWidth;
-    var offset = (980/2-250);
-    return {marginLeft: offset};
+      var doc = document.documentElement;
+      var width = window.outerWidth > window.innerWidth? window.outerWidth : window.innerWidth;
+      var offset = width - window.innerWidth;
+      var left = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+      // var calculated = (width -980)/2 + 706;
+
+
+      // return {left: calculated };
   },
   mapListener: function() {
     this.getBounds();
@@ -183,17 +195,17 @@ var MapIndex = React.createClass({
     this.removeAnimation();
     this.hoverBounce();
     var mapLoc;
-    var leftOffSet;
+    var OffSet;
     if(this.state.lock) {
       mapLoc = "map-locked";
-      // leftOffSet = this.getOffSet();
+      // OffSet = this.getOffSet();
     } else {
       mapLoc = "map-holder";
     }
 
     return (
       <div className="map-container">
-        <div className={mapLoc} style={leftOffSet}>
+        <div className={mapLoc} ref="wrapper" style={OffSet}>
           <div className="map" ref="map"/>
         </div>
       </div>
