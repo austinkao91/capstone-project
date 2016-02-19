@@ -211,6 +211,12 @@ li.restaurant-item:hover {
   font-size: 20px;
 }
 
+.scrollFix {
+    line-height: 1.35;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .restaurant-form-contents {
   margin: auto;
   width: 980px;

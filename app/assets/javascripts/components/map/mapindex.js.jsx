@@ -118,15 +118,18 @@ var MapIndex = React.createClass({
       animation: google.maps.Animation.DROP,
       title: restaurant.title
     });
+    var infoWindow = new google.maps.InfoWindow({
+        content: '<div class="scrollFix">'+marker.title+'</div>',
+    });
     google.maps.event.addListener(marker, 'mouseover', function() {
-      infowindow.open(this.map,marker);
+      infoWindow.open(this.map,marker);
     }.bind(this));
     google.maps.event.addListener(marker, 'click', function() {
       var showURL = "restaurants/" + restaurant.id;
       this.history.pushState(null, showURL);
     }.bind(this));
     google.maps.event.addListener(marker, 'mouseout', function() {
-      infowindow.close();
+      infoWindow.close();
     }.bind(this));
 
 
