@@ -75,7 +75,6 @@ var RestaurantIndex = React.createClass({
       restaurantIndexList = (<ul className="restaurants-index-list">
         {
           restaurants.map(function(restaurant, idx){
-
             return <RestaurantItem restaurant={restaurant} listNum={idx} key={idx}/>;
           })
         }
@@ -110,7 +109,7 @@ var RestaurantIndex = React.createClass({
                   currentPage={this.state.page}
                   showing={this.state.showLimit}/>
               </div>
-              <MapIndex restaurants={this.state.restaurants} />
+              <MapIndex restaurants={restaurants} />
             </div>
           </div>
       );
