@@ -10,7 +10,7 @@
   var parseObject = function(object) {
     var arrayParams = [];
     for(var props in object) {
-      if(object[props] === null) { return [];}
+      if(object[props] === null) { continue;}
       arrayParams.push(object[props]);
     }
     return arrayParams;
@@ -24,6 +24,7 @@
         continue;
       } else {
         params[props] = parseObject(params[props]);
+        
       }
     }
     return params;
@@ -31,7 +32,7 @@
 
   window.ApiUtil = {
     fetch: function(params) {
-      
+
       params = parseParams(params);
       $.ajax({
         url: 'api/restaurants',

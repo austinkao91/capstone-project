@@ -44,12 +44,12 @@ class Restaurant < ActiveRecord::Base
 
   def self.priceRange_filter(priceRange)
     Restaurant.joins(priceRangeJoining: :priceRange).where(price_ranges: {id: priceRange})
-
   end
 
   def self.location_filter(location)
     city = location[0]
     state = location[1]
+    
     Restaurant.joins(locationTagging: :location).where(locations: {city: city, state: state})
   end
 

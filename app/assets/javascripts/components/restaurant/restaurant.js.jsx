@@ -18,12 +18,24 @@ var RestaurantIndex = React.createClass({
     FilterStore.addHandler(FilterConstants.CHANGE_EVENT,
                              this.fetchRestaurants);
     RestaurantStore.addHandler(RestaurantConstants.CHANGE_EVENT, this.setRestaurant);
+    RestaurantStore.addHandler(RestaurantConstants.CHANGE_EVENT, this.checkPage);
     ApiUtil.fetch(FilterStore.all());
   },
   componentWillUnmount: function() {
     FilterStore.removeHandler(FilterConstants.CHANGE_EVENT,
                              this.fetchRestaurants);
+    RestaurantStore.removeHandler(RestaurantConstants.CHANGE_EVENT, this.checkPage);
     RestaurantStore.removeHandler(RestaurantConstants.CHANGE_EVENT, this.setRestaurant);
+  },
+  checkPage: function() {
+    if(this.state.restaurants.length > 0) {
+      var page;
+      var max_pages = Math.ceil(this.state.restaurants.length/this.state.showLimit);
+      if(this.state.page >= max_pages) {
+        page = max_pages;
+        this.setState({page: page});
+      }
+    }
   },
   nextPage: function() {
     if(this.state.page <= Math.ceil(this.state.restaurants.length/this.state.showLimit)) {

@@ -15,11 +15,11 @@ var NavigationLinks = React.createClass({
     return(
       <div className="nav-links group">
         <ul className="nav-links-list">
-          <li className="navigation-link">
-            <p onClick={this.navHome}>Home</p>
+          <li onClick={this.navHome} className="navigation-link">
+            <p >Home</p>
           </li>
-          <li className="navigation-link">
-            <p onClick={this.newRestaurant} >New Restaurant</p>
+          <li onClick={this.newRestaurant} className="navigation-link">
+            <p  >New Restaurant</p>
           </li>
         </ul>
       </div>

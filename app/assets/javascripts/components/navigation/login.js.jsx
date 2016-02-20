@@ -30,7 +30,7 @@ var LogStatus = React.createClass({
               <div className="nav-user-info group">
                 <img src={window.CURRENT_USER_IMAGE_URL}/>
                 <div className="user-info">
-                  <p className="user-side-info">
+                  <p onClick={this.userProfile} className="user-side-info">
                     {window.CURRENT_USERNAME}
                   </p>
                   <div className="rating-num group">
