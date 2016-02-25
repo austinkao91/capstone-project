@@ -153,6 +153,11 @@ li.restaurant-item:hover {
   display: block;
 }
 
+p#guest {
+  text-align: center;
+  font-weight: bold;
+}
+
 .page-display {
   display: block;
 }
@@ -1454,7 +1459,7 @@ li.page-number:hover {
 	width: 100%;
 	text-align: left;
 	font: normal 16px sans-serif;
-	padding: 5px 40px;
+	padding: 5px 20px;
   position: fixed;
   bottom: 0;
 }
@@ -1477,7 +1482,7 @@ li.page-number:hover {
 
 .footer-distributed p.footer-links a{
 	display:inline-block;
-	line-height: 1.8;
+	line-height: 1.4;
 	text-decoration: none;
 	color:  inherit;
 }
@@ -1491,14 +1496,14 @@ li.page-number:hover {
 .footer-distributed .footer-right a{
 	display: inline-block;
 	width: 35px;
-	height: 35px;
+	height: 25px;
 	background-color:  #33383b;
 	border-radius: 2px;
 
 	font-size: 18px;
 	color: #ffffff;
 	text-align: center;
-	line-height: 35px;
+	line-height: 25px;
 
 	margin-left: 3px;
 }

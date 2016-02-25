@@ -4,8 +4,8 @@
 <div class="sign group">
     <div class="sign-form">
       <h1>Log In to Omnomnom</h1>
-      <p>New to Omnomnom? <a href="<%= new_user_url %>">Sign up</a></p>
-      <p>Or log in as a <%= link_to 'Guest', guest_path%>
+      <p id="guest">New to Omnomnom? <a href="<%= new_user_url %>">Sign up</a></p>
+      <p id="guest">Or log in as a <%= link_to 'Guest', guest_path%>
 
       <form class="sign-form-fields" action="/session" method="post">
         <%= auth_token %>
