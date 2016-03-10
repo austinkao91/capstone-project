@@ -6,7 +6,7 @@
     var map = React.findDOMNode(this.refs.map);
     var mapOptions = {
       center: {lat: this.props.lat, lng: this.props.lng},
-      zoom: 13
+      zoom: 12
     };
     var locInfo = {
       title: this.props.street_address + " " + this.props.location_array[0] + " " + this.props.location_array[1]
@@ -47,7 +47,7 @@
           this.geoLocationMarker(restaurant);
         } else {
           this.placeMarker(restaurant.lat, restaurant.lng, restaurant);
-          this.map.setCenter(new google.maps.LatLng(restaurant.lat, restaurant.lng));
+          this.map.panTo(new google.maps.LatLng(restaurant.lat, restaurant.lng));
         }
       }.bind(this));
     }
@@ -63,7 +63,7 @@
     });
     this.state.markers.push(marker);
     marker.setMap(that.map);
-    this.map.setCenter(new google.maps.LatLng(lat, lng));
+    this.map.panTo(new google.maps.LatLng(lat, lng));
   },
   geoLocationMarker: function(restaurant) {
     var loc = {

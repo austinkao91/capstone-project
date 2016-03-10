@@ -6,7 +6,7 @@ var RestaurantMap = React.createClass({
     var map = React.findDOMNode(this.refs.map);
     var mapOptions = {
       center: {lat: 37.7758, lng: -122.435},
-      zoom: 17
+      zoom: 15
     };
     this.map = new google.maps.Map(map, mapOptions);
     this.geoCoder = new google.maps.Geocoder();
@@ -37,7 +37,7 @@ var RestaurantMap = React.createClass({
           this.geoLocationMarker(restaurant);
         } else {
           this.placeMarker(restaurant.lat, restaurant.lng, restaurant);
-          this.map.setCenter(new google.maps.LatLng(restaurant.lat, restaurant.lng));
+          this.map.panTo(new google.maps.LatLng(restaurant.lat, restaurant.lng));
         }
       }.bind(this));
     }
@@ -53,7 +53,7 @@ var RestaurantMap = React.createClass({
     });
     this.state.markers.push(marker);
     marker.setMap(that.map);
-    this.map.setCenter(new google.maps.LatLng(lat, lng));
+    this.map.panTo(new google.maps.LatLng(lat, lng));
   },
   geoLocationMarker: function(restaurant) {
     var loc = {

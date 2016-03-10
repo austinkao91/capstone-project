@@ -8,7 +8,7 @@ var MapIndex = React.createClass({
     var loc = FilterStore.all().location;
     var locCenter = LocationStore.find_by_location(loc);
     if( Object.keys(locCenter).length === 0) {
-      this.map.setCenter(new google.maps.LatLng(37.7758, -122.435));
+      this.map.panTo(new google.maps.LatLng(37.7758, -122.435));
     } else {
       if(locCenter.lat === null || locCenter.lng === null) {
         var locationAddress = {address: locCenter.city+ " " + locCenter.state};
@@ -16,7 +16,7 @@ var MapIndex = React.createClass({
       } else {
         var lat = locCenter.lat;
         var lng = locCenter.lng;
-        this.map.setCenter(new google.maps.LatLng(lat,lng));
+        this.map.panTo(new google.maps.LatLng(lat,lng));
       }
     }
   },
@@ -28,7 +28,7 @@ var MapIndex = React.createClass({
           var lat = latLng.lat();
           var lng = latLng.lng();
           ApiUtil.updateLocation(id,  {lat: lat, lng: lng});
-          this.map.setCenter(new google.maps.LatLng(lat, lng));
+          this.map.panTo(new google.maps.LatLng(lat, lng));
         } else {
           alert("Geocoder was unsuccessful because: " + status);
         }
@@ -38,7 +38,7 @@ var MapIndex = React.createClass({
     var map = React.findDOMNode(this.refs.map);
     var mapOptions = {
       center: {lat: 37.7758, lng: -122.435},
-      zoom: 13
+      zoom: 12
     };
     this.map = new google.maps.Map(map, mapOptions);
     this.geoCoder = new google.maps.Geocoder();
@@ -171,7 +171,7 @@ var MapIndex = React.createClass({
         passive_marker.setZIndex(google.maps.Marker.MAX_ZINDEX - 1);
 
       }
-      this.map.setCenter(new google.maps.LatLng(lat,lng));
+      this.map.panTo(new google.maps.LatLng(lat,lng));
     }
 
   },
