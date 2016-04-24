@@ -1,6 +1,6 @@
 # OMNOMNOM
 
-[Live Project Link](omnomnom.xyz)
+[Live Project Link](https://infinite-bastion-7843.herokuapp.com)
 
 Single page web application built with ReactJS/Flux on top of a Ruby on Rails REST API.
 
