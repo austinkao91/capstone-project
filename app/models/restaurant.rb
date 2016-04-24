@@ -49,7 +49,7 @@ class Restaurant < ActiveRecord::Base
   def self.location_filter(location)
     city = location[0]
     state = location[1]
-    
+
     Restaurant.joins(locationTagging: :location).where(locations: {city: city, state: state})
   end
 
@@ -64,6 +64,7 @@ class Restaurant < ActiveRecord::Base
     end
     self.tags = new_or_found_tags
   end
+
 
   def location_array=(location_array)
     city = location_array[0]

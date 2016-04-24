@@ -6,7 +6,7 @@ var RestaurantMap = React.createClass({
     var map = React.findDOMNode(this.refs.map);
     var mapOptions = {
       center: {lat: 37.7758, lng: -122.435},
-      zoom: 15
+      zoom: 12
     };
     this.map = new google.maps.Map(map, mapOptions);
     this.geoCoder = new google.maps.Geocoder();

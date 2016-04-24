@@ -24,7 +24,7 @@
         continue;
       } else {
         params[props] = parseObject(params[props]);
-        
+
       }
     }
     return params;
@@ -40,6 +40,7 @@
         data: {filter: params},
         dataType: 'json',
         success: function(data) {
+          
           RestaurantActions.receiveAllRestaurant(data);
         },
         failure: function(responseData) {

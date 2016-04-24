@@ -19,4 +19,5 @@ class Review < ActiveRecord::Base
 
   def reviewId=(reviewId)
   end
+
 end

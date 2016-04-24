@@ -33,7 +33,7 @@ var SearchForm = React.createClass({
     return (
       <form className="search group" role="search">
         <SearchBar placeholder="Choose a Cuisine" id="tags"/>
-        <SearchBar placeholder="Pick a Location" id="location"/>
+        <SearchBar placeholder="Pick a Location`" id="location"/>
 
         <button id="search-icon" type="submit" onClick={this.searchRestaurants}  className="btn btn-default">
           <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
