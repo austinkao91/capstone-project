@@ -75,9 +75,9 @@ Utilize faker to create seed data for restaurants, reviews, and users. Use boots
 - [ ] display search radius
 - [ ] add friends/restaurant recommendations based on friend reviews
 
-[phase-one]: ./docs/phases/phase1.md
-[phase-two-a]: ./docs/phases/phase2a.md
-[phase-two-b]: ./docs/phases/phase2b.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
+[phase-one]: ../docs/phases/phase1.md
+[phase-two-a]: ../docs/phases/phase2a.md
+[phase-two-b]: ../docs/phases/phase2b.md
+[phase-three]: ../docs/phases/phase3.md
+[phase-four]: ../docs/phases/phase4.md
+[phase-five]: ../docs/phases/phase5.md
