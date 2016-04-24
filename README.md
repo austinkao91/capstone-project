@@ -2,10 +2,10 @@
 
 [Live Project Link](https://infinite-bastion-7843.herokuapp.com)
 
-![alt text](https://github.com/austinkao91/capstone-project/readme_photos/home.png)
-![alt text](https://github.com/austinkao91/capstone-project/readme_photos/new.png)
-![alt text](https://github.com/austinkao91/capstone-project/readme_photos/user.png)
-![alt text](https://github.com/austinkao91/capstone-project/readme_photos/view.png)
+![](https://github.com/austinkao91/capstone-project/tree/master/readme_photos/home.png)
+![](https://github.com/austinkao91/capstone-project/tree/master/readme_photos/new.png)
+![](https://github.com/austinkao91/capstone-project/tree/master/readme_photos/user.png)
+![](https://github.com/austinkao91/capstone-project/tree/master/readme_photos/view.png)
 
 ### List of Features
 * Single page web application built with ReactJS/Flux on top of a Ruby on Rails REST API.
