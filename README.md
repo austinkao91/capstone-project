@@ -15,4 +15,4 @@
 * Able to view each user's profile and all reviews that they made.
 * Hovering over a restaurant on the home page list centers the google maps over the restaurants location.
 
-[Project Proposal](https://github.com/austinkao91/capstone-project/r/w/master/old_readme/README.md)
+[Project Proposal](https://github.com/austinkao91/capstone-project/tree/master/project_proposal/README.md)
