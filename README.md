@@ -1,6 +1,6 @@
 # OMNOMNOM
 
-[Live Project Link](https://omnomnom.xyz)
+[Live Project Link](omnomnom.xyz)
 
 Single page web application built with ReactJS/Flux on top of a Ruby on Rails REST API.
 
