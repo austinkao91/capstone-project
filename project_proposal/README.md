@@ -22,8 +22,8 @@ and React.js. Omnomnom allows users to:
 * [View Wireframes][view]
 * [DB schema][schema]
 
-[view]: ./docs/views.md
-[schema]: ./docs/schema.md
+[view]: ../docs/views.md
+[schema]: ../docs/schema.md
 
 ## Implementation Timeline
 
