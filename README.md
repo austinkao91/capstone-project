@@ -2,10 +2,13 @@
 
 [Live Project Link](https://infinite-bastion-7843.herokuapp.com)
 
-[[/readme_photos/home.png]]
-[[/readme_photos/new.png]]
-[[/readme_photos/user.png]]
-[[/readme_photos/view.png]]
+[[./readme_photos/home.png]]
+
+[[./readme_photos/new.png]]
+
+[[./readme_photos/user.png]]
+
+[[./readme_photos/view.png]]
 
 ### List of Features
 * Single page web application built with ReactJS/Flux on top of a Ruby on Rails REST API.
